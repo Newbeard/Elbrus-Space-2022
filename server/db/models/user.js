@@ -1,32 +1,87 @@
-'use strict';
 const {
-  Model
+  Model,
 } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     /**
      * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
+     * This method is not a part of DataTypes lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate({Game}) {
-      this.hasMany(Game, { foreignKey: 'user_id' });
+    static associate({ Campus, City, Country }) {
+      User.belongsTo(City, { as: 'currentCit', foreignKey: 'currentCity' });
+      User.belongsTo(Country, { as: 'currentCou', foreignKey: 'currentCountry' });
+      User.belongsTo(City, { foreignKey: 'cityId' });
+      User.belongsTo(Country, { foreignKey: 'countryId' });
+      User.belongsTo(Campus, { foreignKey: 'campusId' });
     }
   }
   User.init({
     name: {
-      allowNull: false,
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+    },
+    surName: {
+      type: DataTypes.STRING,
     },
     email: {
+      type: DataTypes.STRING,
+      unique: true,
       allowNull: false,
-      unique:true,
-      validate: {isEmail:true},
-      type: DataTypes.STRING
     },
     password: {
+      type: DataTypes.STRING,
       allowNull: false,
-      type: DataTypes.STRING
+    },
+    telegram: {
+      type: DataTypes.STRING,
+    },
+    github: {
+      type: DataTypes.STRING,
+    },
+    isAdmin: {
+      type: DataTypes.BOOLEAN,
+    },
+    isApproved: {
+      type: DataTypes.BOOLEAN,
+    },
+    cityId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'Cities',
+        key: 'id',
+      },
+    },
+    countryId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'Countries',
+        key: 'id',
+      },
+    },
+    campusId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'Campuses',
+        key: 'id',
+      },
+    },
+    currentCity: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'Cities',
+        key: 'id',
+      },
+    },
+    currentCountry: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'Countries',
+        key: 'id',
+      },
+    },
+    finishDate: {
+      type: DataTypes.INTEGER,
     },
   }, {
     sequelize,
