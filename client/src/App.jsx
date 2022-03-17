@@ -11,6 +11,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Footer from './components/Footer/Footer';
+import FindPeople from './components/FindPeople/FindPeople';
 
 function App() {
   
@@ -20,6 +21,7 @@ function App() {
 				<header className="header">
 					<Nav />
 				</header>
+            <FindPeople />
 
 				<main className="uk-container">
 					<Routes>
