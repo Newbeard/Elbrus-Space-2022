@@ -12,6 +12,9 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Footer from './components/Footer/Footer';
 
+import Maps from './components/Map/Map';
+import Diagram from './components/Diagram/Diagram';
+
 function App() {
   
 	return (
@@ -20,7 +23,8 @@ function App() {
 				<header className="header">
 					<Nav />
 				</header>
-
+        <Maps/>
+        <Diagram/>
 				<main className="uk-container">
 					<Routes>
 						<Route path="/" element={<Home />} />
