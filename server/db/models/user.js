@@ -80,6 +80,9 @@ module.exports = (sequelize, DataTypes) => {
         key: 'id',
       },
     },
+    dateOfBirth: {
+      type: DataTypes.STRING,
+    },
     finishDate: {
       type: DataTypes.INTEGER,
     },
