@@ -10,11 +10,11 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate({ Campus, City, Country }) {
-      User.belongsTo(City, { as: 'currentCit', foreignKey: 'currentCity' });
-      User.belongsTo(Country, { as: 'currentCou', foreignKey: 'currentCountry' });
-      User.belongsTo(City, { foreignKey: 'cityId' });
-      User.belongsTo(Country, { foreignKey: 'countryId' });
-      User.belongsTo(Campus, { foreignKey: 'campusId' });
+      User.hasOne(City, { as: 'currentCit', foreignKey: 'currentCity' });
+      User.hasOne(Country, { as: 'currentCou', foreignKey: 'currentCountry' });
+      User.hasOne(City, { foreignKey: 'cityId' });
+      User.hasOne(Country, { foreignKey: 'countryId' });
+      User.hasOne(Campus, { foreignKey: 'campusId' });
     }
   }
   User.init({
