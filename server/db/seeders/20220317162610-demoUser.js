@@ -1,9 +1,8 @@
+const { users } = require('../../helpers/seedHelp');
+
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.bulkInsert('Users', [{
-      name: 'John Doe',
-      isBetaMember: false,
-    }], {});
+    await queryInterface.bulkInsert('Users', users, {});
   },
 
   async down(queryInterface, Sequelize) {

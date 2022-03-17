@@ -11,15 +11,15 @@ const users = arr.map((el) => el = {
   github: faker.phone.phoneNumber(),
   isAdmin: false,
   isApproved:true,
-  cityId: Math.floor(Math.random() * 4),
-  countryId: Math.floor(Math.random() * 4),
-  campusId:Math.floor(Math.random() * 4),
-  currentCity: Math.floor(Math.random() * 4),
-  currentCountry: Math.floor(Math.random() * 4),
+  cityId: Math.floor(Math.random() * (4 - 1 + 1)) + 1,
+  countryId: Math.floor(Math.random() * (4 - 1 + 1)) + 1,
+  campusId:Math.floor(Math.random() * (3 - 1 + 1)) + 1,
+  currentCity: Math.floor(Math.random() * (4 - 1 + 1)) + 1,
+  currentCountry: Math.floor(Math.random() * (4 - 1 + 1)) + 1,
   finishDate: 'Март 2022',
   dateOfBirth: '10.10.2010',
   createdAt: new Date(),
   updatedAt: new Date(),
 });
-
+console.log(users);
 module.exports = { users };
