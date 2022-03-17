@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js --ignore ./sessions",
-    "enit": "npx sequelize db:create && npx sequelize db:migrate && npx sequelize db:seed:all"
+    "enit": "npx sequelize db:drop && npx sequelize db:create && npx sequelize db:migrate && npx sequelize db:seed:all"
   },
   "keywords": [],
   "author": "",
