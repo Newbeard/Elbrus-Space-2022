@@ -69,8 +69,11 @@ module.exports = {
           key: 'id',
         },
       },
+      dateOfBirth: {
+        type: Sequelize.STRING,
+      },
       finishDate: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
       },
       createdAt: {
         allowNull: false,
