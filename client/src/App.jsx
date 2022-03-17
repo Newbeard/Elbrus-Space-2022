@@ -13,6 +13,9 @@ import Home from './components/Home/Home';
 import Footer from './components/Footer/Footer';
 import FindPeople from './components/FindPeople/FindPeople';
 
+import Maps from './components/Map/Map';
+import Diagram from './components/Diagram/Diagram';
+
 function App() {
   
 	return (
@@ -21,7 +24,12 @@ function App() {
 				<header className="header">
 					<Nav />
 				</header>
+
+        <Maps/>
+        <Diagram/>
+
             <FindPeople />
+
 
 				<main className="uk-container">
 					<Routes>
