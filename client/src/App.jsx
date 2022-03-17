@@ -14,6 +14,9 @@ import Footer from './components/Footer/Footer';
 import FindPeople from './components/FindPeople/FindPeople';
 import EditProfile from './components/EditProfile/EditProfile';
 
+import Maps from './components/Map/Map';
+import Diagram from './components/Diagram/Diagram';
+
 function App() {
   
 	return (
@@ -22,8 +25,15 @@ function App() {
 				<header className="header">
 					<Nav />
 				</header>
+
             {/* <FindPeople /> */}
             <EditProfile />
+
+
+        <Maps/>
+        <Diagram/>
+       
+              
 				<main className="uk-container">
 					<Routes>
 						<Route path="/" element={<Home />} />
