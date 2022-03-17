@@ -12,6 +12,7 @@ import Home from './components/Home/Home';
 // import { useSelector } from 'react-redux';
 import Footer from './components/Footer/Footer';
 import FindPeople from './components/FindPeople/FindPeople';
+import EditProfile from './components/EditProfile/EditProfile';
 
 import Maps from './components/Map/Map';
 import Diagram from './components/Diagram/Diagram';
@@ -25,12 +26,14 @@ function App() {
 					<Nav />
 				</header>
 
+            {/* <FindPeople /> */}
+            <EditProfile />
+
+
         <Maps/>
         <Diagram/>
-
-            <FindPeople />
-
-
+       
+              
 				<main className="uk-container">
 					<Routes>
 						<Route path="/" element={<Home />} />

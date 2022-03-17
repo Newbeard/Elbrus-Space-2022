@@ -1,0 +1,8 @@
+.country_and_city {
+  display: flex;
+  flex-direction: row;
+}
+.label {
+  margin: 0;
+  margin-left: 18px;
+}
