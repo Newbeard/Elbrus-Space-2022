@@ -14,12 +14,15 @@ import AddMoreInfo from './components/AddMoreInfo/AddMoreInfo';
 import Footer from './components/Footer/Footer';
 import FindPeople from './components/FindPeople/FindPeople';
 import EditProfile from './components/EditProfile/EditProfile';
+import UserProfile from './components/UserProfile/UserProfile';
 import { useEffect, useState } from 'react';
+
 
 
 import NavDesktop from './components/NavDesktop/NavDesktop';
 import NavMobile from './components/NavMobile/NavMobile';
 // import Mapmap from './components/Mapmap/Mapmap'
+
 
 
 function App() {
@@ -39,6 +42,7 @@ function App() {
           {!isMobile && (<NavDesktop />)}
 					
 				</header>
+     
 
 				<main className="uk-container">
 					<Routes>
@@ -49,6 +53,7 @@ function App() {
 						<Route path="/profile" element={<EditProfile />} />
             <Route path="/info" element={<AddMainInfo />} />
             <Route path="/moreInfo" element={<AddMoreInfo />} />
+            <Route path="/userprofile" element={<UserProfile />} />
 					</Routes>
 				</main>
 

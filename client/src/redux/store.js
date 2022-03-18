@@ -6,12 +6,13 @@ import { composeWithDevTools } from '@redux-devtools/extension';
 
 const initialState = {
   user: {
-    value: {},
+    values: {},
     isLoading: false,
     error: null
   },
   session: {},
   students: [],
+  city: ['Москва']
 }
 
 export const store = createStore(rootReducer, initialState, composeWithDevTools(applyMiddleware(thunk)))
