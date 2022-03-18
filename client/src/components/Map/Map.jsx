@@ -1,5 +1,6 @@
 import { YMaps, Map} from 'react-yandex-maps';
 import React from 'react';
+import './style.module.css'
 
 
 const Maps = (props) => (

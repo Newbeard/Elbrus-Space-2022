@@ -16,6 +16,7 @@ import EditProfile from './components/EditProfile/EditProfile';
 
 import Maps from './components/Map/Map';
 import Diagram from './components/Diagram/Diagram';
+import Mapmap from './components/Mapmap/Mapmap'
 
 function App() {
   
@@ -31,6 +32,8 @@ function App() {
 
 
         <Maps/>
+        
+       
         <Diagram/>
        
               
