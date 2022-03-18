@@ -14,6 +14,7 @@ import AddMoreInfo from './components/AddMoreInfo/AddMoreInfo';
 import Footer from './components/Footer/Footer';
 import FindPeople from './components/FindPeople/FindPeople';
 import EditProfile from './components/EditProfile/EditProfile';
+import UserProfile from './components/UserProfile/UserProfile';
 import { useEffect, useState } from 'react';
 
 
@@ -49,6 +50,7 @@ function App() {
 						<Route path="/profile" element={<EditProfile />} />
             <Route path="/info" element={<AddMainInfo />} />
             <Route path="/moreInfo" element={<AddMoreInfo />} />
+            <Route path="/userprofile" element={<UserProfile />} />
 					</Routes>
 				</main>
 
