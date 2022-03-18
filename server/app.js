@@ -5,6 +5,7 @@ const checkConect = require('./helpers/checkConect');
 const indexRouter = require('./routes/indexRouter');
 
 const PORT = process.env.PORT || 4000;
+
 const app = express();
 
 config(app);

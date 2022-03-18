@@ -11,6 +11,7 @@ const initialState = {
     error: null
   },
   session: {},
+  students: [],
   city: ['Москва']
 }
 
