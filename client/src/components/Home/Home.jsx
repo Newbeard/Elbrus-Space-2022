@@ -1,9 +1,12 @@
+import Diagram from "../Diagram/Diagram";
+import Maps from "../Map/Map";
 
 export default function Home(props) {
 
   return (
     <div>
-Hello from home
+      <Maps />
+      <Diagram />
     </div>
   );
 }

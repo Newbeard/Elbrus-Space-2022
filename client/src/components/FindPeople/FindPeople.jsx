@@ -15,7 +15,7 @@ function FindPeople() {
       <input type="text" name="name" id="name" placeholder="Поиск" />
       {isShowFilter === true ?
       <form method="post" action="#">
-        <div class="row">
+        <div className="row">
           <select name="country" required>
             <option value="" disabled selected>Страна</option>
             <option>Любая</option>
@@ -57,10 +57,10 @@ function FindPeople() {
             <option>Ноябрь</option>
             <option>Декабрь</option>
           </select>
-          <div class="col-12">
-            <ul class="actions">
+          <div className="col-12">
+            <ul className="actions">
               <li><input type="submit" value="Показать" /></li>
-              <li><input type="reset" value="Очистить фильтр" class="alt" /></li>
+              <li><input type="reset" value="Очистить фильтр" className="alt" /></li>
             </ul>
           </div>
         </div>
