@@ -6,7 +6,7 @@ import { composeWithDevTools } from '@redux-devtools/extension';
 
 const initialState = {
   user: {
-    value: {},
+    values: {},
     isLoading: false,
     error: null
   },

@@ -3,7 +3,9 @@ const registrationRouter = require('./registrationRouter');
 const loginRouter = require('./loginRouter');
 const logoutRouter = require('./logoutRouter');
 const sessionRouter = require('./sessionRouter');
+
 const allCityRouter = require('./allCityRouter');
+
 
 router.use('/registration', registrationRouter);
 router.use('/login', loginRouter);

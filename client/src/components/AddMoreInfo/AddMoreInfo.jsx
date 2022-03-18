@@ -10,7 +10,7 @@ function AddMoreInfo() {
         <input type="text" placeholder="Страна рождения"></input>
         <input type="text" placeholder="Город рождения"></input>
         <div>
-        <label for="start">Дата рождения</label>
+        <label htmlFor="start">Дата рождения</label>
 
         <input type="date" id="start" name="year"
        value="2022-03-02"
