@@ -1,75 +1,90 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { filterStudentsFromServer, initStudentsFromServer } from '../../redux/actions/students.action';
 import styles from './style.module.css'
 
 function FindPeople() {
 
- const [isShowFilter, setIsShowFilter] = useState(false)
+  const dispatch = useDispatch();
+  const students = useSelector(state => state.students);
+  const [isShowFilter, setIsShowFilter] = useState(false);
+  
+  useEffect(() => {
+    dispatch(initStudentsFromServer())
+  }, [])
 
   function showFilter() {
     setIsShowFilter(!isShowFilter)
   }
+
+  function filterStudents(event) {
+    event.preventDefault()
+    const form = event.target;
+    const dataForm = Object.fromEntries(new FormData(form));
+    dispatch(filterStudentsFromServer(dataForm))
+  }
+
 
   return (
     <div>
       <button onClick={showFilter}>Фильтр</button>
       <input type="text" name="name" id="name" placeholder="Поиск" />
       {isShowFilter === true ?
-      <form method="post" action="#">
-        <div className="row">
-          <select name="country" required>
-            <option value="" disabled selected>Страна</option>
-            <option>Любая</option>
-            <option>Россия</option>
-            <option>Грузия</option>
-          </select>
-          <select name="town" required>
-            <option value="" disabled selected>Город</option>
-            <option>Любая</option>
-            <option>Москва</option>
-            <option>Батуми</option>
-          </select>
-          <select name="campus" required>
-            <option value="" disabled selected>Кампус</option>
-            <option>Любой</option>
-            <option>Москва</option>
-            <option>Санкт-Петербург</option>
-            <option>Онлайн</option>
-          </select>
-          <select name="year" required>
-            <option value="" disabled selected>Год окончания</option>
-            <option>За всё время</option>
-            <option>2022</option>
-            <option>2021</option>
-          </select>
-          <select name="month" required>
-            <option value="" disabled selected>Месяц окончания</option>
-            <option>За всё время</option>
-            <option>Январь</option>
-            <option>Февраль</option>
-            <option>Март</option>
-            <option>Апрель</option>
-            <option>Май</option>
-            <option>Июнь</option>
-            <option>Июль</option>
-            <option>Август</option>
-            <option>Сентябрь</option>
-            <option>Октябрь</option>
-            <option>Ноябрь</option>
-            <option>Декабрь</option>
-          </select>
-          <div className="col-12">
-            <ul className="actions">
-              <li><input type="submit" value="Показать" /></li>
-              <li><input type="reset" value="Очистить фильтр" className="alt" /></li>
-            </ul>
+        <form method="post" onSubmit={filterStudents} action="#">
+          <div className="row">
+            <select name="countryName" >
+              <option value="" disabled selected>Страна</option>
+              <option>Любая</option>
+              <option>Россия</option>
+              <option>Грузия</option>
+            </select>
+            <select name="cityName" >
+              <option value="" disabled selected>Город</option>
+              <option>Любая</option>
+              <option>Москва</option>
+              <option>Батуми</option>
+            </select>
+            <select name="campusName" >
+              <option value="" disabled selected>Кампус</option>
+              <option>Любой</option>
+              <option>Москва</option>
+              <option>Санкт-Петербург</option>
+              <option>Онлайн</option>
+            </select>
+            <select name="year" >
+              <option value="" disabled selected>Год окончания</option>
+              <option>За всё время</option>
+              <option>2022</option>
+              <option>2021</option>
+            </select>
+            <select name="month" >
+              <option value="" disabled selected>Месяц окончания</option>
+              <option>За всё время</option>
+              <option>Январь</option>
+              <option>Февраль</option>
+              <option>Март</option>
+              <option>Апрель</option>
+              <option>Май</option>
+              <option>Июнь</option>
+              <option>Июль</option>
+              <option>Август</option>
+              <option>Сентябрь</option>
+              <option>Октябрь</option>
+              <option>Ноябрь</option>
+              <option>Декабрь</option>
+            </select>
+            <div className="col-12">
+              <ul className="actions">
+                <li><input type="submit" value="Показать" /></li>
+                <li><input type="reset" value="Очистить фильтр" className="alt" /></li>
+              </ul>
+            </div>
           </div>
-        </div>
-      </form>
-      : <div></div>}
+        </form>
+        : <div></div>}
       <div>
         <p className={styles.background}>Вася</p>
-        <p>Вася</p>
-        <p>Вася</p>
+        {students && students.map((student) => <p key={student.id}>{student.name} {student.surName}</p>)}
         <p>Вася</p>
       </div>
 

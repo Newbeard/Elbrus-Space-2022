@@ -10,7 +10,8 @@ const initialState = {
     isLoading: false,
     error: null
   },
-  session: {}
+  session: {},
+  students: [],
 }
 
 export const store = createStore(rootReducer, initialState, composeWithDevTools(applyMiddleware(thunk)))

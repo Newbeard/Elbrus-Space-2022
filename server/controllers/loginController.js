@@ -4,11 +4,9 @@ const { User } = require('../db/models');
 const loginEntry = async (req, res) => {
   try {
     const { email, password } = req.body;
-    console.log(email, password);
     const user = await User.findOne({
       where: { email },
     });
-    console.log(user);
     if (user === null) {
       return res.json({ success: false, errors: `Пользователь с ${email} не зарегистрирован!` });
     }
