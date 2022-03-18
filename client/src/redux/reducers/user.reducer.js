@@ -1,4 +1,4 @@
-import { REGISTRATION, LOGIN, LOGOUT, INIT_USER, REGISTRATION_ERROR, LOGIN_ERROR, IS_LOADING} from '../types'
+import { REGISTRATION, LOGIN, LOGOUT, INIT_USER, IS_ERROR, IS_LOADING} from '../types'
 
 export function userReducer(state = {}, action) {
   const { type, payload } = action
@@ -20,7 +20,7 @@ export function userReducer(state = {}, action) {
       }
     }
 
-    case REGISTRATION_ERROR: {
+    case IS_ERROR: {
       return {
         values: {},
         error: payload,
@@ -32,14 +32,6 @@ export function userReducer(state = {}, action) {
       return {
         values: payload,
         error: null,
-        isLoading: false
-      }
-    }
-
-    case LOGIN_ERROR: {
-      return {
-        values: {},
-        error: payload,
         isLoading: false
       }
     }

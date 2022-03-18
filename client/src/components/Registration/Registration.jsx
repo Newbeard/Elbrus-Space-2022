@@ -9,6 +9,7 @@ export default function Registration() {
   const dispatch = useDispatch();
 	const navigate = useNavigate();
   const { error, values, isLoading } = useSelector( state => state.user)
+
   useEffect(() => {
     if(values.user) {
       navigate('/')
@@ -28,12 +29,11 @@ export default function Registration() {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <div>Регистрация</div>
         <input type="text" name="email" placeholder="Email" autoFocus autoComplete="off"/>
         <input type="password" name="password" placeholder="Пароль" autoComplete="off"/>
         <input type="password"	name="confirmPassword" placeholder="Повторите пароль" autoComplete="off"/>
         <button type="submit" disabled={isLoading}>{isLoading ? 'Подождите...' : 'Зарегистрироваться'}</button>
-        {error && <Error error={error} />}
+        {error && <Error error={error.error} />}
       </form>
     </div>
   );
