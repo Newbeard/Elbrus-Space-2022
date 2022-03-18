@@ -7,7 +7,7 @@ export function userReducer(state = {}, action) {
     case IS_LOADING: {
       return {
         values: {},
-        error: null,
+        error: payload,
         isLoading: true
       }
     } 

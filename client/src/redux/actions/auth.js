@@ -1,6 +1,10 @@
-import { REGISTRATION, LOGIN, LOGOUT, INIT_USER} from '../types'
+import { REGISTRATION, LOGIN, LOGOUT, INIT_USER, IS_LOADING, LOGIN_ERROR, REGISTRATION_ERROR} from '../types'
 import axios from 'axios';
 axios.defaults.withCredentials = true;
+
+export const isLoading = (user) => ({
+  type: IS_LOADING,
+})
 
 export const registration = (user) => ({
   type: REGISTRATION,
@@ -8,6 +12,7 @@ export const registration = (user) => ({
 })
 
 export const userRegistration = (payload) => async (dispatch) => { 
+  dispatch(isLoading())
   try {
     const { data } = await axios.post('/registration', payload )
 console.log(data);
@@ -23,9 +28,10 @@ export const login = (user) => ({
   payload: user
 })
 
-export const userLogin = () => async (dispatch) => { 
+export const userLogin = (payload) => async (dispatch) => { 
+  dispatch(isLoading())
   try {
-    const { data } = await axios('/login')
+    const { data } = await axios('/login', payload)
 console.log(data);
     dispatch(login(data))
   } catch (err) {
