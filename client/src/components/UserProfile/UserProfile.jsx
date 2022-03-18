@@ -9,7 +9,7 @@ function Profile() {
   
   return (
     <div>
-          {/* {users.map(user => <div>name={user.name} lastName={user.lastName}</div> */}
+        {/* {users.map(user => <div>name={user.name} lastName={user.lastName}</div> */}
         <div>Кампус: </div>
         <div>Год окончания: { students.finishDate }</div>
         <div>Место рождения: </div>
