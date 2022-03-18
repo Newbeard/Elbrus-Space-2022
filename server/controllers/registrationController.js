@@ -5,16 +5,13 @@ const { isValidEmail, isValidPassword, isValidName } = require('../helpers/valid
 const registerUserPost = async (req, res) => {
   try {
     const {
-      name, email, password, confirmPassword,
+      email, password, confirmPassword,
     } = req.body;
     const isUserExist = await User.findOne({
       where: { email },
     });
     if (isUserExist) {
       return res.json({ success: false, errors: `Пользователь с ${email} уже зарегистрирован!` });
-    }
-    if (!isValidName(name)) {
-      return res.json({ success: false, errors: 'Имя введено некоректно, используйте латиницу, имя должно содержать минимум три символа.' });
     }
     if (!isValidEmail(email)) {
       return res.json({ success: false, errors: 'Email введен не коректно' });
@@ -26,10 +23,10 @@ const registerUserPost = async (req, res) => {
       return res.json({ success: false, errors: 'Пaроли не совпадают' });
     }
     const hashPassword = await bcrypt.hash(password, 10);
-    const user = await User.create({ name, email, password: hashPassword });
+    const user = await User.create({ email, password: hashPassword });
     req.session.user = user;
     req.session.isSession = true;
-    res.json({ success: true, id: user.id, name: user.name });
+    res.json({ success: true, id: user.id });
   } catch (error) {
     console.log(error.message);
     res.status(401)

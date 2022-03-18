@@ -16,9 +16,11 @@ import FindPeople from './components/FindPeople/FindPeople';
 import EditProfile from './components/EditProfile/EditProfile';
 import { useEffect, useState } from 'react';
 
+
 import NavDesktop from './components/NavDesktop/NavDesktop';
 import NavMobile from './components/NavMobile/NavMobile';
 // import Mapmap from './components/Mapmap/Mapmap'
+
 
 function App() {
 
