@@ -15,39 +15,42 @@ import AddMoreInfo from './components/AddMoreInfo/AddMoreInfo';
 import Footer from './components/Footer/Footer';
 import FindPeople from './components/FindPeople/FindPeople';
 import EditProfile from './components/EditProfile/EditProfile';
+import { useEffect, useState } from 'react';
 
 import Maps from './components/Map/Map';
 import Diagram from './components/Diagram/Diagram';
 import Mapmap from './components/Mapmap/Mapmap'
 
 function App() {
+
+  const [isMobile, setIsMobile] = useState(true)
+  const screenWidth = window.innerWidth
   
+  useEffect(() => {
+    screenWidth < 768 ? setIsMobile(true) : setIsMobile(false)
+  }, [])
+
 	return (
 		<>
 			<div className="wraper">
 				<header className="header">
-					<Nav />
+    
+          {!isMobile && (<Nav />)}
+					
 				</header>
 
-            {/* <FindPeople /> */}
-            <EditProfile />
-
-
-        <Maps/>
-        
-       
-        <Diagram/>
-       
-              
 				<main className="uk-container">
 					<Routes>
 						<Route path="/" element={<Home />} />
 						<Route path="/registration" element={<Registration />} />
 						<Route path="/login" element={<Login />} />
+						<Route path="/search" element={<FindPeople />} />
+						<Route path="/profile" element={<EditProfile />} />
             <Route path="/info" element={<AddMainInfo />} />
             <Route path="/moreInfo" element={<AddMoreInfo />} />
 					</Routes>
 				</main>
+
         <footer>
           <Footer />
         </footer>
