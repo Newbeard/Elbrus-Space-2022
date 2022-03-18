@@ -15,7 +15,7 @@ import AddMoreInfo from './components/AddMoreInfo/AddMoreInfo';
 import Footer from './components/Footer/Footer';
 import FindPeople from './components/FindPeople/FindPeople';
 import EditProfile from './components/EditProfile/EditProfile';
-
+import UserProfile from './components/UserProfile/UserProfile';
 import Maps from './components/Map/Map';
 import Diagram from './components/Diagram/Diagram';
 
@@ -43,6 +43,7 @@ function App() {
 						<Route path="/login" element={<Login />} />
             <Route path="/info" element={<AddMainInfo />} />
             <Route path="/moreInfo" element={<AddMoreInfo />} />
+            <Route path="/userprofile" element={<UserProfile />} />
 					</Routes>
 				</main>
         <footer>
