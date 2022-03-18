@@ -19,7 +19,7 @@ import { useEffect, useState } from 'react';
 
 import Maps from './components/Map/Map';
 import Diagram from './components/Diagram/Diagram';
-import Mapmap from './components/Mapmap/Mapmap'
+//import Mapmap from './components/Mapmap/Mapmap'
 
 function App() {
 
