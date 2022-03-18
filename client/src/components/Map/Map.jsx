@@ -1,6 +1,7 @@
 import { YMaps, Map } from 'react-yandex-maps';
 import React, { useEffect, useState } from 'react';
-
+import React from 'react';
+import './style.module.css'
 
 const Maps = (props) => {
   const [isReady, setIsReady] = useState(false)

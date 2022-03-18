@@ -17,6 +17,10 @@ import FindPeople from './components/FindPeople/FindPeople';
 import EditProfile from './components/EditProfile/EditProfile';
 import { useEffect, useState } from 'react';
 
+import Maps from './components/Map/Map';
+import Diagram from './components/Diagram/Diagram';
+import Mapmap from './components/Mapmap/Mapmap'
+
 function App() {
 
   const [isMobile, setIsMobile] = useState(true)
@@ -30,11 +34,11 @@ function App() {
 		<>
 			<div className="wraper">
 				<header className="header">
-
+    
           {!isMobile && (<Nav />)}
 					
 				</header>
-    
+
 				<main className="uk-container">
 					<Routes>
 						<Route path="/" element={<Home />} />
