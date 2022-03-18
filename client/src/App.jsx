@@ -20,6 +20,7 @@ import { useEffect, useState } from 'react';
 import Maps from './components/Map/Map';
 import Diagram from './components/Diagram/Diagram';
 import Mapmap from './components/Mapmap/Mapmap'
+import YandexMapComponent from './components/Mapmap/Mapmap';
 
 function App() {
 
@@ -38,6 +39,7 @@ function App() {
           {!isMobile && (<Nav />)}
 					
 				</header>
+     
 
 				<main className="uk-container">
 					<Routes>
