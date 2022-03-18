@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
 import { YMaps, Map, Clusterer, Placemark } from 'react-yandex-maps';
-import { useStyles } from './style';
+// import { useStyles } from './style';
 
 const YandexMapComponent = ({ checkedObjects }) => {
-  const classes = useStyles();
+  // const classes = useStyles();
   let myMap;
 
 function myGeoCode(ymaps, myMap, address) {
@@ -50,9 +50,9 @@ function myGeoCode(ymaps, myMap, address) {
   return (
     <YMaps
       query={{
-        ns: 'use-load-option',
-        apikey: 'af28acb6-4b1c-4cd1-8251-b2f67a908cac',
-        load: 'package.full'
+       
+        apikey: 'fa906837-e249-4c18-99ac-fb6aff0bc767',
+       
       }}
     >
       <Map
@@ -73,7 +73,7 @@ function myGeoCode(ymaps, myMap, address) {
                 myMap = yaMap;
             }
         }}
-        className={classes.mapContainterStyle}
+        // className={classes.mapContainterStyle}
       />
     </YMaps>
   )

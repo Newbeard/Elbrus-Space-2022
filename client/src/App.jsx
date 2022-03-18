@@ -18,9 +18,11 @@ import UserProfile from './components/UserProfile/UserProfile';
 import { useEffect, useState } from 'react';
 
 
+
 import NavDesktop from './components/NavDesktop/NavDesktop';
 import NavMobile from './components/NavMobile/NavMobile';
 // import Mapmap from './components/Mapmap/Mapmap'
+
 
 
 function App() {
@@ -40,6 +42,7 @@ function App() {
           {!isMobile && (<NavDesktop />)}
 					
 				</header>
+     
 
 				<main className="uk-container">
 					<Routes>
