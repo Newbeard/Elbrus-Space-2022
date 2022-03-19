@@ -1,4 +1,4 @@
-import { REGISTRATION, LOGIN, LOGOUT, INIT_USER, IS_LOADING, IS_ERROR} from '../types'
+import { REGISTRATION, LOGIN, LOGOUT, INIT_USER, IS_LOADING, IS_ERROR, CHANGE_SESSION} from '../types'
 import axios from 'axios';
 axios.defaults.withCredentials = true;
 
@@ -80,4 +80,15 @@ export const userSessionCheck = () => async (dispatch) => {
     console.log(err);
   }
 }
-
+export const deletSession = (data) => ({
+  type: CHANGE_SESSION,
+  payload: data
+})
+export const deletSessionsAC = () => async (dispatch) => { 
+  try {
+    dispatch(sessionCheck())
+  }
+   catch (err) {
+    console.log(err);
+  }
+}

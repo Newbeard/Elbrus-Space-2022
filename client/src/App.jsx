@@ -23,9 +23,9 @@ function App() {
   const [isMobile, setIsMobile] = useState(true)
   const screenWidth = window.innerWidth
 
-  const { session } = useSelector( state => state)
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+  // const { session } = useSelector( state => state)
+  // const dispatch = useDispatch();
+  // const navigate = useNavigate();
 
   useEffect(() => {
     screenWidth < 768 ? setIsMobile(true) : setIsMobile(false)
@@ -35,7 +35,7 @@ function App() {
     //   dispatch(userSessionCheck())
     //   console.log(session);
     //   if(!session.success){navigate('/')}
-    // }, []);
+    // }, [session]);
 
 
 	return (
