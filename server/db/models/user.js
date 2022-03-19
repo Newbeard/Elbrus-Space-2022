@@ -29,6 +29,9 @@ module.exports = (sequelize, DataTypes) => {
       unique: true,
       allowNull: false,
     },
+    emailIsApproved: {
+      type: DataTypes.BOOLEAN,
+    },
     password: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -83,7 +86,10 @@ module.exports = (sequelize, DataTypes) => {
     dateOfBirth: {
       type: DataTypes.STRING,
     },
-    finishDate: {
+    monthFinishDate: {
+      type: DataTypes.STRING,
+    },
+    yearFinishDate: {
       type: DataTypes.INTEGER,
     },
   }, {

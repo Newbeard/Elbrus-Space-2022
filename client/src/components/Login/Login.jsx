@@ -12,7 +12,7 @@ export default function Login() {
   const { error, values, isLoading } = useSelector( state => state.user)
 
   useEffect(() => {
-    if(values.user) {
+    if(values.id) {
       navigate('/')
     };
   }, [values])
@@ -33,6 +33,8 @@ export default function Login() {
         <input type="text" name="email" placeholder="Email" autoFocus autoComplete="off"/>
         <input type="password" name="password"placeholder="Пароль" autoComplete="off"/>
         <button type="submit" disabled={isLoading}>{isLoading ? 'Подождите...' : 'Войти'}</button>
+        <h2>Нет аккаунта?</h2>
+        <button>Зарегистрироваться</button>
         {error && <Error error={error.error} />}
       </form>
     </div>

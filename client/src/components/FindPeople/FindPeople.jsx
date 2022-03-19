@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { getCity } from '../../redux/actions/city.action';
 import { filterStudentsFromServer, initStudentsFromServer } from '../../redux/actions/students.action';
 import styles from './style.module.css'
 
 function FindPeople() {
 
   const dispatch = useDispatch();
-  const students = useSelector(state => state.students);
+  const { students, city } = useSelector(state => state);
   const [isShowFilter, setIsShowFilter] = useState(false);
 
   useEffect(() => {
     dispatch(initStudentsFromServer())
+    dispatch(getCity())
   }, [])
 
   function showFilter() {
@@ -47,8 +49,7 @@ function FindPeople() {
               <select name="cityName" >
                 <option value="" disabled selected>Город</option>
                 <option>Любая</option>
-                <option>Москва</option>
-                <option>Батуми</option>
+                {city.map((city) => <option>{city.cityName}</option>)}
               </select>
               <select name="campusName" >
                 <option value="" disabled selected>Кампус</option>
@@ -90,7 +91,7 @@ function FindPeople() {
         </div>
         : <div></div>}
       <div>
-        <p className={styles.background}>Вася</p>
+        {/* <p className={styles.background}>Вася</p> */}
         {students && students.map((student) => <p key={student.id}>{student.name} {student.surName}</p>)}
       </div>
 
