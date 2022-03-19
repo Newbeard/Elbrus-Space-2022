@@ -52,13 +52,13 @@ export const userLogin = (payload) => async (dispatch) => {
   }
 }
 
-export const logout = () => ({
+export const logout = (data) => ({
   type: LOGOUT,
 })
 
 export const userLogout = (payload) => async (dispatch) => { 
   try {
-     await axios('/logout')
+    await axios('/logout')
     dispatch(logout())
   }
    catch (err) {
@@ -71,3 +71,13 @@ export const sessionCheck = (data) => ({
   type: INIT_USER,
   payload: data
 })
+export const userSessionCheck = (payload) => async (dispatch) => { 
+  try {
+    const { data } = await axios('/session')
+    dispatch(sessionCheck(data))
+  }
+   catch (err) {
+    console.log(err);
+  }
+}
+
