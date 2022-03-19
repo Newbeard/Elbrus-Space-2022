@@ -11,7 +11,7 @@ module.exports = {
       updatedAt: new Date(),
     },
     {
-      campusName: 'Олайн',
+      campusName: 'Онлайн',
       createdAt: new Date(),
       updatedAt: new Date(),
     }], {});

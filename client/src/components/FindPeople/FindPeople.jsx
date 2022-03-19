@@ -39,7 +39,7 @@ function FindPeople() {
     dispatch(getCitiesOfSelectedCountryFromServer({ countryName: event.target.value }))
   }
   return (
-    <div>
+    <div className={styles.top}>
       <button onClick={showFilter}>Фильтр</button>
       <input type="text" name="name" id="name" placeholder="Поиск" />
       {isShowFilter === true ?
@@ -69,13 +69,13 @@ function FindPeople() {
                 <option>Санкт-Петербург</option>
                 <option>Онлайн</option>
               </select>
-              <select name="year" >
+              <select name="yearFinishDate" >
                 <option value="" disabled selected>Год окончания</option>
                 <option>За всё время</option>
                 <option>2022</option>
                 <option>2021</option>
               </select>
-              <select name="month" >
+              <select name="monthFinishDate" >
                 <option value="" disabled selected>Месяц окончания</option>
                 <option>За всё время</option>
                 <option>Январь</option>
