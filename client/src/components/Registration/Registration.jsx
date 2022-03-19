@@ -13,7 +13,7 @@ export default function Registration() {
 
   useEffect(() => {
     if(values.id) {
-      navigate('/info')
+      navigate('/profile')
     };
   }, [values])
 
