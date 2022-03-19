@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getCity } from '../../redux/actions/city.action';
+import { getCity, getCitiesOfSelectedCountryFromServer } from '../../redux/actions/city.action';
 import { initCountriesFromServer } from '../../redux/actions/country.action';
 import { filterStudentsFromServer, initStudentsFromServer } from '../../redux/actions/students.action';
 import styles from './style.module.css'
@@ -36,6 +36,7 @@ function FindPeople() {
 
   function selectedСountry(event) {
     setCountrySelected(event.target.value);
+    dispatch(getCitiesOfSelectedCountryFromServer({ countryName: event.target.value }))
   }
   return (
     <div>
