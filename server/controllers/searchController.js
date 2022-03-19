@@ -1,4 +1,4 @@
-const { User, Campus } = require('../db/models');
+const { User, Campus, Country, City } = require('../db/models');
 
 const searchController = async (req, res) => {
   try {
@@ -12,8 +12,31 @@ const searchController = async (req, res) => {
 const filterController = async (req, res) => {
   try {
     const params = req.body;
-    const campusId = await Campus.findAll({ where: params });
-    const students = await User.findAll({ where: { campusId: campusId[0].id } });
+    const arrayInclude = [];
+
+    if (params.campusName) {
+      arrayInclude.push({
+        model: Campus,
+        where: { campusName: params.campusName },
+      });
+    }
+    if (params.countryName) {
+      arrayInclude.push({
+        model: Country,
+        where: { countryName: params.countryName },
+      });
+    }
+    if (params.cityName) {
+      arrayInclude.push({
+        model: City,
+        where: { cityName: params.cityName },
+      });
+    }
+
+    const students = await User.findAll({
+      include: arrayInclude,
+      raw: true,
+    });
 
     res.json(students);
   } catch (error) {
