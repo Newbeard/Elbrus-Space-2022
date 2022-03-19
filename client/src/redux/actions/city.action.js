@@ -8,13 +8,10 @@ return {
   payload: city
 }
 }
-export const getCity = (payload) => async (dispatch) => { 
+export const getCity = () => async (dispatch) => { 
   try {
-    const { city } = await axios.get('/cities')
-    console.log(city);
-
-    dispatch(getCities(city))
-
+    const { data } = await axios('/cities')
+    dispatch(getCities(data))
   } catch (err) {
     console.log(err);
   }

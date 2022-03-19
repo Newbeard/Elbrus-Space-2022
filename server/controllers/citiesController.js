@@ -2,8 +2,7 @@ const { City } = require('../db/models');
 
 const citiesController = async (req, res) => {
   try {
-    const allCities = await City.findAll();
-    console.log(allCities);
+    const allCities = await City.findAll({ raw: true });
     res.json(allCities);
   } catch (error) {
     console.log(error.message);
