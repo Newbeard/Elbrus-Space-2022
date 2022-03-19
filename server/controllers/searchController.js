@@ -13,6 +13,7 @@ const filterController = async (req, res) => {
   try {
     const params = req.body;
     const arrayInclude = [];
+    const objWhere = {};
 
     if (params.campusName) {
       arrayInclude.push({
@@ -32,8 +33,15 @@ const filterController = async (req, res) => {
         where: { cityName: params.cityName },
       });
     }
+    if (params.yearFinishDate) {
+      objWhere.yearFinishDate = params.yearFinishDate;
+    }
+    if (params.monthFinishDate) {
+      objWhere.monthFinishDate = params.monthFinishDate;
+    }
 
     const students = await User.findAll({
+      where: objWhere,
       include: arrayInclude,
       raw: true,
     });
