@@ -8,16 +8,15 @@ const loginEntry = async (req, res) => {
       where: { email },
     });
     if (user === null) {
-      return res.json({ success: false, errors: `Пользователь с ${email} не зарегистрирован!` });
+      return res.json({ error: `Пользователь с ${email} не зарегистрирован!` });
     }
     const validPassword = await bcrypt.compare(password, user.password);
     if (!validPassword) {
-      return res.status(401)
-        .json({ success: false, errors: 'Пароль не верный' });
+      return res.json({ error: 'Пароль не верный' });
     }
     req.session.user = user;
     req.session.isSession = true;
-    res.json({ success: true, id: user.id, name: user.name });
+    res.json({ id: user.id });
   } catch (error) {
     console.log(error.message);
     res.status(401)
