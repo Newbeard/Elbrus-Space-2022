@@ -4,7 +4,6 @@ const loginRouter = require('./loginRouter');
 const logoutRouter = require('./logoutRouter');
 const sessionRouter = require('./sessionRouter');
 const searchRouter = require('./searchRouter');
-
 const allCityRouter = require('./allCityRouter');
 
 router.use('/registration', registrationRouter);
