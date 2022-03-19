@@ -4,6 +4,7 @@ import {userRegistration} from '../../redux/actions/auth';
 import { useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import Error  from '../Error/Error'
+import styles from './style.module.css'
 
 export default function Registration() {
   const dispatch = useDispatch();
@@ -12,7 +13,7 @@ export default function Registration() {
 
   useEffect(() => {
     if(values.id) {
-      navigate('/')
+      navigate('/info')
     };
   }, [values])
 
@@ -27,7 +28,7 @@ export default function Registration() {
 				dispatch(userRegistration(payload));
 			};
   return (
-    <div>
+    <div className={styles.label}>
       <form onSubmit={handleSubmit}>
         <input type="text" name="email" placeholder="Email" autoFocus autoComplete="off"/>
         <input type="password" name="password" placeholder="Пароль" autoComplete="off"/>

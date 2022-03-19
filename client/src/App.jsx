@@ -31,10 +31,11 @@ function App() {
     screenWidth < 768 ? setIsMobile(true) : setIsMobile(false)
   }, []);
 
-    useEffect(() => {
-      dispatch(userSessionCheck())
-      if(!session.success){navigate('/')}
-    }, []);
+    // useEffect(() => {
+    //   dispatch(userSessionCheck())
+    //   console.log(session);
+    //   if(!session.success){navigate('/')}
+    // }, []);
 
 
 	return (

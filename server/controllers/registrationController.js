@@ -24,7 +24,7 @@ const registerUserPost = async (req, res) => {
     }
     const hashPassword = await bcrypt.hash(password, 10);
     const user = await User.create({
-      email, password: hashPassword, isAdmin: false, isApproved: true,
+      email, password: hashPassword, isAdmin: false, isApproved: true, emailIsApproved: true,
     });
     req.session.user = user;
     req.session.isSession = true;

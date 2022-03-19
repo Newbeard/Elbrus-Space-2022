@@ -71,7 +71,7 @@ export const sessionCheck = (data) => ({
   type: INIT_USER,
   payload: data
 })
-export const userSessionCheck = (payload) => async (dispatch) => { 
+export const userSessionCheck = () => async (dispatch) => { 
   try {
     const { data } = await axios('/session')
     dispatch(sessionCheck(data))
