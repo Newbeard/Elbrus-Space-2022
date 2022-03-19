@@ -41,8 +41,10 @@ function FindPeople() {
   }
   return (
     <div className={styles.top}>
-      <button onClick={showFilter}>Фильтр</button>
-      <input type="text" name="name" id="name" placeholder="Поиск" />
+      <button onClick={showFilter}>Фильтр</button>]
+      <div>
+        <input type="text" name="name" id="name" placeholder="Поиск" />
+      </div>
       {isShowFilter === true ?
         <div>
           <form method="post" onSubmit={filterStudents} action="#">

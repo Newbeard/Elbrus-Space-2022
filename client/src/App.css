@@ -8,6 +8,10 @@ option {
   color: black;
 }
 
+.top {
+  margin-top: 100px;
+}
+
 #navMobile {
   background-color: #4520aa;
   text-align: center;
