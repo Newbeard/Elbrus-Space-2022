@@ -23,7 +23,7 @@ const registerUserPost = async (req, res) => {
       return res.json({ error: 'Пaроли не совпадают' });
     }
     const hashPassword = await bcrypt.hash(password, 10);
-    const user = await User.create({ email, password: hashPassword });
+    const user = await User.create({ email, password: hashPassword,  });
     req.session.user = user;
     req.session.isSession = true;
     res.json({ id: user.id });
