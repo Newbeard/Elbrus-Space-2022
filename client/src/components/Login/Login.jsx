@@ -13,7 +13,7 @@ export default function Login() {
   const { error, values, isLoading } = useSelector( state => state.user)
 
   useEffect(() => {
-    if(values.id) {
+    if(localStorage.getItem('id')) {
       navigate('/')
     };
   }, [values])

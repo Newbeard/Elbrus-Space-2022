@@ -12,10 +12,10 @@ export default function Registration() {
   const { error, values, isLoading } = useSelector( state => state.user)
 
   useEffect(() => {
-    if(values.id) {
-      navigate('/profile')
+    if(localStorage.getItem('id')) {
+      navigate('/')
     };
-  }, [values])
+  }, [])
 
 
 	const handleSubmit = (event) => {
@@ -26,6 +26,7 @@ export default function Registration() {
 			confirmPassword: event.target.confirmPassword.value
 		};
 				dispatch(userRegistration(payload));
+        localStorage.setItem('id', values.id)
 			};
   return (
     <div className={styles.label}>

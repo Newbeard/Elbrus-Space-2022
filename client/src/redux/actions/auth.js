@@ -1,4 +1,4 @@
-import { REGISTRATION, LOGIN, LOGOUT, INIT_USER, IS_LOADING, IS_ERROR, CHANGE_SESSION} from '../types'
+import { REGISTRATION, LOGIN, LOGOUT,  IS_LOADING, IS_ERROR, } from '../types'
 import axios from 'axios';
 axios.defaults.withCredentials = true;
 
@@ -25,6 +25,7 @@ export const userRegistration = (payload) => async (dispatch) => {
     }
     else{
     dispatch(registration(data))
+    localStorage.setItem('id', data.id)
     }
   } catch (err) {
     console.log(err);
@@ -46,6 +47,7 @@ export const userLogin = (payload) => async (dispatch) => {
     }
     else{
     dispatch(login(data))
+    localStorage.setItem('id', data.id)
   }
   } catch (err) {
     console.log(err);
@@ -59,6 +61,7 @@ export const logout = (data) => ({
 export const userLogout = (payload) => async (dispatch) => { 
   try {
     await axios('/logout')
+    localStorage.removeItem('id')
     dispatch(logout())
   }
    catch (err) {
@@ -67,28 +70,5 @@ export const userLogout = (payload) => async (dispatch) => {
 }
 
 
-export const sessionCheck = (data) => ({
-  type: INIT_USER,
-  payload: data
-})
-export const userSessionCheck = () => async (dispatch) => { 
-  try {
-    const { data } = await axios('/session')
-    dispatch(sessionCheck(data))
-  }
-   catch (err) {
-    console.log(err);
-  }
-}
-export const deletSession = (data) => ({
-  type: CHANGE_SESSION,
-  payload: data
-})
-export const deletSessionsAC = () => async (dispatch) => { 
-  try {
-    dispatch(sessionCheck())
-  }
-   catch (err) {
-    console.log(err);
-  }
-}
+
+
