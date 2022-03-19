@@ -103,7 +103,7 @@ function FindPeople() {
         </div>
         : <div></div>}
       <div>
-        {/* <p className={styles.background}>Вася</p> */}
+        <p className={styles.background}>Вася</p>
         {students && students.map((student) => <p key={student.id}>{student.name} {student.surName}</p>)}
       </div>
 

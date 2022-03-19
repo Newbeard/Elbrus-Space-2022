@@ -15,8 +15,6 @@ const filterController = async (req, res) => {
     const arrayInclude = [];
     const objWhere = {};
 
-    console.log(params);
-
     if (params.campusName) {
       arrayInclude.push({
         model: Campus,
