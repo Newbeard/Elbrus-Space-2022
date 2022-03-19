@@ -11,6 +11,6 @@ router.use('/login', loginRouter);
 router.use('/logout', logoutRouter);
 router.use('/session', sessionRouter);
 router.use('/search', searchRouter);
-router.use('/city', allCityRouter);
+router.use('/cities', allCityRouter);
 
 module.exports = router;
