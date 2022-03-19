@@ -1,32 +1,39 @@
 import { useDispatch } from 'react-redux';
 import { userLogin } from '../../redux/actions/auth';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux'
+import { useEffect } from 'react'
+import Error  from '../Error/Error'
 
 
 export default function Login() {
   const dispatch = useDispatch();
 	const navigate = useNavigate();
+  const { error, values, isLoading } = useSelector( state => state.user)
+
+  useEffect(() => {
+    if(values.user) {
+      navigate('/')
+    };
+  }, [values])
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		const payload = {
 			email: event.target.email.value,
 			password: event.target.password.value,
-			confirmPassword: event.target.confirmPassword.value
 		};
+
 				dispatch(userLogin(payload));
-				navigate('/');
 			};
 
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <div>Вход</div>
-        <input type="text" placeholder="Email" autoFocus autoComplete="off"/>
-        <input type="text" placeholder="Пароль" autoComplete="off"/>
-        <button >Войти</button>
-        <button>Регистрация</button>
-        <div></div>
+        <input type="text" name="email" placeholder="Email" autoFocus autoComplete="off"/>
+        <input type="password" name="password"placeholder="Пароль" autoComplete="off"/>
+        <button type="submit" disabled={isLoading}>{isLoading ? 'Подождите...' : 'Войти'}</button>
+        {error && <Error error={error.error} />}
       </form>
     </div>
   );
