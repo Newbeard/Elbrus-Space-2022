@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector  } from 'react-redux';
-import { userLogout, deletSessionsAC } from '../../redux/actions/auth';
+import { userLogout } from '../../redux/actions/auth';
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react'
 
 
 export default function NavDesktop() {
@@ -9,10 +10,13 @@ export default function NavDesktop() {
   const navigate = useNavigate()
   const { values } = useSelector( state => state.user)
 
+  useEffect(() => {
+      navigate('/')
+  }, [values])
+
   const hendlerClick = (event) => {
     event.preventDefault()
       dispatch(userLogout())
-      // dispatch(deletSessionsAC())
     navigate('/')
   }
 
@@ -20,7 +24,7 @@ export default function NavDesktop() {
     <div>
       <nav id="nav">
         <ul className="container">
-         {!values.id ?<>
+         {!localStorage.getItem('id') ?<>
           <li><Link to="/login">Войти</Link></li>
           <li><Link to="/registration">Регистрация</Link></li>
           </>:
