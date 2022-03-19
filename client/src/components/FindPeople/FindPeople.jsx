@@ -32,6 +32,7 @@ function FindPeople() {
   function resetFilterStudents() {
     dispatch(filterStudentsFromServer({}))
     setIsShowFilter(!isShowFilter)
+    setCountrySelected('');
   }
 
   function selectedСountry(event) {
@@ -63,7 +64,7 @@ function FindPeople() {
                   {city.map((city) => <option key={city.id}>{city.cityName}</option>)}
                 </select>}
               <select name="campusName" >
-                <option value="" selected>Кампус</option>
+                <option value="" disabled selected>Кампус</option>
                 <option>Любой</option>
                 <option>Москва</option>
                 <option>Санкт-Петербург</option>

@@ -15,6 +15,8 @@ const filterController = async (req, res) => {
     const arrayInclude = [];
     const objWhere = {};
 
+    console.log(params);
+
     if (params.campusName) {
       arrayInclude.push({
         model: Campus,
@@ -24,6 +26,7 @@ const filterController = async (req, res) => {
     if (params.countryName) {
       arrayInclude.push({
         model: Country,
+        as: 'currentCou',
         where: { countryName: params.countryName },
       });
     }
@@ -44,6 +47,7 @@ const filterController = async (req, res) => {
       where: objWhere,
       include: arrayInclude,
       raw: true,
+      order: [['createdAt', 'ASC']],
     });
 
     res.json(students);

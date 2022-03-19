@@ -22,7 +22,6 @@ const citiesOfSelectedCountryController = async (req, res) => {
       },
       raw: true,
     });
-    console.log(allCities);
     res.json(allCities);
   } catch (error) {
     console.log(error.message);
