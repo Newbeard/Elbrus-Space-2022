@@ -18,6 +18,9 @@ module.exports = {
         unique: true,
         allowNull: false,
       },
+      emailIsApproved: {
+        type: Sequelize.BOOLEAN,
+      },
       password: {
         type: Sequelize.STRING,
         allowNull: false,
@@ -72,8 +75,11 @@ module.exports = {
       dateOfBirth: {
         type: Sequelize.STRING,
       },
-      finishDate: {
+      monthFinishDate: {
         type: Sequelize.STRING,
+      },
+      yearFinishDate: {
+        type: Sequelize.INTEGER,
       },
       createdAt: {
         allowNull: false,

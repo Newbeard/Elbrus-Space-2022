@@ -10,6 +10,13 @@ module.exports = {
       cityName: {
         type: Sequelize.TEXT,
       },
+      countrysId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Countries',
+          key: 'id',
+        },
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

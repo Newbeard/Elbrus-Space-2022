@@ -12,7 +12,7 @@ export default function Login() {
   const { error, values, isLoading } = useSelector( state => state.user)
 
   useEffect(() => {
-    if(values.user) {
+    if(values.id) {
       navigate('/')
     };
   }, [values])
