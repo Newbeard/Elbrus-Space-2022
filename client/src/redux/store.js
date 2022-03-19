@@ -12,7 +12,8 @@ const initialState = {
   },
   session: {},
   students: [],
-  city: ['Москва']
+  city: ['Москва'],
+  countries: []
 }
 
 export const store = createStore(rootReducer, initialState, composeWithDevTools(applyMiddleware(thunk)))

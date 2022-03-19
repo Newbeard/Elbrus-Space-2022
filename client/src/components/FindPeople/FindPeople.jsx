@@ -1,17 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getCity } from '../../redux/actions/city.action';
+import { getCity, getCitiesOfSelectedCountryFromServer } from '../../redux/actions/city.action';
+import { initCountriesFromServer } from '../../redux/actions/country.action';
 import { filterStudentsFromServer, initStudentsFromServer } from '../../redux/actions/students.action';
 import styles from './style.module.css'
 
 function FindPeople() {
 
   const dispatch = useDispatch();
-  const { students, city } = useSelector(state => state);
+  const { students, city, countries } = useSelector(state => state);
   const [isShowFilter, setIsShowFilter] = useState(false);
+  const [countrySelected, setCountrySelected] = useState('');
 
   useEffect(() => {
     dispatch(initStudentsFromServer())
+    dispatch(initCountriesFromServer())
     dispatch(getCity())
   }, [])
 
@@ -31,7 +34,10 @@ function FindPeople() {
     setIsShowFilter(!isShowFilter)
   }
 
-
+  function selectedСountry(event) {
+    setCountrySelected(event.target.value);
+    dispatch(getCitiesOfSelectedCountryFromServer({ countryName: event.target.value }))
+  }
   return (
     <div>
       <button onClick={showFilter}>Фильтр</button>
@@ -40,19 +46,24 @@ function FindPeople() {
         <div>
           <form method="post" onSubmit={filterStudents} action="#">
             <div className="row">
-              <select name="countryName" >
+              <select onChange={(event) => selectedСountry(event)} name="countryName" >
                 <option value="" disabled selected>Страна</option>
                 <option>Любая</option>
-                <option>Россия</option>
-                <option>Грузия</option>
+                {countries.map((country) => <option key={country.id}>{country.countryName}</option>)}
               </select>
-              <select name="cityName" >
-                <option value="" disabled selected>Город</option>
-                <option>Любая</option>
-                {city.map((city) => <option>{city.cityName}</option>)}
-              </select>
+              {countrySelected === "" ?
+                <select disabled name="cityName" >
+                  <option value="" disabled selected>Город</option>
+                  <option>Любая</option>
+                  {city.map((city) => <option key={city.id}>{city.cityName}</option>)}
+                </select> :
+                <select name="cityName" >
+                  <option value="" disabled selected>Город</option>
+                  <option>Любая</option>
+                  {city.map((city) => <option key={city.id}>{city.cityName}</option>)}
+                </select>}
               <select name="campusName" >
-                <option value="" disabled selected>Кампус</option>
+                <option value="" selected>Кампус</option>
                 <option>Любой</option>
                 <option>Москва</option>
                 <option>Санкт-Петербург</option>
