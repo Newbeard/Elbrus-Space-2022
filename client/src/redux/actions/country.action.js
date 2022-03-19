@@ -1,9 +1,9 @@
 import axios from "axios";
-import { INIT_COUNTRIES, INIT_CITIES } from "../types";
+import { INIT_COUNTRIES } from "../types";
 
 
 export const initStudents = (users) => ({
-  type: INIT_STUDENTS,
+  type: INIT_COUNTRIES,
   payload: users
 })
 
