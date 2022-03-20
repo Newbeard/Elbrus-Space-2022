@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate({ User, Country }) {
       City.hasMany(User, { foreignKey: 'cityId' });
-      City.hasMany(User, { foreignKey: 'currentCity' });
+      City.hasMany(User, { foreignKey: 'currentCityId' });
       City.belongsTo(Country, { foreignKey: 'countrysId' });
     }
   }

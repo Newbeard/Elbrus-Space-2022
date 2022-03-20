@@ -18,15 +18,23 @@ const addInfoController = async (req, res) => {
     let campus = { id: null };
     let currentCountry = { id: null };
     let currentCity = { id: null };
+    let newCurrentCountry = { id: null };
+    let newCurrentCity = { id: null };
+
     if (campusName) {
       campus = await Campus.findOne({ where: { campusName } });
     }
+
     if (currentCountryName) {
       currentCountry = await Country.findOne({ where: { currentCountryName } });
+      if (!currentCountry) {
+        newCurrentCountry = await Country.create({ currentCountryName });
+        newCurrentCity = await City.create({ currentCityName, countrysId: newCurrentCountry.id });
+      } else if (!currentCity) {
+        newCurrentCity = await City.create({ currentCityName, countrysId: currentCountry.id });
+      }
     }
-    if (currentCityName) {
-      currentCity = await City.findOne({ where: { currentCityName } });
-    }
+
     if (!country) {
       const newCountry = await Country.create({ countryName });
       const newCity = await City.create({ cityName, countrysId: newCountry.id });
@@ -37,6 +45,7 @@ const addInfoController = async (req, res) => {
           countryId: newCountry.id,
           cityId: newCity.id,
           campusId: campus.id,
+          // currentCountry: 
         },
         { where: { id } },
       );

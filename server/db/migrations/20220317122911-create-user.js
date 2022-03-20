@@ -58,14 +58,14 @@ module.exports = {
           key: 'id',
         },
       },
-      currentCity: {
+      currentCityId: {
         type: Sequelize.INTEGER,
         references: {
           model: 'Cities',
           key: 'id',
         },
       },
-      currentCountry: {
+      currentCountryId: {
         type: Sequelize.INTEGER,
         references: {
           model: 'Countries',
