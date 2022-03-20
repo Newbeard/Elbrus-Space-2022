@@ -7,8 +7,11 @@ function AddMainInfo() {
     event.preventDefault()
     const form = event.target;
     const dataForm = Object.fromEntries(new FormData(form));
+    dataForm.currentCountryName = 'австрия2'
+    dataForm.currentCityName = 'хуй2'
     localStorage.setItem('addedInfo', JSON.stringify(dataForm))
-    // const qwe = JSON.parse(localStorage.getItem('addedInfo'))
+    console.log(dataForm);
+    const qwe = JSON.parse(localStorage.getItem('addedInfo'))
     const id = localStorage.getItem('id')
     axios.post('/info', { dataForm, id })
     // navigate('/moreInfo')

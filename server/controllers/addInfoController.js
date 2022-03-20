@@ -12,6 +12,8 @@ const addInfoController = async (req, res) => {
     campusName,
   } = dataForm;
 
+  console.log(currentCountryName,
+    currentCityName);
   try {
     const country = await Country.findOne({ where: { countryName } });
     const city = await City.findOne({ where: { cityName } });
@@ -26,12 +28,24 @@ const addInfoController = async (req, res) => {
     }
 
     if (currentCountryName) {
-      currentCountry = await Country.findOne({ where: { currentCountryName } });
-      if (!currentCountry) {
-        newCurrentCountry = await Country.create({ currentCountryName });
-        newCurrentCity = await City.create({ currentCityName, countrysId: newCurrentCountry.id });
-      } else if (!currentCity) {
-        newCurrentCity = await City.create({ currentCityName, countrysId: currentCountry.id });
+      currentCountry = await Country.findOne({ where: { countryName: currentCountryName } });
+      if (currentCountry === null) {
+        newCurrentCountry = await Country.create({ countryName: currentCountryName });
+        newCurrentCity = await City.create({
+          cityName: currentCityName,
+          countrysId: newCurrentCountry.id,
+        });
+      }
+    }
+
+    if (currentCityName) {
+      currentCity = await City.findOne({ where: { cityName: currentCityName } });
+      if (currentCity === null) {
+        newCurrentCity = await City.create({
+          cityName: currentCityName,
+          countrysId: currentCountry.id,
+        });
+        console.log(111);
       }
     }
 
@@ -45,7 +59,8 @@ const addInfoController = async (req, res) => {
           countryId: newCountry.id,
           cityId: newCity.id,
           campusId: campus.id,
-          // currentCountry: 
+          currentCountryId: (currentCountry.id || newCurrentCountry.id),
+          currentCityId: (currentCity.id || newCurrentCity.id),
         },
         { where: { id } },
       );
@@ -58,6 +73,8 @@ const addInfoController = async (req, res) => {
           countryId: country.id,
           cityId: newCity.id,
           campusId: campus.id,
+          currentCountryId: (currentCountry.id || newCurrentCountry.id),
+          currentCityId: (currentCity.id || newCurrentCity.id),
         },
         { where: { id } },
       );
@@ -69,6 +86,8 @@ const addInfoController = async (req, res) => {
           countryId: country.id,
           cityId: city.id,
           campusId: campus.id,
+          currentCountryId: (currentCountry.id || newCurrentCountry.id),
+          currentCityId: (currentCity.id || newCurrentCity.id),
         },
         { where: { id } },
       );
