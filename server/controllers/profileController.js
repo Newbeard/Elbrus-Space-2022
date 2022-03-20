@@ -1,10 +1,38 @@
-const { User } = require('../db/models');
+const { User, City, Country, Campus } = require('../db/models');
 const findOneEssence = require('../services/findOne.essence');
 
 const initProfile = async (req, res) => {
   try {
     const { id } = req.session.user;
-    const user = await findOneEssence(User, id);
+    const user = await User.findOne({
+      where: {
+        id,
+      },
+      raw: true,
+      include: [{
+        model: City,
+        attributes: ['cityName'],
+      },
+      {
+        model: Country,
+        attributes: ['countryName'],
+      },
+      {
+        model: Campus,
+        attributes: ['campusName'],
+      },
+      {
+        model: City,
+        as: 'currentCit',
+        attributes: ['cityName'],
+      },
+      {
+        model: Country,
+        as: 'currentCou',
+        attributes: ['countryName'],
+      }],
+
+    });
     console.log(user);
     res.json({ user });
   } catch (error) {

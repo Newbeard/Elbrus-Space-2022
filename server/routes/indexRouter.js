@@ -6,7 +6,7 @@ const sessionRouter = require('./sessionRouter');
 const searchRouter = require('./searchRouter');
 const allCityRouter = require('./allCityRouter');
 const allCountriesRouter = require('./allCountriesRouter');
-const profileRouter = require('./allCountriesRouter');
+const profileRouter = require('./profileRouter');
 
 router.use('/registration', registrationRouter);
 router.use('/login', loginRouter);
