@@ -1,12 +1,15 @@
+import axios from 'axios';
 import React from 'react';
 
 function AddMainInfo() {
 
-  function addInfo(event) {
+  async function addInfo(event) {
     event.preventDefault()
     const form = event.target;
     const dataForm = Object.fromEntries(new FormData(form));
+    const id = localStorage.getItem('id')
     console.log(dataForm);
+    await axios.post('/info', { dataForm, id })
   }
 
   return (

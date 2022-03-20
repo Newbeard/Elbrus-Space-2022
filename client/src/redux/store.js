@@ -10,7 +10,6 @@ const initialState = {
     isLoading: false,
     error: null
   },
-  session: {},
   students: [],
   city: ['Москва'],
   countries: []
