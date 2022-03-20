@@ -1,11 +1,13 @@
-const { User, Country, City } = require('../db/models');
+const { User, Country, City, Campus } = require('../db/models');
 
 const addInfoController = async (req, res) => {
   const { dataForm, id } = req.body;
-  const { name, surName, countryName, cityName } = dataForm;
+  const { name, surName, countryName, cityName, campusName } = dataForm;
+
   try {
     const country = await Country.findOne({ where: { countryName } });
     const city = await City.findOne({ where: { cityName } });
+    const campus = await Campus.findOne({ where: { campusName } });
     if (!country) {
       const newCountry = await Country.create({ countryName });
       const newCity = await City.create({ cityName, countrysId: newCountry.id });
@@ -15,6 +17,7 @@ const addInfoController = async (req, res) => {
           surName,
           countryId: newCountry.id,
           cityId: newCity.id,
+          campusId: campus.id,
         },
         { where: { id } },
       );
@@ -26,6 +29,18 @@ const addInfoController = async (req, res) => {
           surName,
           countryId: country.id,
           cityId: newCity.id,
+          campusId: campus.id,
+        },
+        { where: { id } },
+      );
+    } else {
+      await User.update(
+        {
+          name,
+          surName,
+          countryId: country.id,
+          cityId: city.id,
+          campusId: campus.id,
         },
         { where: { id } },
       );
