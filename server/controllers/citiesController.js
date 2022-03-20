@@ -1,5 +1,9 @@
+
 const axios = require('axios');
-const { City } = require('../db/models');
+
+
+const { City, Country } = require('../db/models');
+
 
 const citiesController = async (req, res) => {
   try {
@@ -13,6 +17,7 @@ const citiesController = async (req, res) => {
       }).end();
   }
 };
+
 
 const getCoordinates = async (req, res) => {
   try {
@@ -33,6 +38,19 @@ const getCoordinates = async (req, res) => {
     res.json(getCoordinate.data.response.GeoObjectCollection);
 
     // console.log(allCities);
+
+const citiesOfSelectedCountryController = async (req, res) => {
+  try {
+    const params = req.body;
+    const allCities = await City.findAll({
+      include: {
+        model: Country,
+        where: { countryName: params.countryName },
+      },
+      raw: true,
+    });
+    res.json(allCities);
+
   } catch (error) {
     console.log(error.message);
     res.status(401)
@@ -41,4 +59,9 @@ const getCoordinates = async (req, res) => {
       }).end();
   }
 };
-module.exports = { citiesController, getCoordinates };
+
+module.exports = { citiesController, getCoordinates, citiesOfSelectedCountryController};
+=======
+
+
+

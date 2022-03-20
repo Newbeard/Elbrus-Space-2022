@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import Error  from '../Error/Error'
+import styles from './style.module.css'
 
 
 export default function Login() {
@@ -12,7 +13,7 @@ export default function Login() {
   const { error, values, isLoading } = useSelector( state => state.user)
 
   useEffect(() => {
-    if(values.id) {
+    if(localStorage.getItem('id')) {
       navigate('/')
     };
   }, [values])
@@ -28,7 +29,7 @@ export default function Login() {
 			};
 
   return (
-    <div>
+    <div className={styles.top}>
       <form onSubmit={handleSubmit}>
         <input type="text" name="email" placeholder="Email" autoFocus autoComplete="off"/>
         <input type="password" name="password"placeholder="Пароль" autoComplete="off"/>

@@ -2,15 +2,15 @@ import axios from "axios";
 import { INIT_COUNTRIES } from "../types";
 
 
-export const initStudents = (users) => ({
+export const initCountries = (countries) => ({
   type: INIT_COUNTRIES,
-  payload: users
+  payload: countries
 })
 
-export const initStudentsFromServer = () => async (dispatch) => {
+export const initCountriesFromServer = () => async (dispatch) => {
   try {
-    const { data } = await axios('/search')
-    dispatch(initStudents(data))
+    const { data } = await axios('/countries')
+    dispatch(initCountries(data))
   } catch (error) {
     console.log(error);
   }

@@ -1,9 +1,9 @@
 const sessionController = async (req, res) => {
   try {
     if (req.session.user) {
-      res.json({ session: true });
+      res.json({ success: true, id: req.session.user.id });
     } else {
-      res.json({ session: false });
+      res.json({ success: false });
     }
   } catch (err) {
     console.log(err.message);
