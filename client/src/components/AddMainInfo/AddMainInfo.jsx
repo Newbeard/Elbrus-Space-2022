@@ -1,14 +1,16 @@
 import axios from 'axios';
-import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function AddMainInfo() {
-
+  const navigate = useNavigate()
+  
   async function addInfo(event) {
     event.preventDefault()
     const form = event.target;
     const dataForm = Object.fromEntries(new FormData(form));
     const id = localStorage.getItem('id')
-    await axios.post('/info', { dataForm, id })
+    axios.post('/info', { dataForm, id })
+    navigate('/moreInfo')
   }
 
   return (

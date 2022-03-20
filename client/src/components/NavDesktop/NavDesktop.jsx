@@ -33,6 +33,7 @@ export default function NavDesktop() {
           <li><Link to="/profile">Мой профиль</Link></li>
           <li><Link to="/search">Поиск</Link></li>
           <li><Link to="/info">addInfo</Link></li>
+          <li><Link to="/moreinfo">addMoreInfo</Link></li>
           <li><Link to="/logout" onClick={hendlerClick}>Выйти</Link></li>
           </>}
         </ul>
