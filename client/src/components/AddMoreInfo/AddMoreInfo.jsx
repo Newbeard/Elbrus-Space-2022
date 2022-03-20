@@ -8,10 +8,12 @@ function AddMoreInfo() {
     event.preventDefault()
     const form = event.target;
     const dataForm = Object.fromEntries(new FormData(form));
+    const qwe = JSON.parse(localStorage.getItem('addedInfo'))
+    console.log(qwe);
     console.log(dataForm);
-    const id = localStorage.getItem('id')
-    axios.post('/info', { dataForm, id })
-    navigate('/moreInfo')
+    // const id = localStorage.getItem('id')
+    // axios.post('/info', { dataForm, id })
+    // navigate('/moreInfo')
   }
   return (
     <div className='top'>
