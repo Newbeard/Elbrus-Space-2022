@@ -22,8 +22,8 @@ function AddMoreInfo() {
         <input type="text" name="telegram" placeholder="Telegram"></input>
         <input type="text" name="github" placeholder="Github"></input>
         <div>Текущее местонахождение</div>
-        <input type="text" name="countryName" placeholder="Страна"></input>
-        <input type="text" name="cityName" placeholder="Город"></input>
+        <input type="text" name="currentCountryName" placeholder="Страна"></input>
+        <input type="text" name="currentCityName" placeholder="Город"></input>
         <div>
 
           <div>Дата рождения</div>
