@@ -1,9 +1,9 @@
 import { YMaps, Map, Placemark } from 'react-yandex-maps';
 import React, { useEffect, useState} from 'react';
 import './style.module.css'
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { yandexDecoder } from '../../redux/actions/city.action';
-
+import { getCity } from '../../redux/actions/city.action';
 
 
 const Maps = (props) => {
@@ -14,8 +14,13 @@ const Maps = (props) => {
     [55.865323, 37.599794],
     [55.741567, 37.960969]
   ]
+  const dispatch = useDispatch();
+  useEffect(()=>{
+    dispatch(getCity())
+    },[])
 
   const {city} = useSelector(state => state)
+  console.log(city.data)
 
 
   return (
@@ -24,7 +29,7 @@ const Maps = (props) => {
       (<YMaps>
         <div className='ya-map' >
           <div>
-            <Map id="map" width={'max-width'} height={400} defaultState={{ center: [55.75, 37.57], zoom: 6 }}>
+            <Map id="map" width={'max-width'} height={400} defaultState={{center: [55.75, 37.57], zoom: 6 }}>
            
           
           {cityesss?.map(el=>{

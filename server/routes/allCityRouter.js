@@ -1,7 +1,8 @@
 const router = require('express').Router();
-const { citiesController } = require('../controllers/citiesController');
+const { citiesController, getCoordinates } = require('../controllers/citiesController');
 
 router.route('/')
-  .get(citiesController);
+  // .get(citiesController);
+  .get(getCoordinates);
 
 module.exports = router;
