@@ -10,6 +10,7 @@ import Footer from './components/Footer/Footer';
 import FindPeople from './components/FindPeople/FindPeople';
 import EditProfile from './components/EditProfile/EditProfile';
 import UserProfile from './components/UserProfile/UserProfile';
+
 import { useEffect, useState } from 'react';
 import NavDesktop from './components/NavDesktop/NavDesktop';
 import NavMobile from './components/NavMobile/NavMobile';
@@ -52,6 +53,8 @@ function App() {
             <Route path="/info" element={<AddMainInfo />} />
             <Route path="/moreInfo" element={<AddMoreInfo />} />
             <Route path="/userprofile" element={<UserProfile />} />
+         
+
 					</Routes>
 				</main>
 
