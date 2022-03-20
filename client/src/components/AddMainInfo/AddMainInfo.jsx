@@ -8,7 +8,6 @@ function AddMainInfo() {
     const form = event.target;
     const dataForm = Object.fromEntries(new FormData(form));
     const id = localStorage.getItem('id')
-    console.log(dataForm);
     await axios.post('/info', { dataForm, id })
   }
 

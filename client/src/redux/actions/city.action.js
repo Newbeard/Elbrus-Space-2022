@@ -10,7 +10,7 @@ export const getCities = (city) => {
 }
 export const getCity = () => async (dispatch) => {
   try {
-    const data = await axios('/cities')
+    const { data } = await axios('/cities')
   
     dispatch(getCities(data))
   } catch (err) {
