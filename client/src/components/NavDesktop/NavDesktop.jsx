@@ -10,9 +10,9 @@ export default function NavDesktop() {
   const navigate = useNavigate()
   const { values } = useSelector( state => state.user)
 
-  useEffect(() => {
-      navigate('/')
-  }, [values])
+  // useEffect(() => {
+  //     navigate('/')
+  // }, [values])
 
   const hendlerClick = (event) => {
     event.preventDefault()

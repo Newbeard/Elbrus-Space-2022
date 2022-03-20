@@ -27,11 +27,13 @@ export default function Registration() {
 		};
 				dispatch(userRegistration(payload));
         localStorage.setItem('id', values.id)
+        navigate('/')
+
 			};
   return (
     <div className={styles.label}>
       <form onSubmit={handleSubmit}>
-        <input type="text" name="email" placeholder="Email" autoFocus autoComplete="off"/>
+        <input type="email" name="email" placeholder="Email" autoFocus autoComplete="off"/>
         <input type="password" name="password" placeholder="Пароль" autoComplete="off"/>
         <input type="password"	name="confirmPassword" placeholder="Повторите пароль" autoComplete="off"/>
         <button type="submit" disabled={isLoading}>{isLoading ? 'Подождите...' : 'Зарегистрироваться'}</button>
