@@ -11,7 +11,6 @@ function FindPeople() {
   const { students, city, countries } = useSelector(state => state);
   const [isShowFilter, setIsShowFilter] = useState(false);
   const [countrySelected, setCountrySelected] = useState('');
-  console.log(city);
 
   useEffect(() => {
     dispatch(initStudentsFromServer())

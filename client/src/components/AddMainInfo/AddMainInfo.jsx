@@ -10,7 +10,7 @@ function AddMainInfo() {
     const dataForm = Object.fromEntries(new FormData(form));
     const id = localStorage.getItem('id')
     axios.post('/info', { dataForm, id })
-    navigate('/moreInfo')
+    // navigate('/moreInfo')
   }
 
   return (
