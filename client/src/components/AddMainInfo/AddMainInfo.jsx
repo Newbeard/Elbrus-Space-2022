@@ -15,7 +15,7 @@ function AddMainInfo() {
   return (
     <div className='top'>
       <form onSubmit={addInfo}>
-        <div>Расскажите о себе</div>
+        <div>Расскажите о себе!</div>
         <div>*Обязательные поля для заполнения</div>
         <input type="text" name="name" placeholder="Имя" required></input>
         <input type="text" name="surName" placeholder="Фамилия"></input>
