@@ -41,7 +41,7 @@ function FindPeople() {
   }
   return (
     <div className={styles.top}>
-      <button onClick={showFilter}>Фильтр</button>]
+      <button onClick={showFilter}>Фильтр</button>
       <div>
         <input type="text" name="name" id="name" placeholder="Поиск" />
       </div>
@@ -58,12 +58,12 @@ function FindPeople() {
                 <select disabled name="cityName" >
                   <option value="" disabled selected>Город</option>
                   <option>Любая</option>
-                  {city.map((city) => <option key={city.id}>{city.cityName}</option>)}
+                  {city?.map((city) => <option key={city.id}>{city.cityName}</option>)}
                 </select> :
                 <select name="cityName" >
                   <option value="" disabled selected>Город</option>
                   <option>Любая</option>
-                  {city.map((city) => <option key={city.id}>{city.cityName}</option>)}
+                  {city?.map((city) => <option key={city.id}>{city.cityName}</option>)}
                 </select>}
               <select name="campusName" >
                 <option value="" disabled selected>Кампус</option>

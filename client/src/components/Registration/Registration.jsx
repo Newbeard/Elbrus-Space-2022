@@ -15,7 +15,7 @@ export default function Registration() {
     if(localStorage.getItem('id')) {
       navigate('/')
     };
-  }, [])
+  }, [values])
 
 
 	const handleSubmit = (event) => {
