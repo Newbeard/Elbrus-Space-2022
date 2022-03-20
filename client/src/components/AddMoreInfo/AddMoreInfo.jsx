@@ -8,10 +8,12 @@ function AddMoreInfo() {
     event.preventDefault()
     const form = event.target;
     const dataForm = Object.fromEntries(new FormData(form));
+    const qwe = JSON.parse(localStorage.getItem('addedInfo'))
+    console.log(qwe);
     console.log(dataForm);
-    const id = localStorage.getItem('id')
-    axios.post('/info', { dataForm, id })
-    navigate('/moreInfo')
+    // const id = localStorage.getItem('id')
+    // axios.post('/info', { dataForm, id })
+    // navigate('/moreInfo')
   }
   return (
     <div className='top'>
@@ -20,8 +22,8 @@ function AddMoreInfo() {
         <input type="text" name="telegram" placeholder="Telegram"></input>
         <input type="text" name="github" placeholder="Github"></input>
         <div>Текущее местонахождение</div>
-        <input type="text" name="countryName" placeholder="Страна"></input>
-        <input type="text" name="cityName" placeholder="Город"></input>
+        <input type="text" name="currentCountryName" placeholder="Страна"></input>
+        <input type="text" name="currentCityName" placeholder="Город"></input>
         <div>
 
           <div>Дата рождения</div>
