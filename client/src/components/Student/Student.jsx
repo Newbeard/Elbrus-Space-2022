@@ -6,11 +6,6 @@ function Student() {
 	const dispatch = useDispatch();
 	const { user } = useSelector((state) => state.profile);
 
-	// useEffect(() => {
-	//   dispatch(initProfileFromServer())
-
-	// }, [])
-
 	return (
 		<div>
 			<div className="row" />
@@ -21,7 +16,7 @@ function Student() {
 						<div className="col-6 col-9-small">{user.surName}</div>
 						<div>
 							<div>
-								<div> {user['Campus.campusName']}</div>
+								<div> Кампус {user['Campus.campusName']}</div>
 								<h3 className={styles.label}>Окончание обучения</h3>
 								<div>{user.yearFinishDate}</div>
 							</div>
