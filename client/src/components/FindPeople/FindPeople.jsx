@@ -11,6 +11,7 @@ function FindPeople() {
   const { students, city, countries } = useSelector(state => state);
   const [isShowFilter, setIsShowFilter] = useState(false);
   const [countrySelected, setCountrySelected] = useState('');
+  console.log(city);
 
   useEffect(() => {
     dispatch(initStudentsFromServer())
@@ -58,12 +59,12 @@ function FindPeople() {
                 <select disabled name="cityName" >
                   <option value="" disabled selected>Город</option>
                   <option>Любая</option>
-                  {city.map((city) => <option key={city.id}>{city.cityName}</option>)}
+                  {city?.map((city) => <option key={city.id}>{city.cityName}</option>)}
                 </select> :
                 <select name="cityName" >
                   <option value="" disabled selected>Город</option>
                   <option>Любая</option>
-                  {city.map((city) => <option key={city.id}>{city.cityName}</option>)}
+                  {city?.map((city) => <option key={city.id}>{city.cityName}</option>)}
                 </select>}
               <select name="campusName" >
                 <option value="" disabled selected>Кампус</option>
