@@ -41,7 +41,7 @@ function FindPeople() {
   }
   return (
     <div className={styles.top}>
-      <button onClick={showFilter}>Фильтр</button>]
+      <button onClick={showFilter}>Фильтр</button>
       <div>
         <input type="text" name="name" id="name" placeholder="Поиск" />
       </div>

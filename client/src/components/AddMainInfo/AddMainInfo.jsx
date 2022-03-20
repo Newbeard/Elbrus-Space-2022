@@ -7,8 +7,8 @@ function AddMainInfo() {
     const form = event.target;
     const dataForm = Object.fromEntries(new FormData(form));
     console.log(dataForm);
-    // dispatch(filterStudentsFromServer(dataForm))
   }
+
   return (
     <div className='top'>
       <form onSubmit={addInfo}>
@@ -19,8 +19,9 @@ function AddMainInfo() {
         <div>Откуда ты родом</div>
         <input type="text" name="countryName" placeholder="Страна" required></input>
         <input type="text" name="cityName" placeholder="Город" required></input>
-        <select >
+        <select name="campusName" >
             <option value="" disabled selected>Кампус</option>
+            <option>Любой</option>
             <option>Санкт-Петербург</option>
             <option>Москва</option>
             <option>Онлайн</option>
