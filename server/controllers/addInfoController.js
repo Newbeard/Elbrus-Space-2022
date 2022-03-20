@@ -3,7 +3,7 @@ const { User, Country, City, Campus } = require('../db/models');
 const addInfoController = async (req, res) => {
   const { dataForm, id } = req.body;
   const { name, surName, countryName, cityName, campusName } = dataForm;
-
+  console.log(11111111);
   try {
     const country = await Country.findOne({ where: { countryName } });
     const city = await City.findOne({ where: { cityName } });

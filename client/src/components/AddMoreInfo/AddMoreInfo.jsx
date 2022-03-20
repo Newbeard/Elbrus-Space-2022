@@ -26,7 +26,7 @@ function AddMoreInfo() {
 
           <div>Дата рождения</div>
 
-          <input type="date" id="start" name="year"
+          <input type="date" id="start" name="dateOfBirth"
             min="1950-01-01" max="2050-12-31"></input>
         </div>
         <div>Окончание обучения </div>
