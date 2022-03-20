@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './style.module.css';
 
-function Profile() {
+function Student() {
 	const dispatch = useDispatch();
 	const { user } = useSelector((state) => state.profile);
 
@@ -66,4 +66,4 @@ function Profile() {
 	);
 }
 
-export default Profile;
+export default Student;

@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import Footer from './components/Footer/Footer';
 import FindPeople from './components/FindPeople/FindPeople';
 import EditProfile from './components/EditProfile/EditProfile';
-import UserProfile from './components/UserProfile/UserProfile';
+import Student from './components/Student/Student';
 
 import { useEffect, useState } from 'react';
 import NavDesktop from './components/NavDesktop/NavDesktop';
@@ -52,7 +52,7 @@ function App() {
 						<Route path="/profile" element={<EditProfile />} />
             <Route path="/info" element={<AddMainInfo />} />
             <Route path="/moreInfo" element={<AddMoreInfo />} />
-            <Route path="/userprofile" element={<UserProfile />} />
+            <Route path="/student" element={<Student />} />
          
 
 					</Routes>
