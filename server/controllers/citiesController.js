@@ -28,7 +28,7 @@ const getCoordinates = async (req, res) => {
     console.log(arrCity);
     arrCity.forEach((element) => {
       const getCoordinate = axios.get(`https://geocode-maps.yandex.ru/1.x/?format=json&apikey=fa906837-e249-4c18-99ac-fb6aff0bc767&geocode=${encodeURIComponent(element)}`)
-        .then((response) => console.log(response.data.response.GeoObjectCollection.featureMember.map(el), '-----data'));
+        .then((response) => console.log(response.data.response.GeoObjectCollection.featureMember));
 
       console.log(getCoordinate);
     });
