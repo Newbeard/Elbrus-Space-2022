@@ -1,7 +1,6 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch,  useSelector  } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import {userRegistration} from '../../redux/actions/auth';
-import { useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import Error  from '../Error/Error'
 import styles from './style.module.css'
@@ -12,7 +11,7 @@ export default function Registration() {
   const { error, values, isLoading } = useSelector( state => state.user)
 
   useEffect(() => {
-    if(localStorage.getItem('id')) {
+    if(values.id) {
       navigate('/')
     };
   }, [values])
@@ -26,10 +25,8 @@ export default function Registration() {
 			confirmPassword: event.target.confirmPassword.value
 		};
 				dispatch(userRegistration(payload));
-        localStorage.setItem('id', values.id)
-        navigate('/')
-
 			};
+      
   return (
     <div className={styles.label}>
       <form onSubmit={handleSubmit}>

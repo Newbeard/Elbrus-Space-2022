@@ -1,19 +1,20 @@
 import './App.css';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useDispatch,  useSelector  } from 'react-redux';
 import Registration from './components/Registration/Registration';
 import Login from './components/Login/Login';
 import Home from './components/Home/Home';
 import AddMainInfo from './components/AddMainInfo/AddMainInfo';
 import AddMoreInfo from './components/AddMoreInfo/AddMoreInfo';
-import { useNavigate } from 'react-router-dom'; 
 import Footer from './components/Footer/Footer';
 import FindPeople from './components/FindPeople/FindPeople';
 import EditProfile from './components/EditProfile/EditProfile';
 import Student from './components/Student/Student';
-
-import { useEffect, useState } from 'react';
 import NavDesktop from './components/NavDesktop/NavDesktop';
 import NavMobile from './components/NavMobile/NavMobile';
+import {isSession} from './redux/actions/auth';
+
 
 
 
@@ -21,15 +22,18 @@ import NavMobile from './components/NavMobile/NavMobile';
 function App() {
   const [isMobile, setIsMobile] = useState(true)
   const screenWidth = window.innerWidth
+  const dispatch = useDispatch();
+	const navigate = useNavigate();
+  const { values } = useSelector( state => state.user)
 
-  const navigate = useNavigate();
+  
 
   useEffect(() => {
     screenWidth < 768 ? setIsMobile(true) : setIsMobile(false)
   }, []);
 
      useEffect(() => {
-       if(!localStorage.getItem('id')){navigate('/')}
+      dispatch(isSession());
      }, []);
 
 

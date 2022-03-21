@@ -13,10 +13,10 @@ export default function Login() {
   const { error, values, isLoading } = useSelector( state => state.user)
 
   useEffect(() => {
-    if(localStorage.getItem('id')) {
+    if(values.id) {
       navigate('/')
     };
-  }, [])
+  }, [values])
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
