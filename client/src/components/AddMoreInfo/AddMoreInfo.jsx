@@ -48,9 +48,7 @@ function AddMoreInfo() {
     arrayStorages.map((item) => localStorage.removeItem(item))
     navigate('/')
   }
-  function back(params) {
-    navigate('/info')
-  }
+
   return (
     <div className='top'>
       <form onSubmit={addInfo}>
@@ -94,7 +92,7 @@ function AddMoreInfo() {
         </select>
         <button>Сохранить</button>
       </form>
-      <button onClick={back}>Назад</button>
+      <button onClick={() => navigate('/info')}>Назад</button>
     </div>
   );
 }
