@@ -7,19 +7,22 @@ function AddMoreInfo() {
   async function addInfo(event) {
     event.preventDefault()
     const form = event.target;
-    const dataForm = Object.fromEntries(new FormData(form));
+    const dataForm2 = Object.fromEntries(new FormData(form));
+    const id = localStorage.getItem('id')
     const qwe = JSON.parse(localStorage.getItem('addedInfo'))
-    console.log(qwe);
-    console.log(dataForm);
-    // const id = localStorage.getItem('id')
+    const dataForm = {...qwe, ...dataForm2}
+    console.log({dataForm, id});
     // axios.post('/info', { dataForm, id })
     // navigate('/moreInfo')
+  }
+  function back(params) {
+    navigate('/info')
   }
   return (
     <div className='top'>
       <form onSubmit={addInfo}>
         <div>Расскажите о себе</div>
-        <input type="text" name="telegram" placeholder="Telegram"></input>
+        <input onChange={(e) => localStorage.setItem('addedInfo', JSON.stringify({ telegram: e.target.value }))} type="text" name="telegram" placeholder="Telegram"></input>
         <input type="text" name="github" placeholder="Github"></input>
         <div>Текущее местонахождение</div>
         <input type="text" name="currentCountryName" placeholder="Страна"></input>
@@ -58,7 +61,7 @@ function AddMoreInfo() {
         </select>
         <button>Сохранить</button>
       </form>
-      <button>Назад</button>
+      <button onClick={back}>Назад</button>
     </div>
   );
 }
