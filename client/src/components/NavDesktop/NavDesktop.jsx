@@ -21,19 +21,19 @@ export default function NavDesktop() {
     <div>
       <nav id="nav">
         <ul className="container">
-         {/* {!values.id ?<> */}
+         {!values.id ?<>
           <li><Link to="/login">Войти</Link></li>
           <li><Link to="/registration">Регистрация</Link></li>
-          {/* </>: */}
-          {/* <> */}
-          <li><Link to="/">Главная</Link></li>
+          </>:
+          <>
+          <li><Link to="/home">Главная</Link></li>
           <li><Link to="/profile">Мой профиль</Link></li>
           <li><Link to="/search">Поиск</Link></li>
           <li><Link to="/info">addInfo</Link></li>
           <li><Link to="/moreinfo">addMoreInfo</Link></li>
           <li><Link to="/student">student</Link></li>
           <li><Link to="/logout" onClick={hendlerClick}>Выйти</Link></li>
-          {/* </>} */}
+          </>}
         </ul>
       </nav>
     </div>

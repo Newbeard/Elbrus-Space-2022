@@ -32,31 +32,30 @@ function App() {
 
   useEffect(() => {
     screenWidth < 768 ? setIsMobile(true) : setIsMobile(false)
+    dispatch(isSession());
   }, []);
-
-  // useEffect(() => {
-  //   dispatch(isSession());
-  // }, []);
-
 
   return (
     <>
       <div className="qwe">
         <header >
+        {/* {(!isMobile && values.id) && (<NavDesktop />)} */}
           
             <div className="header">
              <img src="https://elbrusboot.camp/static/newLogo-00ed4b8011624cd94aa1812d35f25088.svg" alt="" />
             </div>
         </header>
-        {/* <StartPage/> */}
 
-        <main className="uk-container">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/registration" element={<Registration />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/search" element={<FindPeople />} />
-            <Route path="/profile" element={<EditProfile />} />
+        
+				<main className="uk-container">
+          
+					<Routes>
+            <Route path="/" element={!values.id && (<StartPage/>)} />
+					  <Route path="/home" element={<Home />} />
+						<Route path="/registration" element={<Registration />} />
+						<Route path="/login" element={<Login />} />
+						<Route path="/search" element={<FindPeople />} />
+						<Route path="/profile" element={<EditProfile />} />
             <Route path="/info" element={<AddMainInfo />} />
             <Route path="/moreInfo" element={<AddMoreInfo />} />
             <Route path="/student" element={<Student />} />

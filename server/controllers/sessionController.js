@@ -3,7 +3,7 @@ const sessionController = async (req, res) => {
     if (req.session.user) {
       res.json({ id: req.session.user.id });
     } else {
-      res.json({ success: false });
+      res.sendStatus(401);
     }
   } catch (err) {
     console.log(err.message);
