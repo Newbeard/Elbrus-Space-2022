@@ -1,19 +1,21 @@
 import axios from 'axios';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function AddMainInfo() {
   const navigate = useNavigate()
+  const [inputedData, setInputedData] = useState('')
+  useEffect(() => {
+    const dataForm = JSON.parse(localStorage.getItem('addedInfo'))
+    setInputedData(dataForm)
+  }, [])
+
   async function addInfo(event) {
     event.preventDefault()
     const form = event.target;
     const dataForm = Object.fromEntries(new FormData(form));
-    dataForm.currentCountryName = 'Монголия'
-    dataForm.currentCityName = 'Хан'
     localStorage.setItem('addedInfo', JSON.stringify(dataForm))
-    const qwe = JSON.parse(localStorage.getItem('addedInfo'))
-    const id = localStorage.getItem('id')
-    axios.post('/info', { dataForm, id })
-    // navigate('/moreInfo')
+    navigate('/moreInfo')
   }
 
   return (
@@ -21,17 +23,16 @@ function AddMainInfo() {
       <form onSubmit={addInfo}>
         <div>Расскажите о себе!</div>
         <div>*Обязательные поля для заполнения</div>
-        <input type="text" name="name" placeholder="Имя" required></input>
-        <input type="text" name="surName" placeholder="Фамилия"></input>
+        <input type="text" defaultValue={inputedData?.name} name="name" placeholder="Имя" required></input>
+        <input type="text" defaultValue={inputedData?.surName} name="surName" placeholder="Фамилия"></input>
         <div>Откуда ты родом</div>
-        <input type="text" name="countryName" placeholder="Страна" required></input>
-        <input type="text" name="cityName" placeholder="Город" required></input>
+        <input type="text" defaultValue={inputedData?.countryName} name="countryName" placeholder="Страна" required></input>
+        <input type="text" defaultValue={inputedData?.cityName} name="cityName" placeholder="Город" required></input>
         <select name="campusName" >
-            <option value="" disabled selected>Кампус</option>
-            <option>Любой</option>
-            <option>Санкт-Петербург</option>
-            <option>Москва</option>
-            <option>Онлайн</option>
+          {inputedData ? <option>{inputedData?.campusName}</option> : <option disabled selected>Кампус</option>}
+          <option>Москва</option>
+          <option>Санкт-Петербург</option>
+          <option>Онлайн</option>
         </select>
         <button>Далее</button>
 
