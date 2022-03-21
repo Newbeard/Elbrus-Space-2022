@@ -31,7 +31,7 @@ export default function Login() {
   return (
     <div className={styles.top}>
       <form onSubmit={handleSubmit}>
-        <input type="email" name="email" placeholder="Email" autoFocus autoComplete="off"/>
+        <input type="text" name="email" placeholder="Email" autoFocus autoComplete="off"/>
         <input type="password" name="password"placeholder="Пароль" autoComplete="off"/>
         <button type="submit" disabled={isLoading}>{isLoading ? 'Подождите...' : 'Войти'}</button>
         <h2>Нет аккаунта?</h2>
