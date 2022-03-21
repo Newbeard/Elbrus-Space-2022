@@ -2,14 +2,9 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './style.module.css';
 
-function Profile() {
+function Student() {
 	const dispatch = useDispatch();
 	const { user } = useSelector((state) => state.profile);
-
-	// useEffect(() => {
-	//   dispatch(initProfileFromServer())
-
-	// }, [])
 
 	return (
 		<div>
@@ -21,7 +16,7 @@ function Profile() {
 						<div className="col-6 col-9-small">{user.surName}</div>
 						<div>
 							<div>
-								<div> {user['Campus.campusName']}</div>
+								<div> Кампус {user['Campus.campusName']}</div>
 								<h3 className={styles.label}>Окончание обучения</h3>
 								<div>{user.yearFinishDate}</div>
 							</div>
@@ -66,4 +61,4 @@ function Profile() {
 	);
 }
 
-export default Profile;
+export default Student;
