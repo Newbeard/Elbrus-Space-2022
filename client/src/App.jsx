@@ -45,11 +45,11 @@ function App() {
 				<header className="header">
           {!isMobile && (<NavDesktop />)}
 				</header>
-        <StartPage/>
+        {/* <StartPage/> */}
 
 				<main className="uk-container">
 					<Routes>
-						{/* <Route path="/" element={<Home />} /> */}
+						<Route path="/" element={<Home />} />
 						<Route path="/registration" element={<Registration />} />
 						<Route path="/login" element={<Login />} />
 						<Route path="/search" element={<FindPeople />} />
