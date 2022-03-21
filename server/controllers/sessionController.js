@@ -1,7 +1,7 @@
 const sessionController = async (req, res) => {
   try {
     if (req.session.user) {
-      res.json({ success: true, id: req.session.user.id });
+      res.json({ id: req.session.user.id });
     } else {
       res.json({ success: false });
     }

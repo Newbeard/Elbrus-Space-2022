@@ -70,5 +70,13 @@ export const userLogout = (payload) => async (dispatch) => {
 }
 
 
-
+export const isSession = () => async (dispatch) => { 
+  try {
+    const { data } = await axios('/session')
+    dispatch(login(data))
+  }
+  catch (err) {
+    console.log(err);
+  }
+}
 
