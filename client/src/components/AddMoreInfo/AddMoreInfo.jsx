@@ -12,7 +12,7 @@ function AddMoreInfo() {
     const qwe = JSON.parse(localStorage.getItem('addedInfo'))
     const dataForm = {...qwe, ...dataForm2}
     console.log({dataForm, id});
-    // axios.post('/info', { dataForm, id })
+    axios.post('/info', { dataForm, id })
     // navigate('/moreInfo')
   }
   function back(params) {
@@ -22,7 +22,7 @@ function AddMoreInfo() {
     <div className='top'>
       <form onSubmit={addInfo}>
         <div>Расскажите о себе</div>
-        <input onChange={(e) => localStorage.setItem('addedInfo', JSON.stringify({ telegram: e.target.value }))} type="text" name="telegram" placeholder="Telegram"></input>
+        <input onChange={(e) => localStorage.setItem('telegram', JSON.stringify({ telegram: e.target.value }))} type="text" name="telegram" placeholder="Telegram"></input>
         <input type="text" name="github" placeholder="Github"></input>
         <div>Текущее местонахождение</div>
         <input type="text" name="currentCountryName" placeholder="Страна"></input>

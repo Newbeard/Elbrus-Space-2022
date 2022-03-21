@@ -7,7 +7,6 @@ function AddMainInfo() {
   const [inputedData, setInputedData] = useState('')
   useEffect(() => {
     const dataForm = JSON.parse(localStorage.getItem('addedInfo'))
-    console.log(dataForm);
     setInputedData(dataForm)
   }, [])
 
@@ -16,8 +15,6 @@ function AddMainInfo() {
     const form = event.target;
     const dataForm = Object.fromEntries(new FormData(form));
     localStorage.setItem('addedInfo', JSON.stringify(dataForm))
-    // const qwe = JSON.parse(localStorage.getItem('addedInfo'))
-    // console.log();
     navigate('/moreInfo')
   }
 
@@ -26,16 +23,15 @@ function AddMainInfo() {
       <form onSubmit={addInfo}>
         <div>Расскажите о себе!</div>
         <div>*Обязательные поля для заполнения</div>
-        <input type="text" value={inputedData?.name} name="name" placeholder="Имя" required></input>
-        <input type="text" name="surName" placeholder="Фамилия"></input>
+        <input type="text" defaultValue={inputedData?.name} name="name" placeholder="Имя" required></input>
+        <input type="text" defaultValue={inputedData?.surName} name="surName" placeholder="Фамилия"></input>
         <div>Откуда ты родом</div>
-        <input type="text" name="countryName" placeholder="Страна" required></input>
-        <input type="text" name="cityName" placeholder="Город" required></input>
+        <input type="text" defaultValue={inputedData?.countryName} name="countryName" placeholder="Страна" required></input>
+        <input type="text" defaultValue={inputedData?.cityName} name="cityName" placeholder="Город" required></input>
         <select name="campusName" >
-          <option value="" disabled selected>Кампус</option>
-          <option>Любой</option>
-          <option>Санкт-Петербург</option>
+          {inputedData ? <option>{inputedData?.campusName}</option> : <option disabled selected>Кампус</option>}
           <option>Москва</option>
+          <option>Санкт-Петербург</option>
           <option>Онлайн</option>
         </select>
         <button>Далее</button>
