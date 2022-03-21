@@ -46,9 +46,11 @@ function App() {
           {(!isMobile && values.id) && (<NavDesktop />)}
 				</header>
         
-        {!values.id && (<StartPage/>)}
+        
 				<main className="uk-container">
+          
 					<Routes>
+            <Route path="/" element={!values.id && (<StartPage/>)} />
 					  <Route path="/home" element={<Home />} />
 						<Route path="/registration" element={<Registration />} />
 						<Route path="/login" element={<Login />} />
