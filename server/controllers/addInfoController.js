@@ -25,7 +25,7 @@ const addInfoController = async (req, res) => {
     let currentCountry = { id: null };
     let currentCity = { id: null };
 
-    if (campusName) {
+    if (campusName && campusName !== 'Кампус') {
       campus = await Campus.findOne({ where: { campusName } });
     }
     if (currentCountryName) {
