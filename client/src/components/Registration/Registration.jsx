@@ -30,7 +30,7 @@ export default function Registration() {
   return (
     <div className={styles.label}>
       <form onSubmit={handleSubmit}>
-        <input type="email" name="email" placeholder="Email" autoFocus autoComplete="off"/>
+        <input type="text" name="email" placeholder="Email" autoFocus autoComplete="off"/>
         <input type="password" name="password" placeholder="Пароль" autoComplete="off"/>
         <input type="password"	name="confirmPassword" placeholder="Повторите пароль" autoComplete="off"/>
         <button type="submit" disabled={isLoading}>{isLoading ? 'Подождите...' : 'Зарегистрироваться'}</button>
