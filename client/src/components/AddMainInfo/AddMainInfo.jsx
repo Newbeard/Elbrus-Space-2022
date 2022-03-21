@@ -30,9 +30,9 @@ function AddMainInfo() {
         <input type="text" defaultValue={inputedData?.cityName} name="cityName" placeholder="Город" required></input>
         <select name="campusName" >
           {inputedData ? <option>{inputedData?.campusName}</option> : <option disabled selected>Кампус</option>}
-          <option>Москва</option>
-          <option>Санкт-Петербург</option>
-          <option>Онлайн</option>
+          {inputedData?.campusName !== 'Москва' && <option>Москва</option>}
+          {inputedData?.campusName !== 'Санкт-Петербург' && <option>Санкт-Петербург</option>}
+          {inputedData?.campusName !== 'Онлайн' && <option>Онлайн</option>}
         </select>
         <button>Далее</button>
 

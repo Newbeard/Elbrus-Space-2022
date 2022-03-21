@@ -1,67 +1,98 @@
 import axios from 'axios';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function AddMoreInfo() {
   const navigate = useNavigate()
+  const [inputedData, setInputedData] = useState('');
+
+  useEffect(() => {
+    const telegram = localStorage.getItem('telegram')
+    const Github = localStorage.getItem('Github')
+    const currentCountryName = localStorage.getItem('currentCountryName')
+    const currentCityName = localStorage.getItem('currentCityName')
+    const dateOfBirth = localStorage.getItem('dateOfBirth')
+    const yearFinishDate = localStorage.getItem('yearFinishDate')
+    const monthFinishDate = localStorage.getItem('monthFinishDate')
+
+    setInputedData({
+      telegram,
+      Github,
+      currentCountryName,
+      currentCityName,
+      dateOfBirth,
+      yearFinishDate,
+      monthFinishDate,
+    })
+  }, [])
 
   async function addInfo(event) {
     event.preventDefault()
     const form = event.target;
     const dataForm2 = Object.fromEntries(new FormData(form));
     const id = localStorage.getItem('id')
-    const qwe = JSON.parse(localStorage.getItem('addedInfo'))
-    const dataForm = {...qwe, ...dataForm2}
-    console.log({dataForm, id});
+    const dataForm1 = JSON.parse(localStorage.getItem('addedInfo'))
+    const dataForm = { ...dataForm1, ...dataForm2 }
+    console.log({ dataForm, id });
     axios.post('/info', { dataForm, id })
-    // navigate('/moreInfo')
+    const arrayStorages = [
+      'addedInfo',
+      'telegram',
+      'Github',
+      'currentCountryName',
+      'currentCityName',
+      'dateOfBirth',
+      'yearFinishDate',
+      'monthFinishDate',
+    ]
+    arrayStorages.map((item) => localStorage.removeItem(item))
+    navigate('/')
   }
-  function back(params) {
-    navigate('/info')
-  }
+
   return (
     <div className='top'>
       <form onSubmit={addInfo}>
         <div>Расскажите о себе</div>
-        <input onChange={(e) => localStorage.setItem('telegram', JSON.stringify({ telegram: e.target.value }))} type="text" name="telegram" placeholder="Telegram"></input>
-        <input type="text" name="github" placeholder="Github"></input>
+        <input defaultValue={inputedData?.telegram} onChange={(e) => localStorage.setItem('telegram', (e.target.value))} type="text" name="telegram" placeholder="Telegram"></input>
+        <input defaultValue={inputedData?.Github} onChange={(e) => localStorage.setItem('Github', (e.target.value))} type="text" name="github" placeholder="Github"></input>
         <div>Текущее местонахождение</div>
-        <input type="text" name="currentCountryName" placeholder="Страна"></input>
-        <input type="text" name="currentCityName" placeholder="Город"></input>
+        <input defaultValue={inputedData?.currentCountryName} onChange={(e) => localStorage.setItem('currentCountryName', (e.target.value))} type="text" name="currentCountryName" placeholder="Страна"></input>
+        <input defaultValue={inputedData?.currentCityName} onChange={(e) => localStorage.setItem('currentCityName', (e.target.value))} type="text" name="currentCityName" placeholder="Город"></input>
         <div>
 
           <div>Дата рождения</div>
 
-          <input type="date" id="start" name="dateOfBirth"
+          <input defaultValue={inputedData?.dateOfBirth} onChange={(e) => localStorage.setItem('dateOfBirth', (e.target.value))} type="date" id="start" name="dateOfBirth"
             min="1950-01-01" max="2050-12-31"></input>
         </div>
         <div>Окончание обучения </div>
-        <select name="yearFinishDate" >
-          <option value="" disabled selected>Год</option>
-          <option>2018</option>
-          <option>2019</option>
-          <option>2020</option>
-          <option>2021</option>
-          <option>2022</option>
-          <option>2023</option>
+        <select onChange={(e) => localStorage.setItem('yearFinishDate', (e.target.value))} name="yearFinishDate" >
+          {inputedData ? <option>{inputedData?.yearFinishDate}</option> : <option disabled selected>Год</option>}
+          {inputedData?.yearFinishDate !== '2018' && <option>2018</option>}
+          {inputedData?.yearFinishDate !== '2019' && <option>2019</option>}
+          {inputedData?.yearFinishDate !== '2020' && <option>2020</option>}
+          {inputedData?.yearFinishDate !== '2021' && <option>2021</option>}
+          {inputedData?.yearFinishDate !== '2022' && <option>2022</option>}
+          {inputedData?.yearFinishDate !== '2023' && <option>2023</option>}
         </select>
-        <select name="monthFinishDate" >
-          <option value="" disabled selected>Месяц</option>
-          <option>Январь</option>
-          <option>Февраль</option>
-          <option>Март</option>
-          <option>Апрель</option>
-          <option>Май</option>
-          <option>Июнь</option>
-          <option>Июль</option>
-          <option>Август</option>
-          <option>Сентябрь</option>
-          <option>Октябрь</option>
-          <option>Ноябрь</option>
-          <option>Декабрь</option>
+        <select defaultValue={inputedData?.monthFinishDate} onChange={(e) => localStorage.setItem('monthFinishDate', (e.target.value))} name="monthFinishDate" >
+          {inputedData ? <option>{inputedData?.monthFinishDate}</option> : <option disabled selected>Месяц</option>}
+          {inputedData?.monthFinishDate !== 'Январь' && <option>Январь</option>}
+          {inputedData?.monthFinishDate !== 'Февраль' && <option>Февраль</option>}
+          {inputedData?.monthFinishDate !== 'Март' && <option>Март</option>}
+          {inputedData?.monthFinishDate !== 'Апрель' && <option>Апрель</option>}
+          {inputedData?.monthFinishDate !== 'Май' && <option>Май</option>}
+          {inputedData?.monthFinishDate !== 'Июнь' && <option>Июнь</option>}
+          {inputedData?.monthFinishDate !== 'Июль' && <option>Июль</option>}
+          {inputedData?.monthFinishDate !== 'Август' && <option>Август</option>}
+          {inputedData?.monthFinishDate !== 'Сентябрь' && <option>Сентябрь</option>}
+          {inputedData?.monthFinishDate !== 'Октябрь' && <option>Октябрь</option>}
+          {inputedData?.monthFinishDate !== 'Ноябрь' && <option>Ноябрь</option>}
+          {inputedData?.monthFinishDate !== 'Декабрь' && <option>Декабрь</option>}
         </select>
         <button>Сохранить</button>
       </form>
-      <button onClick={back}>Назад</button>
+      <button onClick={() => navigate('/info')}>Назад</button>
     </div>
   );
 }
