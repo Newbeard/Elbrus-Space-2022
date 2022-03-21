@@ -43,13 +43,13 @@ function App() {
 		<>
 			<div className="wraper">
 				<header className="header">
-          {!isMobile && (<NavDesktop />)}
+          {(!isMobile && values.id) && (<NavDesktop />)}
 				</header>
-        <StartPage/>
-
+        
+        {!values.id && (<StartPage/>)}
 				<main className="uk-container">
 					<Routes>
-						{/* <Route path="/" element={<Home />} /> */}
+					  <Route path="/home" element={<Home />} />
 						<Route path="/registration" element={<Registration />} />
 						<Route path="/login" element={<Login />} />
 						<Route path="/search" element={<FindPeople />} />

@@ -14,7 +14,7 @@ export default function Login() {
 
   useEffect(() => {
     if(values.id) {
-      navigate('/')
+      navigate('/home')
     };
   }, [values])
 
