@@ -7,8 +7,8 @@ function AddMainInfo() {
     event.preventDefault()
     const form = event.target;
     const dataForm = Object.fromEntries(new FormData(form));
-    dataForm.currentCountryName = 'Монголия'
-    dataForm.currentCityName = 'Хан'
+    // dataForm.currentCountryName = 'qzzzz'
+    // dataForm.currentCityName = 'qqqq'
     localStorage.setItem('addedInfo', JSON.stringify(dataForm))
     const qwe = JSON.parse(localStorage.getItem('addedInfo'))
     const id = localStorage.getItem('id')

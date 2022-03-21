@@ -23,17 +23,19 @@ const addInfoController = async (req, res) => {
     if (campusName) {
       campus = await Campus.findOne({ where: { campusName } });
     }
-
-    if (currentCountryName && currentCityName) {
+    if (currentCountryName) {
       currentCountry = await Country.findOne({ where: { countryName: currentCountryName } });
-      currentCity = await City.findOne({ where: { cityName: currentCityName } });
+      if (currentCityName) {
+        currentCity = await City.findOne({ where: { cityName: currentCityName } });
+      }
       if (currentCountry === null) {
         currentCountry = await Country.create({ countryName: currentCountryName });
-        currentCity = await City.create({
-          cityName: currentCityName,
-          countrysId: currentCountry.id,
-        });
-
+        if (currentCityName) {
+          currentCity = await City.create({
+            cityName: currentCityName,
+            countrysId: currentCountry.id,
+          });
+        }
         if (!country) {
           const newCountry = await Country.create({ countryName });
           const newCity = await City.create({ cityName, countrysId: newCountry.id });
@@ -78,10 +80,12 @@ const addInfoController = async (req, res) => {
           );
         }
       } else if (currentCity === null) {
-        currentCity = await City.create({
-          cityName: currentCityName,
-          countrysId: currentCountry.id,
-        });
+        if (currentCityName) {
+          currentCity = await City.create({
+            cityName: currentCityName,
+            countrysId: currentCountry.id,
+          });
+        }
         if (!country) {
           const newCountry = await Country.create({ countryName });
           const newCity = await City.create({ cityName, countrysId: newCountry.id });
@@ -126,62 +130,52 @@ const addInfoController = async (req, res) => {
           );
         }
       }
+    } else {
+      if (!country) {
+        const newCountry = await Country.create({ countryName });
+        const newCity = await City.create({ cityName, countrysId: newCountry.id });
+        await User.update(
+          {
+            name,
+            surName,
+            countryId: newCountry.id,
+            cityId: newCity.id,
+            campusId: campus.id,
+            currentCountryId: currentCountry.id,
+            currentCityId: currentCity.id,
+          },
+          { where: { id } },
+        );
+      } else if (!city) {
+        const newCity = await City.create({ cityName, countrysId: country.id });
+        await User.update(
+          {
+            name,
+            surName,
+            countryId: country.id,
+            cityId: newCity.id,
+            campusId: campus.id,
+            currentCountryId: currentCountry.id,
+            currentCityId: currentCity.id,
+          },
+          { where: { id } },
+        );
+      } else {
+        await User.update(
+          {
+            name,
+            surName,
+            countryId: country.id,
+            cityId: city.id,
+            campusId: campus.id,
+            currentCountryId: currentCountry.id,
+            currentCityId: currentCity.id,
+          },
+          { where: { id } },
+        );
+      }
     }
 
-    // if (!country) {
-    //   const newCountry = await Country.create({ countryName });
-    //   const newCity = await City.create({ cityName, countrysId: newCountry.id });
-    //   await User.update(
-    //     {
-    //       name,
-    //       surName,
-    //       countryId: newCountry.id,
-    //       cityId: newCity.id,
-    //       campusId: campus.id,
-    //       currentCountryId: currentCountry.id,
-    //       currentCityId: currentCity.id,
-    //     },
-    //     { where: { id } },
-    //   );
-    // } else if (!city) {
-    //   const newCity = await City.create({ cityName, countrysId: country.id });
-    //   await User.update(
-    //     {
-    //       name,
-    //       surName,
-    //       countryId: country.id,
-    //       cityId: newCity.id,
-    //       campusId: campus.id,
-    //       currentCountryId: currentCountry.id,
-    //       currentCityId: currentCity.id,
-    //     },
-    //     { where: { id } },
-    //   );
-    // } else {
-    //   await User.update(
-    //     {
-    //       name,
-    //       surName,
-    //       countryId: country.id,
-    //       cityId: city.id,
-    //       campusId: campus.id,
-    //       currentCountryId: currentCountry.id,
-    //       currentCityId: currentCity.id,
-    //     },
-    //     { where: { id } },
-    //   );
-    // }
-
-    // else if (currentCityName) {
-    //   currentCity = await City.findOne({ where: { cityName: currentCityName } });
-
-    //   if (currentCity === null) {
-    //     newCurrentCity = await City.create({
-    //       cityName: currentCityName,
-    //       countrysId: currentCountry.id,
-    //     });
-    //   }
-    // }
     res.sendStatus(201);
   } catch (error) {
     res.sendStatus(500);
