@@ -1,10 +1,12 @@
-import { YMaps, Map, Placemark } from 'react-yandex-maps';
+import { YMaps, Map, Placemark, Geocoder } from 'react-yandex-maps';
 import React, { useEffect, useState} from 'react';
 import './style.module.css'
 import { useSelector, useDispatch } from 'react-redux';
 import { yandexDecoder } from '../../redux/actions/city.action';
 import { getCity } from '../../redux/actions/city.action';
 
+// Geocoder.init('fa906837-e249-4c18-99ac-fb6aff0bc767');
+// Geocoder.addressToGeo();
 
 const Maps = (props) => {
   const cityesss=[
@@ -21,6 +23,7 @@ const Maps = (props) => {
 
   const {city} = useSelector(state => state)
   console.log(city.data)
+
 
 
   return (

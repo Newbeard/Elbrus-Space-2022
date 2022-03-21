@@ -13,7 +13,9 @@ import EditProfile from './components/EditProfile/EditProfile';
 import Student from './components/Student/Student';
 import NavDesktop from './components/NavDesktop/NavDesktop';
 import NavMobile from './components/NavMobile/NavMobile';
+import StartPage from './components/StartPage/StartPage';
 import {isSession} from './redux/actions/auth';
+
 
 
 
@@ -41,15 +43,13 @@ function App() {
 		<>
 			<div className="wraper">
 				<header className="header">
-    
           {!isMobile && (<NavDesktop />)}
-					
 				</header>
-     
+        <StartPage/>
 
 				<main className="uk-container">
 					<Routes>
-						<Route path="/" element={<Home />} />
+						{/* <Route path="/" element={<Home />} /> */}
 						<Route path="/registration" element={<Registration />} />
 						<Route path="/login" element={<Login />} />
 						<Route path="/search" element={<FindPeople />} />
@@ -57,6 +57,7 @@ function App() {
             <Route path="/info" element={<AddMainInfo />} />
             <Route path="/moreInfo" element={<AddMoreInfo />} />
             <Route path="/student" element={<Student />} />
+
          
 
 					</Routes>
