@@ -14,6 +14,7 @@ import UserProfile from './components/UserProfile/UserProfile';
 import { useEffect, useState } from 'react';
 import NavDesktop from './components/NavDesktop/NavDesktop';
 import NavMobile from './components/NavMobile/NavMobile';
+import StartPage from './components/StartPage/StartPage';
 
 
 
@@ -37,15 +38,13 @@ function App() {
 		<>
 			<div className="wraper">
 				<header className="header">
-    
           {!isMobile && (<NavDesktop />)}
-					
 				</header>
-     
+        <StartPage/>
 
 				<main className="uk-container">
 					<Routes>
-						<Route path="/" element={<Home />} />
+						{/* <Route path="/" element={<Home />} /> */}
 						<Route path="/registration" element={<Registration />} />
 						<Route path="/login" element={<Login />} />
 						<Route path="/search" element={<FindPeople />} />
@@ -53,6 +52,8 @@ function App() {
             <Route path="/info" element={<AddMainInfo />} />
             <Route path="/moreInfo" element={<AddMoreInfo />} />
             <Route path="/userprofile" element={<UserProfile />} />
+            
+            
          
 
 					</Routes>
