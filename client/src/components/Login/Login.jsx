@@ -13,7 +13,7 @@ export default function Login() {
   const { error, values, isLoading } = useSelector(state => state.user)
 
   useEffect(() => {
-    if(values.id) {
+    if (values.id) {
       navigate('/home')
     };
   }, [values])
@@ -29,14 +29,21 @@ export default function Login() {
   };
 
   return (
+
     <div className='login-form'>
+      <div className='nav-login-registration'>
+        <div className='link-nav' >
+          <h3 className='h3-link'>Вход</h3>
+        </div>
+        <div className='link-nav'>
+          <h3 className='h3-link'>Регистрация</h3>
+        </div>
+      </div>
       <form onSubmit={handleSubmit}>
-        <div>
         <input type="text" name="email" placeholder="Email" autoFocus autoComplete="off" />
         <input type="password" name="password" placeholder="Пароль" autoComplete="off" />
-        </div>
         <div>
-          <button type="submit" disabled={isLoading}>{isLoading ? 'Подождите...' : 'Войти'}</button>
+          <button className="login-form-button" type="submit" disabled={isLoading}>{isLoading ? 'Подождите...' : 'Войти'}</button>
         </div>
         {error && <Error error={error.error} />}
       </form>

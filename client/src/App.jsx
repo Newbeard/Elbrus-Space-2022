@@ -28,8 +28,6 @@ function App() {
   const navigate = useNavigate();
   const { values } = useSelector(state => state.user)
 
-
-
   useEffect(() => {
     screenWidth < 768 ? setIsMobile(true) : setIsMobile(false)
     dispatch(isSession());
@@ -37,25 +35,24 @@ function App() {
 
   return (
     <>
-      <div className="qwe">
+      <div className="">
         <header >
-        {/* {(!isMobile && values.id) && (<NavDesktop />)} */}
-          
-            <div className="header">
-             <img src="https://elbrusboot.camp/static/newLogo-00ed4b8011624cd94aa1812d35f25088.svg" alt="" />
-            </div>
+          {/* {(!isMobile && values.id) && (<NavDesktop />)} */}
+          <div className="logo">
+            <img src="https://elbrusboot.camp/static/newLogo-00ed4b8011624cd94aa1812d35f25088.svg" alt="" />
+          </div>
         </header>
 
-        
-				<main className="uk-container">
-          
-					<Routes>
-            <Route path="/" element={!values.id && (<StartPage/>)} />
-					  <Route path="/home" element={<Home />} />
-						<Route path="/registration" element={<Registration />} />
-						<Route path="/login" element={<Login />} />
-						<Route path="/search" element={<FindPeople />} />
-						<Route path="/profile" element={<EditProfile />} />
+
+        <main className="uk-container">
+
+          <Routes>
+            <Route path="/" element={!values.id && (<StartPage />)} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/registration" element={<Registration />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/search" element={<FindPeople />} />
+            <Route path="/profile" element={<EditProfile />} />
             <Route path="/info" element={<AddMainInfo />} />
             <Route path="/moreInfo" element={<AddMoreInfo />} />
             <Route path="/student" element={<Student />} />
