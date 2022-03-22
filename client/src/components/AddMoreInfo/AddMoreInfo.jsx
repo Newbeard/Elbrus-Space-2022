@@ -67,7 +67,7 @@ function AddMoreInfo() {
         </div>
         <div>Окончание обучения </div>
         <select onChange={(e) => localStorage.setItem('yearFinishDate', (e.target.value))} name="yearFinishDate" >
-          {inputedData ? <option>{inputedData?.yearFinishDate}</option> : <option disabled selected>Год</option>}
+          {inputedData.yearFinishDate ? <option>{inputedData?.yearFinishDate}</option> : <option disabled selected>Год</option>}
           {inputedData?.yearFinishDate !== '2018' && <option>2018</option>}
           {inputedData?.yearFinishDate !== '2019' && <option>2019</option>}
           {inputedData?.yearFinishDate !== '2020' && <option>2020</option>}
@@ -76,7 +76,7 @@ function AddMoreInfo() {
           {inputedData?.yearFinishDate !== '2023' && <option>2023</option>}
         </select>
         <select defaultValue={inputedData?.monthFinishDate} onChange={(e) => localStorage.setItem('monthFinishDate', (e.target.value))} name="monthFinishDate" >
-          {inputedData ? <option>{inputedData?.monthFinishDate}</option> : <option disabled selected>Месяц</option>}
+          {inputedData.monthFinishDate ? <option>{inputedData?.monthFinishDate}</option> : <option disabled selected>Месяц</option>}
           {inputedData?.monthFinishDate !== 'Январь' && <option>Январь</option>}
           {inputedData?.monthFinishDate !== 'Февраль' && <option>Февраль</option>}
           {inputedData?.monthFinishDate !== 'Март' && <option>Март</option>}
