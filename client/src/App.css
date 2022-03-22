@@ -25,7 +25,7 @@ ol, ul {
 }
 
 html,body {
-  font-family: 'SF-UI-Display-Semibold';
+  font-family: 'SF-UI-Display';
   background-color:  rgb(255 255 255);
   }
 
@@ -62,16 +62,15 @@ textarea:focus, input:focus{
     flex-grow: 1;
   }
 
-  footer {
+  .footer {
     position: absolute;
     bottom: 0;
     width: 100%;
     height: 10vh;
     background: #FFFFFF;;
     box-shadow: 10px 10px 40px #EAEAEA;
-    border-bottom-left-radius: 34px;
-    border-bottom-right-radius: 34px;
-    transform: matrix(1, 0, 0, -1, 0, 0);
+    border-top-left-radius: 34px;
+    border-top-right-radius: 34px;
   }
   
   .login-form {
@@ -115,7 +114,7 @@ textarea:focus, input:focus{
   }
 
   .login-form-button, .registration-form-button {
-    width: 85vw;
+    width: 100%;
     height: 52px;
     background: #F6BE6C;
     border-radius: 7px;
@@ -154,6 +153,46 @@ textarea:focus, input:focus{
     letter-spacing: 0em;
     text-align: left;
   }
+
+  .navbar-mobile {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    align-items: center;
+  }
+
+  .logo-navbar-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 145%;
+    font-family: 'SF-UI-Display-Light';
+    color: #000000;
+    gap: 6px;
+    
+  }
+
+  .gap-1 {
+    gap: 1px;
+  }
+  .gap-2 {
+    gap: 2px;
+  }
+  .gap-3 {
+    gap: 3px;
+  }
+  .gap-6 {
+    gap: 6px;
+  }
+
+
+
+
+  
 }
 
 
