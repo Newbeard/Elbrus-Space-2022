@@ -35,6 +35,11 @@ textarea:focus, input:focus{
   outline: none;
 }
 
+.link {
+  text-decoration: none;
+  color: black;
+} 
+
 @media (max-width: 767px) {
 
   body {
@@ -110,7 +115,7 @@ textarea:focus, input:focus{
   } */
   
   input:hover{
-    border:1px solid #4074dd;
+    border:1px solid #3F29A4;
   }
 
   .login-form-button, .registration-form-button {
@@ -192,7 +197,7 @@ textarea:focus, input:focus{
 
 
 
-  
+
 }
 
 
