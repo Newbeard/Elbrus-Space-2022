@@ -32,7 +32,7 @@ export default function Login() {
 
     <div className='login-form'>
       <div className='nav-login-registration'>
-        <div className='link-nav' >
+        <div className='link-nav link-nav--active' >
           <h3 className='h3-link'>Вход</h3>
         </div>
         <div className='link-nav'>

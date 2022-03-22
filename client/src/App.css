@@ -29,17 +29,7 @@ html,body {
   background-color:  rgb(255 255 255);
   }
 
-input {
-  border: 1px solid #EAEAEA;
-  box-sizing: border-box;
-  border-radius: 7px;
-  width: 317px;
-  height: 37px;
-}
 
-input:hover{
-  border:1px solid #4074dd;
-}
 
 textarea:focus, input:focus{
   outline: none;
@@ -108,10 +98,24 @@ textarea:focus, input:focus{
     font-family: 'SF-UI-Display-Light';
     color: #8D8D8D;
     padding-left: 14px;
+    border: 1px solid #EAEAEA;
+    box-sizing: border-box;
+    border-radius: 7px;
+    width: 85%;
+    height: 37px;
+  }
+
+  /* input {
+    
+
+  } */
+  
+  input:hover{
+    border:1px solid #4074dd;
   }
 
   .login-form-button, .registration-form-button {
-    width: 317px;
+    min-width: 85%;
     height: 52px;
     background: #F6BE6C;
     border-radius: 7px;
@@ -126,10 +130,10 @@ textarea:focus, input:focus{
 
   .nav-login-registration {
     min-width: 85%;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     /* flex-direction: row; */
     justify-content: space-between;
-    border-bottom: #EAEAEA solid ;
     margin-bottom: 23px;
   }
   .link-nav {
@@ -137,6 +141,11 @@ textarea:focus, input:focus{
     width: 100%;
     display: flex;
     justify-content: flex-start;
+    border-bottom: 1px #EAEAEA solid;
+  }
+
+  .link-nav--active {
+    border-bottom: 1px solid #3F29A4;
   }
   .h3-link {
     font-size: 20px;
@@ -189,70 +198,7 @@ textarea:focus, input:focus{
 
 
 
-
-
-
-/* #navMobile {
-  background-color: #4520aa;
-  text-align: center;
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  z-index: 10000;
-  cursor: default;
-  height: 3.5em;
-  line-height: 3.5em;
-}
-
-#navMobile ul {
-  margin-bottom: 0;
-  list-style: none;
-  padding-left: 0;
-}
-
-#navMobile li {
-  display: inline-block;
-  padding-left: 0;
-}
-
-#navMobile a {
-  -moz-transition: background-color .2s ease-in-out;
-  -webkit-transition: background-color .2s ease-in-out;
-  -ms-transition: background-color .2s ease-in-out;
-  transition: background-color .2s ease-in-out;
-  position: relative;
-  display: block;
-  color: #4074dd;
-  text-decoration: none;
-  outline: 0;
-  font-weight: 600;
-  border-radius: 8px;
-  color: #4074dd;
-  height: 2.5em;
-  line-height: 2.5em;
-  padding: 0 1.25em;
-}
-
-#navMobile a:hover {
-  color: #00ecff;
-}
-
-#navMobile a.active:before {
-  content: '';
-  display: block;
-  position: absolute;
-  bottom: -0.6em;
-  left: 50%;
-  margin-left: -0.75em;
-  border-left: solid 0.75em transparent;
-  border-right: solid 0.75em transparent;
-  border-top: solid 0.6em #282828;
-} */
-
-
-
-/* #nav {
+#nav {
   background-color: #4520aa;
   text-align: center;
   position: fixed;
@@ -308,7 +254,7 @@ textarea:focus, input:focus{
   border-left: solid 0.75em transparent;
   border-right: solid 0.75em transparent;
   border-top: solid 0.6em #282828;
-} */
+} 
 
 /* select:required:invalid {
   color: #e0e0e0 !important;
