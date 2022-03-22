@@ -1,5 +1,5 @@
 import styles from './style.module.css';
-import { initProfileFromServer } from '../../redux/actions/userProfile.action';
+import { initProfileFromServer, editProfileFromServer } from '../../redux/actions/userProfile.action';
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect } from 'react';
 
@@ -14,9 +14,9 @@ function EditProfile(props) {
 	function hendleSubmit(event) {
 		event.preventDefault();
 		const form = event.target;
-		const dataForm = Object.fromEntries(new FormData(form));
-		console.log(dataForm);
-		//dispatch(editProfileFromServer(dataForm))
+		const data = Object.fromEntries(new FormData(form));
+		console.log(data);
+		dispatch(editProfileFromServer(data))
 	}
 	return (
 		<div>
