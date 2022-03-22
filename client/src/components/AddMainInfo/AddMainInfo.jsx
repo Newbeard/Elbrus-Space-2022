@@ -2,6 +2,8 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+// const campuses = ['Москва', 'Санкт-Петербург', 'Онлайн'];
+
 function AddMainInfo() {
   const navigate = useNavigate()
   const [inputedData, setInputedData] = useState('')
@@ -30,12 +32,15 @@ function AddMainInfo() {
         <input type="text" defaultValue={inputedData?.cityName} name="cityName" placeholder="Город" required></input>
         <select name="campusName" >
           {inputedData ? <option>{inputedData?.campusName}</option> : <option disabled selected>Кампус</option>}
-          <option>Москва</option>
-          <option>Санкт-Петербург</option>
-          <option>Онлайн</option>
+          {inputedData?.campusName !== 'Москва' && <option>Москва</option>}
+          {inputedData?.campusName !== 'Санкт-Петербург' && <option>Санкт-Петербург</option>}
+          {inputedData?.campusName !== 'Онлайн' && <option>Онлайн</option>}
         </select>
+        {/* <select defaultValue={inputedData?.campusName} name="campusName" >
+          {!inputedData.campusName && <option disabled selected>Кампус</option>}
+          {campuses.map(el => (<option selected={inputedData?.campusName === el}>{el}</option>))}
+        </select> */}
         <button>Далее</button>
-
       </form>
     </div>
   );

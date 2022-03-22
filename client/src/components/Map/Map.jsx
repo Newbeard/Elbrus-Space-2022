@@ -25,7 +25,7 @@ const Maps = (props) => {
     },[])
 
   const {city} = useSelector(state => state)
-  console.log(city.data)
+  // console.log(city.data)
 
   
 
