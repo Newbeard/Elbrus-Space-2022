@@ -51,6 +51,7 @@ function AddMoreInfo() {
     const dataForm = { ...dataForm1, ...dataForm2 }
     console.log({ dataForm, id });
     axios.post('/info', { dataForm, id })
+    axios.post('/getcoord', { dataForm, id })
     const arrayStorages = [
       'addedInfo',
       'telegram',
