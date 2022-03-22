@@ -2,6 +2,22 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+const months = [
+  'Январь',
+  'Февраль',
+  'Март',
+  'Апрель',
+  'Май',
+  'Июнь',
+  'Июль',
+  'Август',
+  'Сентябрь',
+  'Октябрь',
+  'Ноябрь',
+  'Декабрь',
+];
+const years = ['2020', '2021', '2022']
+
 function AddMoreInfo() {
   const navigate = useNavigate()
   const [inputedData, setInputedData] = useState('');
@@ -67,28 +83,12 @@ function AddMoreInfo() {
         </div>
         <div>Окончание обучения </div>
         <select onChange={(e) => localStorage.setItem('yearFinishDate', (e.target.value))} name="yearFinishDate" >
-          {inputedData.yearFinishDate ? <option>{inputedData?.yearFinishDate}</option> : <option disabled selected>Год</option>}
-          {inputedData?.yearFinishDate !== '2018' && <option>2018</option>}
-          {inputedData?.yearFinishDate !== '2019' && <option>2019</option>}
-          {inputedData?.yearFinishDate !== '2020' && <option>2020</option>}
-          {inputedData?.yearFinishDate !== '2021' && <option>2021</option>}
-          {inputedData?.yearFinishDate !== '2022' && <option>2022</option>}
-          {inputedData?.yearFinishDate !== '2023' && <option>2023</option>}
+        {!inputedData.yearFinishDate && <option disabled selected>Год</option>}
+          {years.map((el, i) => (<option key={i} selected={inputedData?.yearFinishDate === el}>{el}</option>))}
         </select>
-        <select defaultValue={inputedData?.monthFinishDate} onChange={(e) => localStorage.setItem('monthFinishDate', (e.target.value))} name="monthFinishDate" >
-          {inputedData.monthFinishDate ? <option>{inputedData?.monthFinishDate}</option> : <option disabled selected>Месяц</option>}
-          {inputedData?.monthFinishDate !== 'Январь' && <option>Январь</option>}
-          {inputedData?.monthFinishDate !== 'Февраль' && <option>Февраль</option>}
-          {inputedData?.monthFinishDate !== 'Март' && <option>Март</option>}
-          {inputedData?.monthFinishDate !== 'Апрель' && <option>Апрель</option>}
-          {inputedData?.monthFinishDate !== 'Май' && <option>Май</option>}
-          {inputedData?.monthFinishDate !== 'Июнь' && <option>Июнь</option>}
-          {inputedData?.monthFinishDate !== 'Июль' && <option>Июль</option>}
-          {inputedData?.monthFinishDate !== 'Август' && <option>Август</option>}
-          {inputedData?.monthFinishDate !== 'Сентябрь' && <option>Сентябрь</option>}
-          {inputedData?.monthFinishDate !== 'Октябрь' && <option>Октябрь</option>}
-          {inputedData?.monthFinishDate !== 'Ноябрь' && <option>Ноябрь</option>}
-          {inputedData?.monthFinishDate !== 'Декабрь' && <option>Декабрь</option>}
+        <select onChange={(e) => localStorage.setItem('monthFinishDate', (e.target.value))} name="monthFinishDate" >
+          {!inputedData.monthFinishDate && <option disabled selected>Месяц</option>}
+          {months.map((el, i) => (<option key={i} selected={inputedData?.monthFinishDate === el}>{el}</option>))}
         </select>
         <button>Сохранить</button>
       </form>
