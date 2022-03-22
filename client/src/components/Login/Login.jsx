@@ -42,9 +42,7 @@ export default function Login() {
       <form onSubmit={handleSubmit}>
         <input type="text" name="email" placeholder="Email" autoFocus autoComplete="off" />
         <input type="password" name="password" placeholder="Пароль" autoComplete="off" />
-        <div>
-          <button className="login-form-button" type="submit" disabled={isLoading}>{isLoading ? 'Подождите...' : 'Войти'}</button>
-        </div>
+        <button className="login-form-button" type="submit" disabled={isLoading}>{isLoading ? 'Подождите...' : 'Войти'}</button>
         {error && <Error error={error.error} />}
       </form>
     </div>
