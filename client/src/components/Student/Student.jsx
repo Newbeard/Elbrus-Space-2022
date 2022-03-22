@@ -16,12 +16,12 @@ function Student() {
 						<div className="col-6 col-9-small">{user.surName}</div>
 						<div>
 							<div>
-								<div> Кампус {user['Campus.campusName']}</div>
-								<h3 className={styles.label}>Окончание обучения</h3>
+								<div> Кампус:  {user['Campus.campusName']}</div>
+								<h3 className={styles.label}>Окончание обучения: </h3>
 								<div>{user.yearFinishDate}</div>
 							</div>
 							<div>
-								<h3 className={styles.label}>Контакты</h3>
+								<h3 className={styles.label}>Контакты: </h3>
 								<div className="col-6 col-9-small">
 									<div> Telegram - {user.telegram}</div>
 								</div>
@@ -30,7 +30,7 @@ function Student() {
 								</div>
 							</div>
 							<div>
-								<h3 className={styles.label}>Место проживания</h3>
+								<h3 className={styles.label}>Место проживания: </h3>
 							</div>
 							<div className={styles.country_and_city}>
 								<div className="col-6 col-5-small">
@@ -43,7 +43,7 @@ function Student() {
 						</div>
 						<div>
 							<div>
-								<h3 className={styles.label}>Откуда ты родом</h3>
+								<h3 className={styles.label}>Место рождения: </h3>
 							</div>
 							<div className={styles.country_and_city}>
 								<div className="col-6 col-5-small">
