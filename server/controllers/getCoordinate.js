@@ -4,10 +4,12 @@ const e = require('express');
 const { City } = require('../db/models');
 
 const getCoordinates = async (req, res) => {
+  const { cityName } = req.body;
+
   try {
     const allCities = await City.findAll({ raw: true, attributes: ['cityName'] });
     const arrCity = allCities.map((el) => el.cityName);
-    const elllll = 'Псков';
+    const elllll = 'Иваново';
     const arr = [
       'Москва', 'Санкт-Петербург',
       'Тверь', 'Пермь',
