@@ -1,4 +1,4 @@
-import { GET_CITY, CITIES_OF_SELECTED_COUNTRY } from "../types";
+import { GET_CITY, CITIES_OF_SELECTED_COUNTRY, GET_ARR_CITY } from "../types";
 import axios from 'axios';
 axios.defaults.withCredentials = true;
 
@@ -17,19 +17,24 @@ export const getCity = () => async (dispatch) => {
     console.log(err);
   }
 }
-export const yandexDecoder = async (payload) => {
+export const getArrCity = async (array) => {
 
-try {
-
- const getCity = await axios.get(`https://geocode-maps.yandex.ru/1.x/?format=json&apikey=fa906837-e249-4c18-99ac-fb6aff0bc767&geocode=${payload}`)
-
+return {
+  type: GET_ARR_CITY,
+  payload: array
+}
+}
+export const getArrcity = () => async (dispatch) => {
+  try {
+    const { data } = await axios('/getcoord')
+  
+    dispatch(getCities(data))
 }catch (err) {
   console.log(err);
   
+
 }
 }
-
-
 export const getCitiesOfSelectedCountry = (country) => {
   return {
     type: CITIES_OF_SELECTED_COUNTRY,
