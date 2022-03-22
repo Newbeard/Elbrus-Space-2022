@@ -32,7 +32,6 @@ function EditProfile(props) {
 									name="name"
 									placeholder="Имя"
 									defaultValue={user.name}
-									autoFocus
 									autoComplete="off"
 								/>
 							</div>
