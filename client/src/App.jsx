@@ -16,19 +16,12 @@ import NavMobile from './components/NavMobile/NavMobile';
 import StartPage from './components/StartPage/StartPage';
 import {isSession} from './redux/actions/auth';
 
-
-
-
-
-
 function App() {
   const [isMobile, setIsMobile] = useState(true)
   const screenWidth = window.innerWidth
   const dispatch = useDispatch();
 	const navigate = useNavigate();
   const { values } = useSelector( state => state.user)
-
-  
 
   useEffect(() => {
     screenWidth < 768 ? setIsMobile(true) : setIsMobile(false)
@@ -43,13 +36,16 @@ function App() {
 		<>
 			<div className="wraper">
 				<header className="header">
+      
           {!isMobile && (<NavDesktop />)}
+          
 				</header>
-        <StartPage/>
+        
 
 				<main className="uk-container">
 					<Routes>
-						{/* <Route path="/" element={<Home />} /> */}
+						{/* <Route path="/" element={values.id && (<StartPage/>)} />  */}
+            <Route path="/home" element={<Home />} />
 						<Route path="/registration" element={<Registration />} />
 						<Route path="/login" element={<Login />} />
 						<Route path="/search" element={<FindPeople />} />
