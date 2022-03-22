@@ -1,12 +1,12 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
-    const cityesss=[
+    const cityesss = [
       '55.737693, 37.723390',
-      '55.744665, 37.491304',
-      '55.636063, 37.566835',
-      '55.865323, 37.599794',
-      '55.741567, 37.960969',
-    ]
+      '57.760294, 29.558813',
+      '52.289588, 104.280606',
+      '56.838011, 60.597474',
+      '57.520468, 29.97034',
+    ];
     await queryInterface.bulkInsert('Cities', [{
       cityName: 'Москва',
       countrysId: 1,
