@@ -16,11 +16,6 @@ import NavMobile from './components/NavMobile/NavMobile';
 import StartPage from './components/StartPage/StartPage';
 import { isSession } from './redux/actions/auth';
 
-
-
-
-
-
 function App() {
   const [isMobile, setIsMobile] = useState(true)
   const screenWidth = window.innerWidth
