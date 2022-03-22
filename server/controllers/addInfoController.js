@@ -1,5 +1,6 @@
 /* eslint-disable no-lonely-if */
 const { User, Country, City, Campus } = require('../db/models');
+const axios = require('axios');
 
 const addInfoController = async (req, res) => {
   const { dataForm, id } = req.body;
@@ -19,6 +20,8 @@ const addInfoController = async (req, res) => {
   } = dataForm;
 
   try {
+    const getCoordinate = await axios.get(`https://geocode-maps.yandex.ru/1.x/?format=json&apikey=fa906837-e249-4c18-99ac-fb6aff0bc767&geocode=${encodeURIComponent(cityName)}&results=10`);
+    const coordinates = getCoordinate.data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos.split(' ').reverse().join(' ');
     const country = await Country.findOne({ where: { countryName } });
     const city = await City.findOne({ where: { cityName } });
     let campus = { id: null };
@@ -35,15 +38,20 @@ const addInfoController = async (req, res) => {
       }
       if (currentCountry === null) {
         currentCountry = await Country.create({ countryName: currentCountryName });
+        const getCoordinate = await axios.get(`https://geocode-maps.yandex.ru/1.x/?format=json&apikey=fa906837-e249-4c18-99ac-fb6aff0bc767&geocode=${encodeURIComponent(cityName)}&results=10`);
+        const coordinates = getCoordinate.data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos.split(' ').reverse().join(' ');
         if (currentCityName) {
           currentCity = await City.create({
             cityName: currentCityName,
+            coordinates,
             countrysId: currentCountry.id,
           });
         }
         if (!country) {
+          const getCoordinate = await axios.get(`https://geocode-maps.yandex.ru/1.x/?format=json&apikey=fa906837-e249-4c18-99ac-fb6aff0bc767&geocode=${encodeURIComponent(cityName)}&results=10`);
+          const coordinates = getCoordinate.data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos.split(' ').reverse().join(' ');
           const newCountry = await Country.create({ countryName });
-          const newCity = await City.create({ cityName, countrysId: newCountry.id });
+          const newCity = await City.create({ cityName, coordinates, countrysId: newCountry.id });
           await User.update(
             {
               name,
@@ -62,7 +70,9 @@ const addInfoController = async (req, res) => {
             { where: { id } },
           );
         } else if (!city) {
-          const newCity = await City.create({ cityName, countrysId: country.id });
+          const getCoordinate = await axios.get(`https://geocode-maps.yandex.ru/1.x/?format=json&apikey=fa906837-e249-4c18-99ac-fb6aff0bc767&geocode=${encodeURIComponent(cityName)}&results=10`);
+          const coordinates = getCoordinate.data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos.split(' ').reverse().join(' ');
+          const newCity = await City.create({ cityName, coordinates, countrysId: country.id });
           await User.update(
             {
               name,
@@ -101,14 +111,19 @@ const addInfoController = async (req, res) => {
         }
       } else if (currentCity === null) {
         if (currentCityName) {
+          const getCoordinate = await axios.get(`https://geocode-maps.yandex.ru/1.x/?format=json&apikey=fa906837-e249-4c18-99ac-fb6aff0bc767&geocode=${encodeURIComponent(cityName)}&results=10`);
+          const coordinates = getCoordinate.data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos.split(' ').reverse().join(' ');
           currentCity = await City.create({
             cityName: currentCityName,
+            coordinates,
             countrysId: currentCountry.id,
           });
         }
         if (!country) {
+          const getCoordinate = await axios.get(`https://geocode-maps.yandex.ru/1.x/?format=json&apikey=fa906837-e249-4c18-99ac-fb6aff0bc767&geocode=${encodeURIComponent(cityName)}&results=10`);
+          const coordinates = getCoordinate.data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos.split(' ').reverse().join(' ');
           const newCountry = await Country.create({ countryName });
-          const newCity = await City.create({ cityName, countrysId: newCountry.id });
+          const newCity = await City.create({ cityName, coordinates, countrysId: newCountry.id });
           await User.update(
             {
               name,
@@ -127,7 +142,9 @@ const addInfoController = async (req, res) => {
             { where: { id } },
           );
         } else if (!city) {
-          const newCity = await City.create({ cityName, countrysId: country.id });
+          const getCoordinate = await axios.get(`https://geocode-maps.yandex.ru/1.x/?format=json&apikey=fa906837-e249-4c18-99ac-fb6aff0bc767&geocode=${encodeURIComponent(cityName)}&results=10`);
+          const coordinates = getCoordinate.data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos.split(' ').reverse().join(' ');
+          const newCity = await City.create({ cityName, coordinates, countrysId: country.id });
           await User.update(
             {
               name,
@@ -167,8 +184,10 @@ const addInfoController = async (req, res) => {
       }
     } else {
       if (!country) {
+        const getCoordinate = await axios.get(`https://geocode-maps.yandex.ru/1.x/?format=json&apikey=fa906837-e249-4c18-99ac-fb6aff0bc767&geocode=${encodeURIComponent(cityName)}&results=10`);
+        const coordinates = getCoordinate.data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos.split(' ').reverse().join(' ');
         const newCountry = await Country.create({ countryName });
-        const newCity = await City.create({ cityName, countrysId: newCountry.id });
+        const newCity = await City.create({ cityName, coordinates, countrysId: newCountry.id });
         await User.update(
           {
             name,
@@ -187,7 +206,9 @@ const addInfoController = async (req, res) => {
           { where: { id } },
         );
       } else if (!city) {
-        const newCity = await City.create({ cityName, countrysId: country.id });
+        const getCoordinate = await axios.get(`https://geocode-maps.yandex.ru/1.x/?format=json&apikey=fa906837-e249-4c18-99ac-fb6aff0bc767&geocode=${encodeURIComponent(cityName)}&results=10`);
+        const coordinates = getCoordinate.data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos.split(' ').reverse().join(' ');
+        const newCity = await City.create({ cityName, coordinates, countrysId: country.id });
         await User.update(
           {
             name,

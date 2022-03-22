@@ -66,7 +66,7 @@ function AddMoreInfo() {
   }
 
   return (
-    <div className='top'>
+    <div className='login-form'>
       <form onSubmit={addInfo}>
         <div>Расскажите о себе</div>
         <input defaultValue={inputedData?.telegram} onChange={(e) => localStorage.setItem('telegram', (e.target.value))} type="text" name="telegram" placeholder="Telegram"></input>
@@ -83,7 +83,7 @@ function AddMoreInfo() {
         </div>
         <div>Окончание обучения </div>
         <select onChange={(e) => localStorage.setItem('yearFinishDate', (e.target.value))} name="yearFinishDate" >
-        {!inputedData.yearFinishDate && <option disabled selected>Год</option>}
+          {!inputedData.yearFinishDate && <option disabled selected>Год</option>}
           {years.map((el, i) => (<option key={i} selected={inputedData?.yearFinishDate === el}>{el}</option>))}
         </select>
         <select onChange={(e) => localStorage.setItem('monthFinishDate', (e.target.value))} name="monthFinishDate" >

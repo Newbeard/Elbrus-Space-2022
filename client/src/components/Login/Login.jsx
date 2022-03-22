@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import Error from '../Error/Error'
 import styles from './style.module.css'
+import { Link } from 'react-router-dom';
 
 
 export default function Login() {
@@ -33,10 +34,14 @@ export default function Login() {
     <div className='login-form'>
       <div className='nav-login-registration'>
         <div className='link-nav link-nav--active' >
-          <h3 className='h3-link'>Вход</h3>
+          <Link to="/login" className='link'>
+            <h3 className='h3-link'>Вход</h3>
+          </Link>
         </div>
         <div className='link-nav'>
-          <h3 className='h3-link'>Регистрация</h3>
+          <Link to="/registration" className='link'>
+            <h3 className='h3-link'>Регистрация</h3>
+          </Link>
         </div>
       </div>
       <form onSubmit={handleSubmit}>
