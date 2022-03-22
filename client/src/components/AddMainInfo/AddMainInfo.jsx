@@ -21,26 +21,26 @@ function AddMainInfo() {
   }
 
   return (
-    <div className='top'>
+    <div className='login-form'>
       <form onSubmit={addInfo}>
-        <div>Расскажи о себе</div>
-        <div>*Обязательные поля для заполнения</div>
-        <input type="text" defaultValue={inputedData?.name} name="name" placeholder="Имя" required></input>
-        <input type="text" defaultValue={inputedData?.surName} name="surName" placeholder="Фамилия"></input>
+        <div>Расскажите о себе!</div>
+        <input type="text" defaultValue={inputedData?.name} name="name" placeholder="Имя*" autoFocus autoComplete="off" required></input>
+        <input type="text" defaultValue={inputedData?.surName} name="surName" placeholder="Фамилия" autoComplete="off"></input>
         <div>Откуда ты родом</div>
-        <input type="text" defaultValue={inputedData?.countryName} name="countryName" placeholder="Страна" required></input>
-        <input type="text" defaultValue={inputedData?.cityName} name="cityName" placeholder="Город" required></input>
+        <input type="text" defaultValue={inputedData?.countryName} name="countryName" placeholder="Страна*" autoComplete="off" required></input>
+        <input type="text" defaultValue={inputedData?.cityName} name="cityName" placeholder="Город*" autoComplete="off" required></input>
         <select name="campusName" >
           {inputedData ? <option>{inputedData?.campusName}</option> : <option disabled selected>Кампус</option>}
           {inputedData?.campusName !== 'Москва' && <option>Москва</option>}
           {inputedData?.campusName !== 'Санкт-Петербург' && <option>Санкт-Петербург</option>}
           {inputedData?.campusName !== 'Онлайн' && <option>Онлайн</option>}
         </select>
+        <p className='post-scriptum-necessarily'>*Обязательно для заполнения</p>
         {/* <select defaultValue={inputedData?.campusName} name="campusName" >
           {!inputedData.campusName && <option disabled selected>Кампус</option>}
           {campuses.map(el => (<option selected={inputedData?.campusName === el}>{el}</option>))}
         </select> */}
-        <button>Далее</button>
+        <button className='registration-form-button'>Далее</button>
       </form>
     </div>
   );

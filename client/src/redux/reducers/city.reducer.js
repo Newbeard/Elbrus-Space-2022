@@ -1,4 +1,4 @@
-import { GET_CITY, CITIES_OF_SELECTED_COUNTRY } from "../types"
+import { GET_CITY, CITIES_OF_SELECTED_COUNTRY,GET_ARR_CITY } from "../types"
 
 export function cityReducer(state = {}, action) {
   const { type, payload } = action
@@ -10,6 +10,9 @@ export function cityReducer(state = {}, action) {
     }
     
     case CITIES_OF_SELECTED_COUNTRY: {
+      return payload 
+    }
+    case GET_ARR_CITY: {
       return payload 
     }
 

@@ -4,6 +4,7 @@ import { getCity, getCitiesOfSelectedCountryFromServer } from '../../redux/actio
 import { initCountriesFromServer } from '../../redux/actions/country.action';
 import { filterStudentsFromServer, initStudentsFromServer } from '../../redux/actions/students.action';
 import styles from './style.module.css'
+import { Link } from 'react-router-dom';
 
 function FindPeople() {
 
@@ -40,7 +41,7 @@ function FindPeople() {
     dispatch(getCitiesOfSelectedCountryFromServer({ countryName: event.target.value }))
   }
   return (
-    <div className={styles.top}>
+    <div className=''>
       <button onClick={showFilter}>Фильтр</button>
       <div>
         <input type="text" name="name" id="name" placeholder="Поиск" />
@@ -106,9 +107,8 @@ function FindPeople() {
         : <div></div>}
       <div>
         <p className={styles.background}>Вася</p>
-        {students && students.map((student) => <p key={student.id}>{student.name} {student.surName}</p>)}
+        {students && students.map((student) => <Link to={`/student/${student.id}`}><p key={student.id}>{student.name} {student.surName}</p></Link>)}
       </div>
-
     </div>
   );
 }

@@ -15,7 +15,7 @@ import NavDesktop from './components/NavDesktop/NavDesktop';
 import NavMobile from './components/NavMobile/NavMobile';
 import StartPage from './components/StartPage/StartPage';
 import { isSession } from './redux/actions/auth';
-import Diagram from './components/Diagram/Diagram'
+import Diagram from './components/Diagram/Diagram';
 
 
 
@@ -55,8 +55,9 @@ function App() {
             <Route path="/profile" element={<EditProfile />} />
             <Route path="/info" element={<AddMainInfo />} />
             <Route path="/moreInfo" element={<AddMoreInfo />} />
-            <Route path="/student" element={<Student />} />
+            <Route path="/student/:id" element={<Student />} />
             <Route path="/diagram" element={<Diagram />} />
+
 
 
           </Routes>
