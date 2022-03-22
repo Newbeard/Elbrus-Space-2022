@@ -45,7 +45,7 @@ function App() {
 				<header className="header">
           {!isMobile && (<NavDesktop />)}
 				</header>
-        <StartPage/>
+        {/* <StartPage/> */}
 
 				<main className="uk-container">
 					<Routes>

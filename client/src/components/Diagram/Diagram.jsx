@@ -39,7 +39,7 @@ function Diagram(props) {
         7,
         11
       ],
-      name: 'Saint-Peterburg'
+      name: 'Saint-Petersburg'
     },
     {
       data: [
