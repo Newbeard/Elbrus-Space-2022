@@ -4,6 +4,8 @@ import { studentsReducer } from './students.reducer'
 import { cityReducer } from './city.reducer'
 import { countriesReducer } from './country.reducer'
 import {userProfileReducer } from './userProfile.reducer'
+import {oneStudentReducer } from './oneStudent.reducer'
+
 
 export const rootReducer = combineReducers({
   user: userReducer,
@@ -11,4 +13,5 @@ export const rootReducer = combineReducers({
   city: cityReducer,
   countries: countriesReducer,
   profile: userProfileReducer,
+  student: oneStudentReducer,
 })
