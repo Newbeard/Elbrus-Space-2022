@@ -94,19 +94,24 @@ textarea:focus, input:focus{
     gap: 10px;
   }
 
-  input {
+  input, select {
     min-width: 100%;
     font-weight: 400;
     font-size: 14px;
     line-height: 17px;
     font-family: 'SF-UI-Display-Light';
-    color: #8D8D8D;
+    color: #000000;
     padding-left: 14px;
     border: 1px solid #EAEAEA;
+    background-color: #FFFFFF;
     box-sizing: border-box;
     border-radius: 7px;
     width: 85%;
     height: 37px;
+  }
+
+  input::placeholder {
+    color: #8D8D8D;
   }
 
   /* input {
@@ -194,6 +199,15 @@ textarea:focus, input:focus{
     gap: 6px;
   }
 
+  .post-scriptum-necessarily {
+    display: flex;
+    align-self: flex-start;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: #8D8D8D;
+  }
 
 
 
