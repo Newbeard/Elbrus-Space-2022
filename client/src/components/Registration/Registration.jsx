@@ -43,9 +43,9 @@ export default function Registration() {
         </div>
       </div>
       <form onSubmit={handleSubmit}>
-        <input type="text" name="email" placeholder="Email" autoFocus autoComplete="off"/>
-        <input type="password" name="password" placeholder="Пароль" autoComplete="off"/>
-        <input type="password"	name="confirmPassword" placeholder="Повторите пароль" autoComplete="off"/>
+        <input type="text" name="email" placeholder="Email*" autoFocus autoComplete="off"/>
+        <input type="password" name="password" placeholder="Пароль*" autoComplete="off"/>
+        <input type="password"	name="confirmPassword" placeholder="Повторите пароль*" autoComplete="off"/>
         <button className='registration-form-button' type="submit" disabled={isLoading}>{isLoading ? 'Подождите...' : 'Зарегистрироваться'}</button>
         {error && <Error error={error.error} />}
       </form>
