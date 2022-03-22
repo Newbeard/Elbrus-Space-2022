@@ -37,7 +37,7 @@ function App() {
     <>
       <div className="">
         <header >
-          {/* {(!isMobile && values.id) && (<NavDesktop />)} */}
+          {(!isMobile && values.id) && (<NavDesktop />)}
           <div className="logo">
             <img src="https://elbrusboot.camp/static/newLogo-00ed4b8011624cd94aa1812d35f25088.svg" alt="" />
           </div>
