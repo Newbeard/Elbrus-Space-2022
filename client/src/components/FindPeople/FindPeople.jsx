@@ -41,7 +41,7 @@ function FindPeople() {
     dispatch(getCitiesOfSelectedCountryFromServer({ countryName: event.target.value }))
   }
   return (
-    <div className={styles.top}>
+    <div className=''>
       <button onClick={showFilter}>Фильтр</button>
       <div>
         <input type="text" name="name" id="name" placeholder="Поиск" />
