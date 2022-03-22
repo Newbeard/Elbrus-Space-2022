@@ -4,6 +4,7 @@ import './style.module.css'
 import { useSelector, useDispatch } from 'react-redux';
 import { yandexDecoder } from '../../redux/actions/city.action';
 import { getCity } from '../../redux/actions/city.action';
+import DinamicList from '../../DinamicList/DinamicList';
 
 
 
@@ -20,7 +21,7 @@ const Maps = (props) => {
   ]
  const mapState= [55.865323, 37.599794]
   const dispatch = useDispatch();
-  useEffect(()=>{
+  useEffect(()=>{console.log(props.ymaps)
     dispatch(getCity())
     },[])
 
@@ -43,7 +44,7 @@ const Maps = (props) => {
           })}
             </Map>
           </div>
-        
+     
         </div>
       </YMaps>)
       {/* } */}

@@ -11,7 +11,7 @@ const initialState = {
     error: null
   },
   students: [],
-  city: ['Москва'],
+  city: [],
   countries: [],
   profile: {}
 }
