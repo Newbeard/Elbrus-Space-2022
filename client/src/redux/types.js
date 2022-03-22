@@ -12,4 +12,5 @@ export const EDIT_PROFILE = 'EDIT_PROFILE'
 export const INIT_PROFILE = 'INIT_PROFILE'
 export const CHANGE_SESSION = 'CHANGE_SESSION'
 export const ADD_INFO = 'ADD_INFO'
-
+export const INIT_STUDENT = 'INIT_STUDENT'
+export const DELETE_STUDENT = 'DELETE_STUDENT'

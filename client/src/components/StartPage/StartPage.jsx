@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector  } from 'react-redux';
 import { userLogout } from '../../redux/actions/auth';
 import { useNavigate } from 'react-router-dom';
-// import './css/main.css' 
+import './css/main.css' 
 
 
 function StartPage(props) {

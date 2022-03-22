@@ -10,6 +10,9 @@ module.exports = {
       cityName: {
         type: Sequelize.TEXT,
       },
+      coordinates: {
+        type: Sequelize.TEXT,
+      },
       countrysId: {
         type: Sequelize.INTEGER,
         references: {

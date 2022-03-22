@@ -55,7 +55,7 @@ function App() {
             <Route path="/profile" element={<EditProfile />} />
             <Route path="/info" element={<AddMainInfo />} />
             <Route path="/moreInfo" element={<AddMoreInfo />} />
-            <Route path="/student" element={<Student />} />
+            <Route path="/student/:id" element={<Student />} />
 
 
 

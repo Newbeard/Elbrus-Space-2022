@@ -8,6 +8,7 @@ const allCityRouter = require('./allCityRouter');
 const allCountriesRouter = require('./allCountriesRouter');
 const profileRouter = require('./profileRouter');
 const addInfoRouter = require('./addInfoRouter');
+const studentRouter = require('./studentRouter');
 
 router.use('/registration', registrationRouter);
 router.use('/login', loginRouter);
@@ -18,5 +19,6 @@ router.use('/cities', allCityRouter);
 router.use('/countries', allCountriesRouter);
 router.use('/profile', profileRouter);
 router.use('/info', addInfoRouter);
+router.use('/student', studentRouter);
 
 module.exports = router;

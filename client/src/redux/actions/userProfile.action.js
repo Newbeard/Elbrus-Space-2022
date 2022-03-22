@@ -22,10 +22,8 @@ export const editProfile = (users) => ({
 })
 
 export const editProfileFromServer = (payload) => async (dispatch) => {
-  console.log(payload);
   try {
     const { data } = await axios.put('/profile', payload)
-    console.log(data);
     dispatch( editProfile(data))
   } catch (error) {
     console.log(error);
@@ -33,3 +31,11 @@ export const editProfileFromServer = (payload) => async (dispatch) => {
 }
 
 
+export const initStudentFromServer = (payload) => async (dispatch) => {
+  try {
+    const { data } = await axios('/profile',payload)
+    dispatch(initProfile(data))
+  } catch (error) {
+    console.log(error);
+  }
+}

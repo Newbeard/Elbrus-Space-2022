@@ -16,40 +16,35 @@ const initProfile = async (req, res) => {
       },
       raw: true,
       include: [{
-          model: City,
-          attributes: ['cityName'],
-        },
-        {
-          model: Country,
-          attributes: ['countryName'],
-        },
-        {
-          model: Campus,
-          attributes: ['campusName'],
-        },
-        {
-          model: City,
-          as: 'currentCit',
-          attributes: ['cityName'],
-        },
-        {
-          model: Country,
-          as: 'currentCou',
-          attributes: ['countryName'],
-        },
+        model: City,
+        attributes: ['cityName'],
+      },
+      {
+        model: Country,
+        attributes: ['countryName'],
+      },
+      {
+        model: Campus,
+        attributes: ['campusName'],
+      },
+      {
+        model: City,
+        as: 'currentCit',
+        attributes: ['cityName'],
+      },
+      {
+        model: Country,
+        as: 'currentCou',
+        attributes: ['countryName'],
+      },
       ],
 
     });
-    console.log(user);
-    res.json({
-      user,
-    });
+
+    res.json({ user });
   } catch (error) {
     console.log(error.message);
-    res.status(401)
-      .json({
-        message: error.message,
-      }).end();
+    res.sendStatus(500);
   }
 };
 
@@ -58,7 +53,6 @@ const editProfile = async (req, res) => {
     id,
   } = req.session.user;
   const data = req.body;
-  console.log(req.body);
   const {
     name,
     surName,
@@ -73,7 +67,6 @@ const editProfile = async (req, res) => {
     yearFinishDate,
     monthFinishDate,
   } = data;
-
   try {
     const country = await Country.findOne({
       where: {
@@ -340,25 +333,35 @@ const editProfile = async (req, res) => {
         },
       });
     }
-    const result = await User.findOne({
+    const user = await User.findOne({
       where: {
         id,
       },
+      raw: true,
+      include: [{
+        model: City,
+        attributes: ['cityName'],
+      },
+      {
+        model: Country,
+        attributes: ['countryName'],
+      },
+      {
+        model: Campus,
+        attributes: ['campusName'],
+      },
+      {
+        model: City,
+        as: 'currentCit',
+        attributes: ['cityName'],
+      },
+      {
+        model: Country,
+        as: 'currentCou',
+        attributes: ['countryName'],
+      },
+      ],
     });
-    const user = {
-      name: result.name,
-      surName: result.surName,
-      countryId: result.countryId,
-      cityId: result.cityId,
-      campusId: result.campusId,
-      currentCountryId: result.currentCountryId,
-      currentCityId: result.currentCityId,
-      telegram: result.telegram,
-      github: result.github,
-      dateOfBirth: result.dateOfBirth,
-      yearFinishDate: result.yearFinishDate,
-      monthFinishDate: result.monthFinishDate,
-    };
     res.json({ user });
   } catch (error) {
     res.sendStatus(500);

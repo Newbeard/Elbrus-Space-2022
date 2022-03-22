@@ -3,6 +3,23 @@ import { initProfileFromServer, editProfileFromServer } from '../../redux/action
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect } from 'react';
 
+const months = [
+  'Январь',
+  'Февраль',
+  'Март',
+  'Апрель',
+  'Май',
+  'Июнь',
+  'Июль',
+  'Август',
+  'Сентябрь',
+  'Октябрь',
+  'Ноябрь',
+  'Декабрь',
+];
+const years = [ '2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025', '2026'];
+const сampus = [ 'Москва', 'Санкт-Петербург', 'Онлайн'];
+
 function EditProfile(props) {
 	const dispatch = useDispatch();
 	const { user } = useSelector((state) => state.profile);
@@ -15,7 +32,6 @@ function EditProfile(props) {
 		event.preventDefault();
 		const form = event.target;
 		const data = Object.fromEntries(new FormData(form));
-		console.log(data);
 		dispatch(editProfileFromServer(data))
 	}
 	return (
@@ -90,47 +106,27 @@ function EditProfile(props) {
 								<h3 className={styles.label}>Окончание обучения</h3>
 
 								<div className="col-6 col-7-small">
-									<select name="campusName">
-										<option> {user['Campus.campusName']}</option>
-										<option>Москва</option>
-										<option>Санкт-Петербург</option>
-										<option>Онлайн</option>
-									</select>
+                <select name="campusName" >
+                        {!user['Campus.campusName'] && <option disabled selected>Кампус</option>}
+                        {сampus.map((el, i) => (<option key={i} selected={!user['Campus.campusName'] === el}>{el}</option>))}
+                        </select>
+
 								</div>
 								<div>
 									<div>
 										<div className={styles.country_and_city}>
 											<div className="col-6 col-9-small">
-												<select name="yearFinishDate">
-													<option>{user.yearFinishDate}</option>
-													<option>2026</option>
-													<option>2025</option>
-													<option>2024</option>
-													<option>2023</option>
-													<option>2022</option>
-													<option>2021</option>
-													<option>2020</option>
-													<option>2019</option>
-													<option>2018</option>
-												</select>
+                        <select name="yearFinishDate" >
+                        {!user.yearFinishDate && <option disabled selected>Год</option>}
+                        {years.map((el, i) => (<option key={i} selected={user?.yearFinishDate === el}>{el}</option>))}
+                        </select>
 											</div>
 										</div>
 										<div className="col-6 col-5-small">
-											<select name="monthFinishDate">
-												<option>{user.monthFinishDate}</option>
-												<option>Январь</option>
-												<option>Февраль</option>
-												<option>Март</option>
-												<option>Апрель</option>
-												<option>Май</option>
-												<option>Июнь</option>
-												<option>Июль</option>
-												<option>Август</option>
-												<option>Сентябрь</option>
-												<option>Октябрь</option>
-												<option>Ноябрь</option>
-												<option>Декабрь</option>
-											</select>
+                    <select name="monthFinishDate" >
+                    {!user.monthFinishDate && <option disabled selected>Месяц</option>}
+                    {months.map((el, i) => (<option key={i} selected={user?.monthFinishDate === el}>{el}</option>))}
+                    </select>
 										</div>
 									</div>
 								</div>
@@ -168,7 +164,7 @@ function EditProfile(props) {
 								</div>
 								<input
 									type="date"
-									name="dataOfBirth"
+									name="dateOfBirth"
 									min="1950-01-01"
 									max="2007-12-31"
 									defaultValue={user.dateOfBirth}
