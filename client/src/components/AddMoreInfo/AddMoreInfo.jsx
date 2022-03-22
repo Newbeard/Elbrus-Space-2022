@@ -74,13 +74,11 @@ function AddMoreInfo() {
         <div>Текущее местонахождение</div>
         <input defaultValue={inputedData?.currentCountryName} onChange={(e) => localStorage.setItem('currentCountryName', (e.target.value))} type="text" name="currentCountryName" placeholder="Страна"></input>
         <input defaultValue={inputedData?.currentCityName} onChange={(e) => localStorage.setItem('currentCityName', (e.target.value))} type="text" name="currentCityName" placeholder="Город"></input>
-        <div>
 
           <div>Дата рождения</div>
 
           <input defaultValue={inputedData?.dateOfBirth} onChange={(e) => localStorage.setItem('dateOfBirth', (e.target.value))} type="date" id="start" name="dateOfBirth"
-            min="1950-01-01" max="2050-12-31"></input>
-        </div>
+            min="1950-01-01" max="2007-12-31"/>
         <div>Окончание обучения </div>
         <select onChange={(e) => localStorage.setItem('yearFinishDate', (e.target.value))} name="yearFinishDate" >
           {!inputedData.yearFinishDate && <option disabled selected>Год</option>}
@@ -90,9 +88,9 @@ function AddMoreInfo() {
           {!inputedData.monthFinishDate && <option disabled selected>Месяц</option>}
           {months.map((el, i) => (<option key={i} selected={inputedData?.monthFinishDate === el}>{el}</option>))}
         </select>
-        <button>Сохранить</button>
+        <button className="login-form-button">Сохранить</button>
       </form>
-      <button onClick={() => navigate('/info')}>Назад</button>
+      <button className="login-form-button" onClick={() => navigate('/info')}>Назад</button>
     </div>
   );
 }
