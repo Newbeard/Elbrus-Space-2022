@@ -33,7 +33,7 @@ export default function Registration() {
         <input type="text" name="email" placeholder="Email" autoFocus autoComplete="off"/>
         <input type="password" name="password" placeholder="Пароль" autoComplete="off"/>
         <input type="password"	name="confirmPassword" placeholder="Повторите пароль" autoComplete="off"/>
-        <button type="submit" disabled={isLoading}>{isLoading ? 'Подождите...' : 'Зарегистрироваться'}</button>
+        <button className='registration-form-button' type="submit" disabled={isLoading}>{isLoading ? 'Подождите...' : 'Зарегистрироваться'}</button>
         {error && <Error error={error.error} />}
       </form>
     </div>
