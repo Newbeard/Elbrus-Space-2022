@@ -126,7 +126,7 @@ textarea:focus, input:focus{
     background-color: #FFFFFF;
     box-sizing: border-box;
     border-radius: 7px;
-    height: 4.55vh;
+    height: 40px;
   }
 
   input::placeholder {
