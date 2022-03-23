@@ -41,7 +41,7 @@ export default function Footer(props) {
           <p>Данные</p>
         </div>
       </Link>
-      <Link to="/" style={{ textDecoration: 'none' }}>
+      <Link to="/home" style={{ textDecoration: 'none' }}>
         <div onClick={() => changeActive(3)} className="logo-navbar-mobile gap-3">
           <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M6.125 25.375H21.875" stroke="#D1D1D1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
