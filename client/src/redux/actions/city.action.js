@@ -1,4 +1,4 @@
-import { GET_CITY, CITIES_OF_SELECTED_COUNTRY, GET_ARR_CITY } from "../types";
+import { GET_CITY, CITIES_OF_SELECTED_COUNTRY, } from "../types";
 import axios from 'axios';
 axios.defaults.withCredentials = true;
 
@@ -16,24 +16,6 @@ export const getCity = () => async (dispatch) => {
   } catch (err) {
     console.log(err);
   }
-}
-export const getArrCity = async (array) => {
-
-return {
-  type: GET_ARR_CITY,
-  payload: array
-}
-}
-export const getArrcity = () => async (dispatch) => {
-  try {
-    const { data } = await axios('/getcoord')
-  
-    dispatch(getCities(data))
-}catch (err) {
-  console.log(err);
-  
-
-}
 }
 export const getCitiesOfSelectedCountry = (country) => {
   return {
