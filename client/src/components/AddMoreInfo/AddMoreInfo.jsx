@@ -67,7 +67,7 @@ function AddMoreInfo() {
   return (
     <div className='login-form'>
       <form onSubmit={addInfo}>
-        <div>Расскажите о себе</div>
+        <div>Расскажи о себе</div>
         <input defaultValue={inputedData?.telegram} onChange={(e) => localStorage.setItem('telegram', (e.target.value))} type="text" name="telegram" placeholder="Telegram"></input>
         <input defaultValue={inputedData?.Github} onChange={(e) => localStorage.setItem('Github', (e.target.value))} type="text" name="github" placeholder="Github"></input>
         <div>Текущее местонахождение</div>
