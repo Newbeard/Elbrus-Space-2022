@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { getCitiesOfSelectedCountryFromServer } from '../../redux/actions/city.action';
 import { filterStudentsFromServer } from '../../redux/actions/students.action';
 
-function FilterModal({ city, countries, resetFilterStudents }) {
+function FilterModal({ city, countries, closedFilterStudents }) {
   const dispatch = useDispatch();
   const [countrySelected, setCountrySelected] = useState('');
 
@@ -70,7 +70,7 @@ function FilterModal({ city, countries, resetFilterStudents }) {
             </select>
             <input type="submit" value="Показать" />
           </form>
-          <button onClick={resetFilterStudents}>Очистить фильтр</button>
+          <button onClick={closedFilterStudents}>Очистить фильтр</button>
         </div>
         : <div></div>
     </div>

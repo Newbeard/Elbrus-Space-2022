@@ -106,7 +106,7 @@ function EditProfile(props) {
               {!user.monthFinishDate && <option disabled selected>Месяц</option>}
               {months.map((el, i) => (<option key={i} selected={user?.monthFinishDate === el}>{el}</option>))}
             </select>
-            <h3 >Откуда ты родом</h3>
+            {/* <h3 >Откуда ты родом</h3>
             <input
               type="text"
               name="countryName"
@@ -120,7 +120,7 @@ function EditProfile(props) {
               placeholder="Город"
               defaultValue={user['City.cityName']}
               autoComplete="off"
-            />
+            /> */}
             <h3 >Дата рождения</h3>
             <input
               type="date"

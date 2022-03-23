@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getCity, getCitiesOfSelectedCountryFromServer } from '../../redux/actions/city.action';
+import { getCity } from '../../redux/actions/city.action';
 import { initCountriesFromServer } from '../../redux/actions/country.action';
 import { filterStudentsFromServer, initStudentsFromServer } from '../../redux/actions/students.action';
 import { Link } from 'react-router-dom';
@@ -24,14 +24,7 @@ function FindPeople() {
     setIsShowFilter(!isShowFilter)
   }
 
-  function filterStudents(event) {
-    event.preventDefault()
-    const form = event.target;
-    const dataForm = Object.fromEntries(new FormData(form));
-    dispatch(filterStudentsFromServer(dataForm))
-  }
-
-  function resetFilterStudents() {
+  function closedFilterStudents() {
     dispatch(filterStudentsFromServer({}))
     setIsShowFilter(!isShowFilter)
     setCountrySelected('');
@@ -50,7 +43,7 @@ function FindPeople() {
           </svg>
         </button>
       </div>
-      {isShowFilter === true ? <FilterModal city={city} countries={countries} resetFilterStudents={resetFilterStudents}  /> : <></>}
+      {isShowFilter === true ? <FilterModal city={city} countries={countries} closedFilterStudents={closedFilterStudents}  /> : <></>}
       <div className='cards-students'>
         {students && students.map((student) => <div className='card-student' key={student.id}><Link to={`/student/${student.id}`} style={{ textDecoration: 'none' }}>{student.name} {student.surName}</Link></div>)}
       </div>
