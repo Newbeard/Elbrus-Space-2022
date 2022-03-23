@@ -67,17 +67,17 @@ function AddMoreInfo() {
   return (
     <div className='login-form'>
       <form onSubmit={addInfo}>
-        <div>Расскажи о себе</div>
-        <input defaultValue={inputedData?.telegram} onChange={(e) => localStorage.setItem('telegram', (e.target.value))} type="text" name="telegram" placeholder="Telegram"></input>
-        <input defaultValue={inputedData?.Github} onChange={(e) => localStorage.setItem('Github', (e.target.value))} type="text" name="github" placeholder="Github"></input>
+        <div>Расскажите о себе</div>
+        <input defaultValue={inputedData?.telegram} onChange={(e) => localStorage.setItem('telegram', (e.target.value))} type="text" name="telegram" placeholder="Telegram" autoComplete="off"></input>
+        <input defaultValue={inputedData?.Github} onChange={(e) => localStorage.setItem('Github', (e.target.value))} type="text" name="github" placeholder="Github" autoComplete="off"></input>
         <div>Текущее местонахождение</div>
-        <input defaultValue={inputedData?.currentCountryName} onChange={(e) => localStorage.setItem('currentCountryName', (e.target.value))} type="text" name="currentCountryName" placeholder="Страна"></input>
-        <input defaultValue={inputedData?.currentCityName} onChange={(e) => localStorage.setItem('currentCityName', (e.target.value))} type="text" name="currentCityName" placeholder="Город"></input>
+        <input defaultValue={inputedData?.currentCountryName} onChange={(e) => localStorage.setItem('currentCountryName', (e.target.value))} type="text" name="currentCountryName" placeholder="Страна" autoComplete="off"></input>
+        <input defaultValue={inputedData?.currentCityName} onChange={(e) => localStorage.setItem('currentCityName', (e.target.value))} type="text" name="currentCityName" placeholder="Город" autoComplete="off"></input>
 
           <div>Дата рождения</div>
 
           <input defaultValue={inputedData?.dateOfBirth} onChange={(e) => localStorage.setItem('dateOfBirth', (e.target.value))} type="date" id="start" name="dateOfBirth"
-            min="1950-01-01" max="2007-12-31"/>
+            min="1950-01-01" max="2007-12-31" autoComplete="off"/>
         <div>Окончание обучения </div>
         <select onChange={(e) => localStorage.setItem('yearFinishDate', (e.target.value))} name="yearFinishDate" >
           {!inputedData.yearFinishDate && <option disabled selected>Год</option>}

@@ -7,7 +7,6 @@ export default function Home(props) {
   return (
     <div>
       <Maps />
-      <Diagram />
     </div>
   );
 }
