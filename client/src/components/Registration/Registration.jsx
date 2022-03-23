@@ -12,8 +12,8 @@ export default function Registration() {
   const { error, values, isLoading } = useSelector(state => state.user)
 
   useEffect(() => {
-    if (values.id) {
-      navigate('/home')
+    if(values.id) {
+      navigate('/')
     };
   }, [values])
 
