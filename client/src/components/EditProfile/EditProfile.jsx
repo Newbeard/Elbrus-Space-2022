@@ -1,7 +1,9 @@
 import { initProfileFromServer, editProfileFromServer } from '../../redux/actions/userProfile.action';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
 import React, { useEffect } from 'react';
 import './EditProfile.css';
+import { userLogout } from '../../redux/actions/auth';
 
 const months = [
   'Январь',
@@ -22,8 +24,15 @@ const сampus = ['Москва', 'Санкт-Петербург', 'Онлайн'
 
 function EditProfile(props) {
   const dispatch = useDispatch();
+  const navigate = useNavigate()
   const { user } = useSelector((state) => state.profile);
 
+  const hendlerClick = (event) => {
+    event.preventDefault()
+      dispatch(userLogout())
+    navigate('/')
+  }
+  
   useEffect(() => {
     dispatch(initProfileFromServer());
   }, []);
@@ -118,8 +127,9 @@ function EditProfile(props) {
               autoComplete="off"
             />
 
-            <input type="submit" defaultValue="Сохранить" />
+            <button className='registration-form-button' type="submit" >Отправить</button>
           </form>
+          <Link to="/logout"><button className='registration-form-button' onClick={hendlerClick} type="button">Выйти</button></Link>
         </div>
       )}
     </div>

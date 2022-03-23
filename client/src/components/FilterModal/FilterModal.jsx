@@ -72,7 +72,6 @@ function FilterModal({ city, countries, closedFilterStudents }) {
           </form>
           <button onClick={closedFilterStudents}>Очистить фильтр</button>
         </div>
-        : <div></div>
     </div>
   );
 }

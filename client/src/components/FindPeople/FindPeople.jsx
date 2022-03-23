@@ -13,6 +13,7 @@ function FindPeople() {
   const { students, city, countries } = useSelector(state => state);
   const [isShowFilter, setIsShowFilter] = useState(false);
   const [countrySelected, setCountrySelected] = useState('');
+  const [checked, setChecked] = useState(true);
 
   useEffect(() => {
     dispatch(initStudentsFromServer())
@@ -43,7 +44,7 @@ function FindPeople() {
           </svg>
         </button>
       </div>
-      {isShowFilter === true ? <FilterModal city={city} countries={countries} closedFilterStudents={closedFilterStudents}  /> : <></>}
+      {isShowFilter && <FilterModal city={city} countries={countries} closedFilterStudents={closedFilterStudents} />}
       <div className='cards-students'>
         {students && students.map((student) => <div className='card-student' key={student.id}><Link to={`/student/${student.id}`} style={{ textDecoration: 'none' }}>{student.name} {student.surName}</Link></div>)}
       </div>
