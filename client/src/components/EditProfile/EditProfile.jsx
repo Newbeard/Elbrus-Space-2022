@@ -1,7 +1,7 @@
-import styles from './style.module.css';
 import { initProfileFromServer, editProfileFromServer } from '../../redux/actions/userProfile.action';
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect } from 'react';
+import './EditProfile.css';
 
 const months = [
   'Январь',
@@ -54,7 +54,7 @@ function EditProfile(props) {
               autoComplete="off"
             />
 
-            <h3 className={styles.label}>Место проживания</h3>
+            <h3 >Место проживания</h3>
             <input
               type="text"
               name="currentCountryName"
@@ -69,16 +69,28 @@ function EditProfile(props) {
               defaultValue={user['currentCit.cityName']}
               autoComplete="off"
             />
-            <h3 className={styles.label}>Контакты</h3>
+            <h3 >Контакты</h3>
+            <div className='input-with-icon-box'>
+              <input
+                type="text"
+                name="telegram"
+                defaultValue={user.telegram}
+                placeholder="Telegram"
+                autoComplete="off"
+              />
+              <img src="/icon/telegram.png" width={23} alt="" />
+            </div>
+            <div className='input-with-icon-box'>
             <input
               type="text"
-              name="telegram"
-              defaultValue={user.telegram}
-              placeholder="Telegram"
+              name="github"
+              defaultValue={user.github}
+              placeholder="GitHub"
               autoComplete="off"
             />
-            <input type="text" name="github" defaultValue={user.github} placeholder="GitHub" autoComplete="off"/>
-            <h3 className={styles.label}>Окончание обучения</h3>
+              <img src="/icon/github.png" width={23} alt="" />
+              </div>
+            <h3 >Окончание обучения</h3>
 
             <select name="campusName" >
               {!user['Campus.campusName'] && <option disabled selected>Кампус</option>}
@@ -93,7 +105,7 @@ function EditProfile(props) {
               {!user.monthFinishDate && <option disabled selected>Месяц</option>}
               {months.map((el, i) => (<option key={i} selected={user?.monthFinishDate === el}>{el}</option>))}
             </select>
-            <h3 className={styles.label}>Откуда ты родом</h3>
+            <h3 >Откуда ты родом</h3>
             <input
               type="text"
               name="countryName"
@@ -108,7 +120,7 @@ function EditProfile(props) {
               defaultValue={user['City.cityName']}
               autoComplete="off"
             />
-            <h3 className={styles.label}>Дата рождения</h3>
+            <h3 >Дата рождения</h3>
             <input
               type="date"
               name="dateOfBirth"
