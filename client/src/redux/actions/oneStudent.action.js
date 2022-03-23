@@ -15,6 +15,8 @@ export const initStudentFromServer = (payload) => async (dispatch) => {
   try {
     // dispatch(deleteStudent())
     const { data } = await axios.post('/student', {id: payload})
+    // const response = await fetch(`/student/${payload}`)
+    // const data = await response.json()
     dispatch(initStudent(data))
   } catch (error) {
     console.log(error);

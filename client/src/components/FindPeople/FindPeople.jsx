@@ -99,7 +99,7 @@ function FindPeople() {
         : <div></div>}
       <div>
         <p>Вася</p>
-        {students && students.map((student) => <Link to={`/student/${student.id}`}><p key={student.id}>{student.name} {student.surName}</p></Link>)}
+        {students && students.map((student) => <Link to={`/student/${student.id}`} key={student.id}>{student.name} {student.surName}</Link>)}
       </div>
     </div>
   );
