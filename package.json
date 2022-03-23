@@ -1,0 +1,24 @@
+{
+  "name": "elbrus-space-2022",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "cd client && npm install && npm run build",
+    "start": "cd server && npm install && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Newbeard/Elbrus-Space-2022.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Newbeard/Elbrus-Space-2022/issues"
+  },
+  "homepage": "https://github.com/Newbeard/Elbrus-Space-2022#readme",
+  "engines": {
+    "node": "16.x"
+  }
+}
