@@ -64,7 +64,7 @@ textarea:focus, input:focus{
   }
 
   .container {
-    height: 75vh;
+    height: 80vh;
     overflow: auto;
   }
 
@@ -130,8 +130,7 @@ textarea:focus, input:focus{
     background-color: #FFFFFF;
     box-sizing: border-box;
     border-radius: 7px;
-    /* width: 85%; */
-    height: 37px;
+    height: 4.55vh;
   }
 
   input::placeholder {
@@ -239,7 +238,9 @@ textarea:focus, input:focus{
     height: 200px;
   } */
 
+  .container-search {
 
+  }
 }
 
 

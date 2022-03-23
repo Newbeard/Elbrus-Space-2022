@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { getCitiesOfSelectedCountryFromServer } from '../../redux/actions/city.action';
 import { filterStudentsFromServer } from '../../redux/actions/students.action';
+import './FilterModal.css'
 
 function FilterModal({ city, countries, closedFilterStudents }) {
   const dispatch = useDispatch();
@@ -21,7 +22,7 @@ function FilterModal({ city, countries, closedFilterStudents }) {
 
   return (
     <div>
-      <div className='search-form'>
+      <div className='filter-form'>
           <form method="post" onSubmit={filterStudents} action="#">
             <select onChange={(event) => selectedСountry(event)} name="countryName" >
               <option value="" disabled selected>Страна</option>
@@ -49,8 +50,11 @@ function FilterModal({ city, countries, closedFilterStudents }) {
             <select name="yearFinishDate" >
               <option value="" disabled selected>Год окончания</option>
               <option>За всё время</option>
-              <option>2022</option>
+              <option>2018</option>
+              <option>2019</option>
+              <option>2020</option>
               <option>2021</option>
+              <option>2022</option>
             </select>
             <select name="monthFinishDate" >
               <option value="" disabled selected>Месяц окончания</option>

@@ -1,5 +1,5 @@
-import { YMaps, Map, Placemark, Clusterer, ZoomControl} from 'react-yandex-maps';
-import React, { useEffect,} from 'react';
+import { YMaps, Map, Placemark, Clusterer, ZoomControl } from 'react-yandex-maps';
+import React, { useEffect, } from 'react';
 import './style.module.css'
 import { useSelector, useDispatch } from 'react-redux';
 import uuid from 'react-uuid'
@@ -21,27 +21,27 @@ const Maps = (props) => {
       <YMaps >
         <div className='ya-map' >
           <div>
-            <Map id="map"  width={'max-width'} height={400}  defaultState={{center: [55.75, 37.57], zoom: 4 }}>
-           
-            <Clusterer
-      options={{
-        preset: 'islands#invertedVioletClusterIcons',
-        groupByCoordinates: false,
-      }}
-    >
-          {citiesArr?.map(el=>{
-            return <Placemark key={uuid()} defaultGeometry={el} option={{preset:'#islands#circleDotIcon'}} />
-          })}
-          </Clusterer>
-          <ZoomControl options={{ float: 'right' }} />
+            <Map id="map" width={'max-width'} height={400} defaultState={{ center: [55.75, 37.57], zoom: 4 }}>
+
+              <Clusterer
+                options={{
+                  preset: 'islands#invertedVioletClusterIcons',
+                  groupByCoordinates: false,
+                }}
+              >
+                {citiesArr?.map(el => {
+                  return <Placemark key={uuid()} defaultGeometry={el} option={{ preset: '#islands#circleDotIcon' }} />
+                })}
+              </Clusterer>
+              <ZoomControl options={{ float: 'right' }} />
             </Map>
           </div>
-    </div>
+        </div>
       </YMaps>
     </>
   )
 
-    }
+}
 
 
 export default Maps;

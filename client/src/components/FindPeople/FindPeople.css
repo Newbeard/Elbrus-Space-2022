@@ -1,18 +1,35 @@
-.input-with-icon-box {
-  position: relative;
+.container-find {
+margin: 0 auto;
+width: 85%;
 }
 
-.input-with-icon-box svg {
+.input-with-icon-box-find {
+  position: relative;
+  width: 100%;  
+}
+
+.input-with-icon-box-find svg {
   position: absolute;
   top: 3px;
   right: 0;
 }
 
 .input-search {
-  /* box-sizing: border-box; */
-  width: 85%;
+  
 }
 
 .card-student {
 
+}
+
+.cards-students {
+
+}
+
+.container-search {
+  gap: 10px;
+  min-height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
 }
