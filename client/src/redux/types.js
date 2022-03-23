@@ -14,5 +14,5 @@ export const CHANGE_SESSION = 'CHANGE_SESSION'
 export const ADD_INFO = 'ADD_INFO'
 export const INIT_STUDENT = 'INIT_STUDENT'
 export const DELETE_STUDENT = 'DELETE_STUDENT'
-export const GET_ARR_CITY = 'GET_ARR_CITY'
+
 

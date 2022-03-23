@@ -25,5 +25,4 @@ const users = arr.map((el) => el = {
   createdAt: new Date(),
   updatedAt: new Date(),
 });
-// console.log(users);
 module.exports = { users };
