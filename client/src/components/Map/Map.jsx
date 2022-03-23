@@ -1,4 +1,4 @@
-import { YMaps, Map, Placemark, Clusterer} from 'react-yandex-maps';
+import { YMaps, Map, Placemark, Clusterer, ZoomControl} from 'react-yandex-maps';
 import React, { useEffect,} from 'react';
 import './style.module.css'
 import { useSelector, useDispatch } from 'react-redux';
@@ -13,12 +13,12 @@ const Maps = (props) => {
  
   useEffect(()=>{
     dispatch(getCity())
-    })
+    },[])
     
   const citiesArr= city?.map((city)=>city.coordinates.split(','))
   return (
     <>
-      <YMaps onApiAvaliable={ymaps => console.log(ymaps)}>
+      <YMaps >
         <div className='ya-map' >
           <div>
             <Map id="map"  width={'max-width'} height={400}  defaultState={{center: [55.75, 37.57], zoom: 6 }}>
@@ -30,9 +30,10 @@ const Maps = (props) => {
       }}
     >
           {citiesArr?.map(el=>{
-            return <Placemark key={uuid()} defaultGeometry={el} option={{preset: 'islands#islands#circleDotIcon'}} />
+            return <Placemark key={uuid()} defaultGeometry={el} option={{preset:'#islands#circleDotIcon'}} />
           })}
           </Clusterer>
+          <ZoomControl options={{ float: 'right' }} />
             </Map>
           </div>
         </div>

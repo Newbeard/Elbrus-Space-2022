@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { userRegistration } from '../../redux/actions/auth';
 import { useEffect } from 'react'
 import Error from '../Error/Error'
-import styles from './style.module.css'
+
 import { Link } from 'react-router-dom';
 
 export default function Registration() {
