@@ -12,6 +12,7 @@ function FindPeople() {
   const { students, city, countries } = useSelector(state => state);
   const [isShowFilter, setIsShowFilter] = useState(false);
   const [countrySelected, setCountrySelected] = useState('');
+  const [checked, setChecked] = useState(true);
 
   useEffect(() => {
     dispatch(initStudentsFromServer())
@@ -83,6 +84,9 @@ function FindPeople() {
               <option>За всё время</option>
               <option>2022</option>
               <option>2021</option>
+              <option>2020</option>
+              <option>2019</option>
+              <option>2018</option>
             </select>
             <select name="monthFinishDate" >
               <option value="" disabled selected>Месяц окончания</option>
@@ -100,6 +104,10 @@ function FindPeople() {
               <option>Ноябрь</option>
               <option>Декабрь</option>
             </select>
+            <div>
+              <input type="checkbox" checked={checked} onChange={() => setChecked(!checked)} />
+              <span>{checked ? 'Есть профиль в Telegram' : 'Нет профиля в Telegram'}</span>
+            </div>
             <input type="submit" value="Показать" />
           </form>
           <button onClick={resetFilterStudents}>Очистить фильтр</button>
