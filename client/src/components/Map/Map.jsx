@@ -6,11 +6,6 @@ import { yandexDecoder } from '../../redux/actions/city.action';
 import { getCity } from '../../redux/actions/city.action';
 import DinamicList from '../../DinamicList/DinamicList';
 
-
-
-// Geocoder.init('fa906837-e249-4c18-99ac-fb6aff0bc767');
-// Geocoder.addressToGeo();
-
 const Maps = (props) => {
   const dispatch = useDispatch();
   const { city } = useSelector(state => state)
@@ -18,7 +13,7 @@ const Maps = (props) => {
     dispatch(getCity())
   }, [])
 
-  const citiesArr = city.map((city) => city.coordinates.split(','))
+  const citiesArr = city?.map((city) => city.coordinates.split(','))
   return (
     <>
       <YMaps onApiAvaliable={ymaps => console.log(ymaps)}>

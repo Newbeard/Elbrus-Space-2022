@@ -63,7 +63,7 @@ function AddMoreInfo() {
       'monthFinishDate',
     ]
     arrayStorages.map((item) => localStorage.removeItem(item))
-    navigate('/')
+    navigate('/home')
   }
 
   return (
