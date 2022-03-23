@@ -56,6 +56,7 @@ function EditProfile(props) {
 
             <h3 >Место проживания</h3>
             <input
+            className='input-edit-profile'
               type="text"
               name="currentCountryName"
               placeholder="Страна"
@@ -78,7 +79,7 @@ function EditProfile(props) {
                 placeholder="Telegram"
                 autoComplete="off"
               />
-              <img src="/icon/telegram.png" width={23} alt="" />
+              <img className='img-telegram' src="/icon/telegram.png" width={20} alt="" />
             </div>
             <div className='input-with-icon-box'>
             <input
@@ -88,7 +89,7 @@ function EditProfile(props) {
               placeholder="GitHub"
               autoComplete="off"
             />
-              <img src="/icon/github.png" width={23} alt="" />
+              <img className='img-github' src="/icon/github.png" width={20} alt="" />
               </div>
             <h3 >Окончание обучения</h3>
 
