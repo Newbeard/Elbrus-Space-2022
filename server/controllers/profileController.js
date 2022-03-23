@@ -60,6 +60,8 @@ const editProfile = async (req, res) => {
     surName,
     telegram,
     github,
+    countryName,
+    cityName,
     campusName,
     currentCountryName,
     currentCityName,
@@ -68,6 +70,8 @@ const editProfile = async (req, res) => {
     monthFinishDate,
   } = data;
   try {
+    const country = await Country.findOne({ where: { countryName } });
+    const city = await City.findOne({ where: { cityName } });
     let campus = { id: null };
     let currentCountry = { id: null };
     let currentCity = { id: null };
@@ -104,6 +108,8 @@ const editProfile = async (req, res) => {
               surName,
               telegram,
               github,
+              countryId: newCountry.id,
+              cityId: newCity.id,
               campusId: campus.id,
               currentCountryId: currentCountry.id,
               currentCityId: currentCity.id,

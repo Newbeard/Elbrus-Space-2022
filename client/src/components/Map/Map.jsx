@@ -13,7 +13,7 @@ const Maps = (props) => {
 
   useEffect(() => {
     dispatch(getCity())
-  })
+  }, [])
 
   const citiesArr = city?.map((city) => city.coordinates.split(','))
   return (

@@ -32,6 +32,8 @@ function EditProfile(props) {
     event.preventDefault();
     const form = event.target;
     const data = Object.fromEntries(new FormData(form));
+    data.countryName = user['Country.countryName']
+    data.cityName = user['City.cityName']
     dispatch(editProfileFromServer(data))
   }
   return (
@@ -106,21 +108,6 @@ function EditProfile(props) {
               {!user.monthFinishDate && <option disabled selected>Месяц</option>}
               {months.map((el, i) => (<option key={i} selected={user?.monthFinishDate === el}>{el}</option>))}
             </select>
-            {/* <h3 >Откуда ты родом</h3>
-            <input
-              type="text"
-              name="countryName"
-              placeholder="Страна"
-              defaultValue={user['Country.countryName']}
-              autoComplete="off"
-            />
-            <input
-              type="text"
-              name="cityName"
-              placeholder="Город"
-              defaultValue={user['City.cityName']}
-              autoComplete="off"
-            /> */}
             <h3 >Дата рождения</h3>
             <input
               type="date"
