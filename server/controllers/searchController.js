@@ -1,4 +1,9 @@
-const { User, Campus, Country, City } = require('../db/models');
+const {
+  User,
+  Campus,
+  Country,
+  City,
+} = require('../db/models');
 
 const searchController = async (req, res) => {
   try {
@@ -18,20 +23,26 @@ const filterController = async (req, res) => {
     if (params.campusName) {
       arrayInclude.push({
         model: Campus,
-        where: { campusName: params.campusName },
+        where: {
+          campusName: params.campusName,
+        },
       });
     }
     if (params.countryName) {
       arrayInclude.push({
         model: Country,
         as: 'currentCou',
-        where: { countryName: params.countryName },
+        where: {
+          countryName: params.countryName,
+        },
       });
     }
     if (params.cityName) {
       arrayInclude.push({
         model: City,
-        where: { cityName: params.cityName },
+        where: {
+          cityName: params.cityName,
+        },
       });
     }
     if (params.yearFinishDate) {
@@ -45,7 +56,9 @@ const filterController = async (req, res) => {
       where: objWhere,
       include: arrayInclude,
       raw: true,
-      order: [['createdAt', 'ASC']],
+      order: [
+        ['createdAt', 'ASC'],
+      ],
     });
 
     res.json(students);
@@ -54,4 +67,7 @@ const filterController = async (req, res) => {
   }
 };
 
-module.exports = { searchController, filterController };
+module.exports = {
+  searchController,
+  filterController,
+};

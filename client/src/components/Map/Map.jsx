@@ -35,7 +35,6 @@ const Maps = (props) => {
           </Clusterer>
             </Map>
           </div>
-     
         </div>
       </YMaps>
 
