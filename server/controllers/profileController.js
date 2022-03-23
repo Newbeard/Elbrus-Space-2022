@@ -1,11 +1,11 @@
 /* eslint-disable no-lonely-if */
+const axios = require('axios');
 const {
   User,
   City,
   Country,
   Campus,
 } = require('../db/models');
-const axios = require('axios');
 
 const initProfile = async (req, res) => {
   try {
