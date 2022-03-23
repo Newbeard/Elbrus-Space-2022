@@ -19,11 +19,44 @@ width: 85%;
 }
 
 .card-student {
+  display: flex;
+  font-weight: 400;
+font-size: 14px;
+line-height: 150%;
+/* identical to box height, or 21px */
+gap: 8px;
+letter-spacing: -0.02em;
+padding-bottom: 8px;
+padding-left: 2px;
+color: #000000;
+}
 
+.info-student {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 150%;
+  letter-spacing: 0.0em;
+  color: #000000;
+}
+
+.student-city {
+  font-size: 12px;
+  color: #8D8D8D;
+  margin-left: 6px;
+}
+
+.foto-student {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: #F6BE6C;
+  width: 40px;
+  height: 40px;
 }
 
 .cards-students {
-
+  margin-top: 10px;
 }
 
 .container-search {
