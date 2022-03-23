@@ -7,27 +7,21 @@ import { initStudentFromServer, deleteStudent } from '../../redux/actions/oneStu
 function Student() {
 	const dispatch = useDispatch();
 	const { id } = useParams();
-	console.log('start', id);
 	const student = useSelector((state) => state.student);
 
-	// variant 2
+
   const {students} = useSelector((state) => state);
 
   const currentStudent = students.find(student => student.id === Number(id))
-	//
+	
 
 	useEffect(() => {
-		console.log(1, id);
 		dispatch(initStudentFromServer(id));
-		console.log(3, id);
-
-		// return()=>{dispatch(deleteStudent())}
 	}, []);
 
 	return (
 		<div>
 			<div className="row" />
-			{/* {student && ( */}
 			<div className="row">
 				<div className="row">
 					<div className="col-6 col-7-small">{currentStudent.name}</div>

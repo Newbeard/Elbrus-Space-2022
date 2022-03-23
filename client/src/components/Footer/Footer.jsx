@@ -31,7 +31,7 @@ export default function Footer(props) {
           <p>Поиск</p>
         </div>
       </Link>
-      <Link to="/info" style={{ textDecoration: 'none' }}>
+      <Link to="/diagram" style={{ textDecoration: 'none' }}>
         <div onClick={() => changeActive(2)} className="logo-navbar-mobile gap-1">
           <svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M26.1569 26.157H4.84436" stroke={isActive[1]?.isActive === true ? "#3F29A4" : "#D1D1D1"} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />

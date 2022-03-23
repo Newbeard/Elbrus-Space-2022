@@ -9,9 +9,9 @@ import { getCity } from '../../redux/actions/city.action';
 
 const Maps = (props) => {
   const dispatch = useDispatch();
-  const {city} = useSelector(state => state)
- 
-  useEffect(()=>{
+  const { city } = useSelector(state => state)
+
+  useEffect(() => {
     dispatch(getCity())
     },[])
     
@@ -36,9 +36,8 @@ const Maps = (props) => {
           <ZoomControl options={{ float: 'right' }} />
             </Map>
           </div>
-        </div>
+    </div>
       </YMaps>
-
     </>
   )
 

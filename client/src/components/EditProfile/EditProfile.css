@@ -2,13 +2,8 @@
   position: relative;
 }
 
-.input-with-icon-box svg {
+.input-with-icon-box img {
   position: absolute;
   top: 0;
   right: 0;
-}
-
-.input-search {
-  /* box-sizing: border-box; */
-  
 }
