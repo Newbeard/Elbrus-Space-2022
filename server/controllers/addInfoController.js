@@ -3,7 +3,10 @@ const { User, Country, City, Campus } = require('../db/models');
 const axios = require('axios');
 
 const addInfoController = async (req, res) => {
-  const { dataForm, id } = req.body;
+  const {
+    id,
+  } = req.session.user;
+  const { dataForm } = req.body;
   const {
     name,
     surName,
@@ -20,8 +23,6 @@ const addInfoController = async (req, res) => {
   } = dataForm;
 
   try {
-    const getCoordinate = await axios.get(`https://geocode-maps.yandex.ru/1.x/?format=json&apikey=fa906837-e249-4c18-99ac-fb6aff0bc767&geocode=${encodeURIComponent(cityName)}&results=10`);
-    const coordinates = getCoordinate.data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos.split(' ').reverse().join(' ');
     const country = await Country.findOne({ where: { countryName } });
     const city = await City.findOne({ where: { cityName } });
     let campus = { id: null };

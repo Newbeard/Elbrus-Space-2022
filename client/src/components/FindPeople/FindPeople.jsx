@@ -98,8 +98,7 @@ function FindPeople() {
         </div>
         : <div></div>}
       <div>
-        <p>Вася</p>
-        {students && students.map((student) => <Link to={`/student/${student.id}`}><p key={student.id}>{student.name} {student.surName}</p></Link>)}
+        {students && students.map((student) => <div key={student.id}><Link to={`/student/${student.id}`} style={{ textDecoration: 'none' }}><p>{student.name} {student.surName}</p></Link></div>)}
       </div>
     </div>
   );
