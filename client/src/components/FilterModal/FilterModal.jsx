@@ -21,7 +21,7 @@ function FilterModal({ city, countries, closedFilterStudents }) {
   }
 
   return (
-    <div>
+    <div className='fullWidth'>
       <div className='filter-form'>
           <form method="post" onSubmit={filterStudents} action="#">
             <select onChange={(event) => selectedСountry(event)} name="countryName" >
