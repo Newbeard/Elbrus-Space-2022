@@ -1,5 +1,5 @@
 import './App.css';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route, } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Registration from './components/Registration/Registration';
@@ -12,7 +12,6 @@ import FindPeople from './components/FindPeople/FindPeople';
 import EditProfile from './components/EditProfile/EditProfile';
 import Student from './components/Student/Student';
 import NavDesktop from './components/NavDesktop/NavDesktop';
-import NavMobile from './components/NavMobile/NavMobile';
 import StartPage from './components/StartPage/StartPage';
 import { isSession } from './redux/actions/auth';
 import Diagram from './components/Diagram/Diagram';
@@ -26,13 +25,12 @@ function App() {
   const [isMobile, setIsMobile] = useState(true)
   const screenWidth = window.innerWidth
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const { values } = useSelector(state => state.user)
 
   useEffect(() => {
     screenWidth < 768 ? setIsMobile(true) : setIsMobile(false)
     dispatch(isSession());
-  }, []);
+  },[]);
 
   return (
     <>
