@@ -12,6 +12,8 @@ const initProfile = async (req, res) => {
     const {
       id,
     } = req.session.user;
+    console.log('init ', id);
+
     const user = await User.findOne({
       where: {
         id,
@@ -42,7 +44,7 @@ const initProfile = async (req, res) => {
       ],
 
     });
-
+console.log(user);
     res.json({ user });
   } catch (error) {
     console.log(error.message);
@@ -331,6 +333,7 @@ const editProfile = async (req, res) => {
       },
       ],
     });
+    console.log('ypdate', user);
     res.json({ user });
   } catch (error) {
     res.sendStatus(500);

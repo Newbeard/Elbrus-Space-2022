@@ -4,6 +4,7 @@ import './style.module.css'
 import { useSelector, useDispatch } from 'react-redux';
 import { yandexDecoder } from '../../redux/actions/city.action';
 import { getCity } from '../../redux/actions/city.action';
+import DinamicList from '../../DinamicList/DinamicList';
 
 const Maps = (props) => {
   const dispatch = useDispatch();
@@ -31,7 +32,6 @@ const Maps = (props) => {
               </Clusterer>
             </Map>
           </div>
-
         </div>
       </YMaps>
 

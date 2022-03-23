@@ -58,8 +58,8 @@ function App() {
         </main>
 
         <footer>
-          <Footer />
-          {isMobile && (<NavMobile />)}
+         
+          {isMobile && ( <Footer />)}
         </footer>
       </div>
     </>
