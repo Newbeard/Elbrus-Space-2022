@@ -66,7 +66,7 @@ function App() {
 
         <footer>
          
-          {isMobile && ( <Footer />)}
+          {isMobile && values.id && ( <Footer />)}
         </footer>
       </div>
     </>
