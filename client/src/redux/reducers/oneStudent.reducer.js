@@ -5,7 +5,7 @@ export function oneStudentReducer(state = {}, action) {
 
   switch (type) {
     case INIT_STUDENT: {
-      return payload
+      return payload.student
     }
     
     case DELETE_STUDENT: {

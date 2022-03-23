@@ -2,23 +2,25 @@ import {useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './style.module.css';
 import { useParams } from 'react-router-dom';
-import { initStudentFromServer } from '../../redux/actions/oneStudent.action'
+import { initStudentFromServer, deleteStudent } from '../../redux/actions/oneStudent.action'
 
 function Student() {
 	const dispatch = useDispatch();
   const {id} = useParams();
   console.log('start',id);
-	const { student } = useSelector((state) => state.student);
+	const  student  = useSelector((state) => state.student);
   useEffect(() => {
     console.log(1, id);
     dispatch(initStudentFromServer(id))
     console.log(3, id);
+
+    // return()=>{dispatch(deleteStudent())}
   }, [])
 
 	return (
 		<div>
 			<div className="row" />
-			{student && (
+			{/* {student && ( */}
 				<div className="row">
 					<div className="row">
 						<div className="col-6 col-7-small">{student.name}</div>
@@ -65,7 +67,7 @@ function Student() {
 						</div>
 					</div>
 				</div>
-			)}
+			{/* )} */}
 		</div>
 	);
 }

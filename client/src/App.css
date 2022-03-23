@@ -619,8 +619,8 @@ textarea:focus, input:focus{
   }
 
   .logo {
-    width: 114px;
-    height: 40px;
+    width: 300px;
+    height: 110px;
     padding-left: 20px;
     display: flex;
   }
