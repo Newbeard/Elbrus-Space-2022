@@ -5,11 +5,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { yandexDecoder } from '../../redux/actions/city.action';
 import { getCity } from '../../redux/actions/city.action';
 
-
-
-// Geocoder.init('fa906837-e249-4c18-99ac-fb6aff0bc767');
-// Geocoder.addressToGeo();
-
 const Maps = (props) => {
   const dispatch = useDispatch();
   const { city } = useSelector(state => state)
