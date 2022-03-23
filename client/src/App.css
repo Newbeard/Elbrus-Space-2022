@@ -227,7 +227,12 @@ textarea:focus, input:focus{
     color: #8D8D8D;
   }
 
-
+  /* .map-div {
+    display: flex;
+    justify-content: center;
+    width: 200px;
+    height: 200px;
+  } */
 
 
 }
