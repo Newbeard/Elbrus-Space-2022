@@ -30,7 +30,7 @@ function App() {
 
   return (
     <>
-      <div className="">
+      <div className="body">
         <header >
           {(!isMobile && values.id) && (<NavDesktop />)}
           <div className="logo">
@@ -39,7 +39,7 @@ function App() {
         </header>
 
 
-        <main className="uk-container">
+        <main className="container">
 
           <Routes>
             <Route path="/" element={!values.id && (<StartPage />)} />

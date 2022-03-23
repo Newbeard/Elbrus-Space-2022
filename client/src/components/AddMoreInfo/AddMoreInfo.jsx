@@ -88,9 +88,9 @@ function AddMoreInfo() {
           {!inputedData.monthFinishDate && <option disabled selected>Месяц</option>}
           {months.map((el, i) => (<option key={i} selected={inputedData?.monthFinishDate === el}>{el}</option>))}
         </select>
-        <button className="login-form-button">Сохранить</button>
+        <button type="submit" className="login-form-button">Сохранить</button>
+        <button type="button" className="login-form-button" onClick={() => navigate('/info')}>Назад</button>
       </form>
-      <button className="login-form-button" onClick={() => navigate('/info')}>Назад</button>
     </div>
   );
 }

@@ -45,7 +45,7 @@ function FindPeople() {
       <button onClick={showFilter}>Фильтр</button>
         <input type="text" name="name" id="name" placeholder="Поиск" />
       {isShowFilter === true ?
-        <div className='login-form'>
+        <div className='search-form'>
           <form method="post" onSubmit={filterStudents} action="#">
             <select onChange={(event) => selectedСountry(event)} name="countryName" >
               <option value="" disabled selected>Страна</option>
