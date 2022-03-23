@@ -13,9 +13,9 @@ const Maps = (props) => {
 
   useEffect(() => {
     dispatch(getCity())
-    },[])
-    
-  const citiesArr= city?.map((city)=>city.coordinates.split(','))
+  }, [])
+
+  const citiesArr = city?.map((city) => city.coordinates.split(','))
   return (
     <>
       <YMaps >

@@ -15,6 +15,8 @@ import NavDesktop from './components/NavDesktop/NavDesktop';
 import StartPage from './components/StartPage/StartPage';
 import { isSession } from './redux/actions/auth';
 import Diagram from './components/Diagram/Diagram';
+import Header from './components/Header/Header';
+import { initStudentsFromServer } from './redux/actions/students.action';
 
 
 
@@ -30,16 +32,15 @@ function App() {
   useEffect(() => {
     screenWidth < 768 ? setIsMobile(true) : setIsMobile(false)
     dispatch(isSession());
-  },[]);
+    dispatch(initStudentsFromServer());
+  }, []);
 
   return (
     <>
       <div className="body">
         <header >
           {(!isMobile && values.id) && (<NavDesktop />)}
-          <div className="logo">
-            <img src="https://elbrusboot.camp/static/newLogo-00ed4b8011624cd94aa1812d35f25088.svg" alt="" />
-          </div>
+          {(isMobile && values.id) && (<Header />)}
         </header>
 
 
@@ -56,15 +57,14 @@ function App() {
             <Route path="/moreInfo" element={<AddMoreInfo />} />
             <Route path="/student/:id" element={<Student />} />
             <Route path="/diagram" element={<Diagram />} />
-
+          
 
 
           </Routes>
         </main>
 
         <footer>
-         
-          {isMobile && ( <Footer />)}
+          {isMobile && values.id && (<Footer />)}
         </footer>
       </div>
     </>

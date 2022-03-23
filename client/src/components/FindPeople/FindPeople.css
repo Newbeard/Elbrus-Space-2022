@@ -4,11 +4,15 @@
 
 .input-with-icon-box svg {
   position: absolute;
-  top: 0;
+  top: 3px;
   right: 0;
 }
 
 .input-search {
   /* box-sizing: border-box; */
-  
+  width: 85%;
+}
+
+.card-student {
+
 }

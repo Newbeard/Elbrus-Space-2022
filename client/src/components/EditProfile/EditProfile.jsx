@@ -1,8 +1,9 @@
 import { initProfileFromServer, editProfileFromServer } from '../../redux/actions/userProfile.action';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import React, { useEffect } from 'react';
 import './EditProfile.css';
+import { userLogout } from '../../redux/actions/auth';
 
 const months = [
   'Январь',
@@ -23,8 +24,15 @@ const сampus = ['Москва', 'Санкт-Петербург', 'Онлайн'
 
 function EditProfile(props) {
   const dispatch = useDispatch();
+  const navigate = useNavigate()
   const { user } = useSelector((state) => state.profile);
 
+  const hendlerClick = (event) => {
+    event.preventDefault()
+      dispatch(userLogout())
+    navigate('/')
+  }
+  
   useEffect(() => {
     dispatch(initProfileFromServer());
   }, []);
@@ -33,6 +41,8 @@ function EditProfile(props) {
     event.preventDefault();
     const form = event.target;
     const data = Object.fromEntries(new FormData(form));
+    data.countryName = user['Country.countryName']
+    data.cityName = user['City.cityName']
     dispatch(editProfileFromServer(data))
   }
   return (
@@ -57,6 +67,7 @@ function EditProfile(props) {
 
             <h3 >Место проживания</h3>
             <input
+            className='input-edit-profile'
               type="text"
               name="currentCountryName"
               placeholder="Страна"
@@ -79,7 +90,7 @@ function EditProfile(props) {
                 placeholder="Telegram"
                 autoComplete="off"
               />
-              <img src="/icon/telegram.png" width={23} alt="" />
+              <img className='img-telegram' src="/icon/telegram.png" width={20} alt="" />
             </div>
             <div className='input-with-icon-box'>
             <input
@@ -89,7 +100,7 @@ function EditProfile(props) {
               placeholder="GitHub"
               autoComplete="off"
             />
-              <img src="/icon/github.png" width={23} alt="" />
+              <img className='img-github' src="/icon/github.png" width={20} alt="" />
               </div>
             <h3 >Окончание обучения</h3>
 
@@ -106,21 +117,6 @@ function EditProfile(props) {
               {!user.monthFinishDate && <option disabled selected>Месяц</option>}
               {months.map((el, i) => (<option key={i} selected={user?.monthFinishDate === el}>{el}</option>))}
             </select>
-            <h3 >Откуда ты родом</h3>
-            <input
-              type="text"
-              name="countryName"
-              placeholder="Страна"
-              defaultValue={user['Country.countryName']}
-              autoComplete="off"
-            />
-            <input
-              type="text"
-              name="cityName"
-              placeholder="Город"
-              defaultValue={user['City.cityName']}
-              autoComplete="off"
-            />
             <h3 >Дата рождения</h3>
             <input
               type="date"
@@ -133,7 +129,7 @@ function EditProfile(props) {
 
             <button className='registration-form-button' type="submit" >Отправить</button>
           </form>
-          <Link to="/logout"> <button className='registration-form-button' type="click">Выйти</button></Link>
+          <Link to="/logout"><button className='registration-form-button' onClick={hendlerClick} type="button">Выйти</button></Link>
         </div>
       )}
     </div>
