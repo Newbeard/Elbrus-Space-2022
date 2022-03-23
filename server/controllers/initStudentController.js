@@ -6,6 +6,7 @@ const {
 } = require('../db/models');
 
 const initStudent = async (req, res) => {
+  console.log(123);
   try {
     const { id } = req.body;
     const student = await User.findOne({
