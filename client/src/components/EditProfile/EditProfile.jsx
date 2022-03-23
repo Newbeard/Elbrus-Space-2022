@@ -1,5 +1,6 @@
 import { initProfileFromServer, editProfileFromServer } from '../../redux/actions/userProfile.action';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import React, { useEffect } from 'react';
 import './EditProfile.css';
 
@@ -130,8 +131,9 @@ function EditProfile(props) {
               autoComplete="off"
             />
 
-            <input type="submit" defaultValue="Сохранить" />
+            <button className='registration-form-button' type="submit" >Отправить</button>
           </form>
+          <Link to="/logout"> <button className='registration-form-button' type="click">Выйти</button></Link>
         </div>
       )}
     </div>
