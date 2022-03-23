@@ -16,24 +16,26 @@ const Maps = (props) => {
   const citiesArr = city?.map((city) => city.coordinates.split(','))
   return (
     <>
-      <YMaps onApiAvaliable={ymaps => console.log(ymaps)}>
-        <div className='ya-map' >
-          <div>
-            <Map id="map" width={'max-width'} height={400} defaultState={{ center: [55.75, 37.57], zoom: 6 }}>
-              <Clusterer
-                options={{
-                  preset: 'islands#invertedVioletClusterIcons',
-                  groupByCoordinates: false,
-                }}
-              >
-                {citiesArr?.map(el => {
-                  return <Placemark defaultGeometry={el} option={{ preset: 'islands#islands#circleDotIcon' }} />
-                })}
-              </Clusterer>
-            </Map>
+      <div className='map-div'>
+        <YMaps>
+          <div className='ya-map' >
+            <div>
+              <Map id="map" width={'max-width'} height={400} defaultState={{ center: [55.75, 37.57], zoom: 6 }}>
+                <Clusterer
+                  options={{
+                    preset: 'islands#invertedVioletClusterIcons',
+                    groupByCoordinates: false,
+                  }}
+                >
+                  {citiesArr?.map(el => {
+                    return <Placemark defaultGeometry={el} option={{ preset: 'islands#islands#circleDotIcon' }} />
+                  })}
+                </Clusterer>
+              </Map>
+            </div>
           </div>
-        </div>
-      </YMaps>
+        </YMaps>
+      </div>
 
     </>
   )

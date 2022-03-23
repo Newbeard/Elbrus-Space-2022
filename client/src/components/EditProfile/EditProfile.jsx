@@ -75,8 +75,9 @@ function EditProfile(props) {
               name="telegram"
               defaultValue={user.telegram}
               placeholder="Telegram"
+              autoComplete="off"
             />
-            <input type="text" name="github" defaultValue={user.github} placeholder="GitHub" />
+            <input type="text" name="github" defaultValue={user.github} placeholder="GitHub" autoComplete="off"/>
             <h3 className={styles.label}>Окончание обучения</h3>
 
             <select name="campusName" >
@@ -114,6 +115,7 @@ function EditProfile(props) {
               min="1950-01-01"
               max="2007-12-31"
               defaultValue={user.dateOfBirth}
+              autoComplete="off"
             />
 
             <input type="submit" defaultValue="Сохранить" />
