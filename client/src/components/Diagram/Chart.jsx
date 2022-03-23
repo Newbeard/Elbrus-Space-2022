@@ -10,32 +10,28 @@ const ChartContainer = () => {
 
   const dispatch = useDispatch();
   const { students } = useSelector(state => state);
-  // const campusNumbers = students.map((st)=>st.campusId).reduce((acc,campusId)=> {
-  //   acc[`camp${campusId}`] += 1; 
-  //   console.log(acc);
-  //   return acc;
-  // }, {camp1: 0, camp2: 0, camp3: 0})
+
+  const campusNumbers = students.map((st) => st.campusId).reduce((acc, camp) => {
+    if (typeof camp === 'number') acc[+camp - 1] += 1;
+    return acc;
+  }, [0, 0, 0]);
   
-   const campusNumbers = students.map((st)=>st.campusId).reduce((acc, camp)=>{
-     if(typeof camp === 'number') acc[+camp - 1] += 1;
-     return acc;
-   },[0, 0, 0]);
   useEffect(() => {
     dispatch(initStudentsFromServer());
   }, [])
 
 
   return <div>
-        <div>По данным статистики можно определить процентное соотношение студентов, проходящих обучение в режиме онлайн и очно - в Москве и Санкт-Петербурге.</div>
-        <Chart ref={chart}>
-          <ChartCategoryAxis>
-            <ChartCategoryAxisItem categories={['Москва', 'Онлайн', 'Санкт-Петербург']} />
-          </ChartCategoryAxis>
-          <ChartSeries>
-            <ChartSeriesItem data={campusNumbers} />
-          </ChartSeries>
-        </Chart>
-      </div>;
+    <div>По данным статистики можно определить процентное соотношение студентов, проходящих обучение в режиме онлайн и очно - в Москве и Санкт-Петербурге.</div>
+    <Chart ref={chart}>
+      <ChartCategoryAxis>
+        <ChartCategoryAxisItem categories={['Москва', 'Онлайн', 'Санкт-Петербург']} />
+      </ChartCategoryAxis>
+      <ChartSeries>
+        <ChartSeriesItem data={campusNumbers} />
+      </ChartSeries>
+    </Chart>
+  </div>;
 };
 
 export default ChartContainer
