@@ -1,0 +1,17 @@
+.input-with-icon-box {
+  position: relative;
+
+  /* width: 30px;
+  height: 30px; */
+}
+
+.input-with-icon-box svg {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.input-search {
+  /* box-sizing: border-box; */
+  
+}

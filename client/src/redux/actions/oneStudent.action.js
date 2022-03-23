@@ -13,12 +13,11 @@ export const deleteStudent = () => ({
 
 export const initStudentFromServer = (payload) => async (dispatch) => {
   try {
-    dispatch(deleteStudent())
-    console.log(2,payload);
+    // dispatch(deleteStudent())
     const { data } = await axios.post('/student', {id: payload})
-    console.log(1, data);
+    // const response = await fetch(`/student/${payload}`)
+    // const data = await response.json()
     dispatch(initStudent(data))
-    console.log(22222);
   } catch (error) {
     console.log(error);
   }

@@ -49,9 +49,7 @@ function AddMoreInfo() {
     const id = localStorage.getItem('id')
     const dataForm1 = JSON.parse(localStorage.getItem('addedInfo'))
     const dataForm = { ...dataForm1, ...dataForm2 }
-    console.log({ dataForm, id });
     axios.post('/info', { dataForm, id })
-    axios.post('/getcoord', { dataForm, id })
     const arrayStorages = [
       'addedInfo',
       'telegram',
@@ -63,7 +61,7 @@ function AddMoreInfo() {
       'monthFinishDate',
     ]
     arrayStorages.map((item) => localStorage.removeItem(item))
-    navigate('/')
+    navigate('/home')
   }
 
   return (

@@ -21,6 +21,7 @@ import Diagram from './components/Diagram/Diagram';
 
 
 
+
 function App() {
   const [isMobile, setIsMobile] = useState(true)
   const screenWidth = window.innerWidth
@@ -64,8 +65,8 @@ function App() {
         </main>
 
         <footer>
-          <Footer />
-          {isMobile && (<NavMobile />)}
+         
+          {isMobile && ( <Footer />)}
         </footer>
       </div>
     </>
