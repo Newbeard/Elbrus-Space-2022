@@ -33,9 +33,9 @@ function EditProfile(props) {
     navigate('/')
   }
 
-  // useEffect(() => {
-  //   dispatch(initProfileFromServer());
-  // }, []);
+  useEffect(() => {
+    dispatch(initProfileFromServer());
+  }, []);
 
   function hendleSubmit(event) {
     event.preventDefault();
