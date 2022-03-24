@@ -35,7 +35,7 @@ function FindPeople() {
   return (
     <div className='container-find'>
       <div className='container-search'>
-        <button onClick={showFilter}>Фильтр</button>
+        {/* <button onClick={showFilter}>Фильтр</button> */}
         <div className='input-with-icon-box-find'>
           <input className='input-search' onChange={(e) => dispatch(searchStudents(e.target.value))} type="text" name="name" id="name" placeholder="Поиск" autoComplete="off" />
           <svg onClick={showFilter} width="25" height="25" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">

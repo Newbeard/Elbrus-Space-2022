@@ -10,12 +10,12 @@ width: 85%;
 
 .input-with-icon-box-find svg {
   position: absolute;
-  top: 3px;
-  right: 0;
+  top: 31px;
+  right: 10px;
 }
 
 .input-search {
-  
+  margin-top: 24px;
 }
 
 .card-student {
