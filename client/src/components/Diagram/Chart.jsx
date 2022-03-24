@@ -18,21 +18,23 @@ const ChartContainer = () => {
   }
 
   useEffect(() => {
-     dispatch(initStudentsFromServer());
+    dispatch(initStudentsFromServer());
   }, [])
 
 
-  return <div>
-    <div>По данным статистики можно определить процентное соотношение студентов, проходящих обучение в режиме онлайн и очно - в Москве и Санкт-Петербурге.</div>
-    <Chart ref={chart}>
-      <ChartCategoryAxis>
-        <ChartCategoryAxisItem categories={['Москва', 'Санкт-Петербург', 'Онлайн']} />
-      </ChartCategoryAxis>
-      <ChartSeries>
-        <ChartSeriesItem data={result} />
-      </ChartSeries>
-    </Chart>
-  </div>;
+  return (
+    <div>
+      <Chart ref={chart}>
+        <ChartCategoryAxis>
+          <ChartCategoryAxisItem categories={['Москва', 'Санкт-Петербург', 'Онлайн']} />
+        </ChartCategoryAxis>
+        <ChartSeries>
+          <ChartSeriesItem data={result} />
+        </ChartSeries>
+      </Chart>
+      
+    </div>
+  );
 };
 
 export default ChartContainer
