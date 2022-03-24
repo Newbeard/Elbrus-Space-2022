@@ -9,7 +9,8 @@ function Student() {
 	const { id } = useParams();
 	const student = useSelector((state) => state.student);
 
-
+  // console.log(111111111);
+  // console.log(cities);
   const {students} = useSelector((state) => state);
 
   const currentStudent = students.find(student => student.id === Number(id))
