@@ -13,14 +13,13 @@ function FindPeople() {
   const { students, city, countries } = useSelector(state => state);
   const [isShowFilter, setIsShowFilter] = useState(false);
   const [countrySelected, setCountrySelected] = useState('');
-  const [searchStudent, setSearchStudent] = useState([])
+  // const [searchStudent, setSearchStudent] = useState([])
 
   useEffect(() => {
     dispatch(initStudentsFromServer())
     dispatch(initCountriesFromServer())
     dispatch(getCity())
-    setSearchStudent([...students])
-    console.log(searchStudent);
+    // setSearchStudent([...students])
   }, [])
 
   function showFilter() {
@@ -48,13 +47,18 @@ function FindPeople() {
         <div className='cards-students'>
           {students && students?.map((student) =>
             <div className='card-student' key={student?.id}>
-              <div className='foto-student'>{student?.name.split('')[0]}</div>
+              {/* <div className='foto-student'>{student?.name.split('')[0]}</div> */}
               <Link to={`/student/${student?.id}`} className="info-student" style={{ textDecoration: 'none' }}>
-                <div className='name-student'>
-                  {student?.name} {student?.surName}
+                <div className='foto-student'>
+                  {student?.name.split('')[0]}
                 </div>
-                <div className='student-city'>
-                  {student?.currentCity}
+                <div className='parent-name-and-city'>
+                  <div className='name-student'>
+                    {student?.name} {student?.surName}
+                  </div>
+                  <div className='student-city'>
+                    {student?.currentCity}
+                  </div>
                 </div>
               </Link>
             </div>
