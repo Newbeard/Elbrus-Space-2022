@@ -70,8 +70,9 @@ textarea:focus, input:focus{
 
   .logo {
     width: 114px;
-    height: 40px;
-    padding-left: 20px;
+    height: 35px;
+    padding-left: 35px;
+    padding-top: 20px;
     display: flex;
   }
 

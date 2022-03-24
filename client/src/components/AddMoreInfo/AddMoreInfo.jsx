@@ -16,7 +16,8 @@ const months = [
   'Ноябрь',
   'Декабрь',
 ];
-const years = ['2020', '2021', '2022']
+const years = ['2020', '2021', '2022'];
+const campuses = ['Москва', 'Санкт-Петербург', 'Онлайн'];
 
 function AddMoreInfo() {
   const navigate = useNavigate()
@@ -30,6 +31,7 @@ function AddMoreInfo() {
     const dateOfBirth = localStorage.getItem('dateOfBirth')
     const yearFinishDate = localStorage.getItem('yearFinishDate')
     const monthFinishDate = localStorage.getItem('monthFinishDate')
+    const campusName = localStorage.getItem('campusName')
 
     setInputedData({
       telegram,
@@ -39,6 +41,7 @@ function AddMoreInfo() {
       dateOfBirth,
       yearFinishDate,
       monthFinishDate,
+      campusName,
     })
   }, [])
 
@@ -59,6 +62,7 @@ function AddMoreInfo() {
       'dateOfBirth',
       'yearFinishDate',
       'monthFinishDate',
+      'campusName',
     ]
     arrayStorages.map((item) => localStorage.removeItem(item))
     navigate('/home')
@@ -86,6 +90,10 @@ function AddMoreInfo() {
         <select onChange={(e) => localStorage.setItem('monthFinishDate', (e.target.value))} name="monthFinishDate" >
           {!inputedData.monthFinishDate && <option disabled selected>Месяц</option>}
           {months.map((el, i) => (<option key={i} selected={inputedData?.monthFinishDate === el}>{el}</option>))}
+        </select>
+          <select onChange={(e) => localStorage.setItem('campusName', (e.target.value))} defaultValue={inputedData?.campusName} name="campusName" >
+          {!inputedData.campusName && <option disabled selected>Кампус</option>}
+          {campuses.map(el => (<option selected={inputedData?.campusName === el}>{el}</option>))}
         </select>
         <button type="submit" className="login-form-button">Сохранить</button>
         <button type="button" className="login-form-button" onClick={() => navigate('/info')}>Назад</button>
