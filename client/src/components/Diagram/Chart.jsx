@@ -11,14 +11,16 @@ const ChartContainer = () => {
   const dispatch = useDispatch();
   const { students } = useSelector(state => state);
 
-  const campusNumbers = students.map((st) => st.campusId).reduce((acc, camp) => {
+  const campusNumbers = students.map((st) => st.campus).reduce((acc, camp) => {
     if (typeof camp === 'number') acc[+camp - 1] += 1;
     return acc;
   }, [0, 0, 0]);
   
-  // useEffect(() => {
-  //    dispatch(initStudentsFromServer());
-  // }, [])
+  console.log(campusNumbers);
+  console.log(students);
+  useEffect(() => {
+     dispatch(initStudentsFromServer());
+  }, [])
 
 
   return <div>

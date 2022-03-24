@@ -19,7 +19,7 @@ function Student() {
     <div className="container-card-student" >
       <div className="row-info-card-student first">
         <div className='foto-student-in-card'>
-          {currentStudent?.name.split('')[0]}
+          {currentStudent?.name?.split('')[0]}
         </div>
         <div className="name-with-city">
           <div className='name-student-in-card'>
