@@ -65,3 +65,12 @@
   bottom: 9px;
   right: 10px;
 }
+
+.tel-git {
+  font-size: 18px;
+  font-family: 'SF-UI-Display-Medium';
+}
+
+.git {
+  padding-right: 10px;
+}

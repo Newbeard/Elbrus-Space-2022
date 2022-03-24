@@ -35,11 +35,11 @@ function Student() {
         <div className="elbrus-2">{currentStudent?.monthFinishDate} {currentStudent?.yearFinishDate}, {currentStudent?.campus}</div>
       </div>
       <div className="row-info-card-student input-with-icon-box-student">
-        <p>Telegram&nbsp;<a className="link-telegram" href={`https://t.me/${currentStudent?.telegram}`}>{`t.me/${currentStudent?.telegram}`}</a></p>
+        <p className="tel-git">Telegram</p>&nbsp;<a className="link-telegram" href={`https://t.me/${currentStudent?.telegram}`}>{`t.me/${currentStudent?.telegram}`}</a>
         <img className='img-telegram' src="/icon/telegram.png" width={20} alt="" />
       </div>
       <div className="row-info-card-student input-with-icon-box-student">
-        <div className="">GitHub &nbsp; {currentStudent?.github}</div>
+        <p className="tel-git git">GitHub</p>&nbsp;{currentStudent?.github}
         <img className='img-github' src="/icon/github.png" width={20} alt="" />
       </div>
     </div>
