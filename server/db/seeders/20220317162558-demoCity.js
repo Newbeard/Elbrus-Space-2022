@@ -3,7 +3,7 @@ const path = require('path');
 const axios = require('axios');
 
 async function getCoordinates(city) {
-  const getCoordinate = await axios.get(`https://geocode-maps.yandex.ru/1.x/?format=json&apikey=fa906837-e249-4c18-99ac-fb6aff0bc767&geocode=${encodeURIComponent(city)}&results=10`);
+  const getCoordinate = await axios.get(`https://geocode-maps.yandex.ru/1.x/?format=json&apikey=00fafa0b-f7c2-4437-b835-88efced698f3&geocode=${encodeURIComponent(city)}&results=10`);
   const invalidCoordinates = getCoordinate.data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos.split(' ').reverse().join(' ');
   return invalidCoordinates.split(' ').join(', ');
 }
