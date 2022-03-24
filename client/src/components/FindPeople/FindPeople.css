@@ -10,12 +10,12 @@ width: 85%;
 
 .input-with-icon-box-find svg {
   position: absolute;
-  top: 3px;
-  right: 0;
+  top: 31px;
+  right: 10px;
 }
 
 .input-search {
-  
+  margin-top: 24px;
 }
 
 .card-student {
@@ -46,11 +46,15 @@ color: #000000;
 }
 
 .foto-student {
+  font-family: 'SF-UI-Display-Medium';
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  background-color: #F6BE6C;
+  font-size: 18px;
+  color: rgb(63 41 164);
+  /* border: rgb(63 41 164) solid 1px; */
+  background-color: #f39aff;
   width: 43px;
   height: 43px;
 }

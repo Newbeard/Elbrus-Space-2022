@@ -1,4 +1,4 @@
-import { FILTER_STUDENTS, INIT_STUDENTS } from "../types";
+import { FILTER_STUDENTS, INIT_STUDENTS, SEARCH_STUDENTS } from "../types";
 
 export function studentsReducer(state = [], action) {
   const { type, payload } = action
@@ -10,6 +10,14 @@ export function studentsReducer(state = [], action) {
 
     case FILTER_STUDENTS: {
       return payload
+    }
+
+    case SEARCH_STUDENTS: {
+      const regex = new RegExp(`^${payload}`, 'i')
+      console.log(regex);
+      const newState = state.filter((student) => regex.test(student.name))
+      console.log(newState);
+      return newState
     }
   
     default:
