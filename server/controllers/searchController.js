@@ -11,7 +11,7 @@ const searchController = async (req, res) => {
       raw: true,
       include: [{
         model: City,
-        attributes: ['cityName'],
+        attributes: ['cityName', 'coordinates'],
       },
       {
         model: Country,
@@ -43,6 +43,7 @@ const searchController = async (req, res) => {
       telegram: student.telegram,
       github: student.github,
       city: student['City.cityName'],
+      coordinates: student['City.coordinates'],
       country: student['Country.countryName'],
       campus: student['Campus.campusName'],
       currentCity: student['currentCit.cityName'],

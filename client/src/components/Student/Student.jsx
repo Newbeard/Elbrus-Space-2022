@@ -9,7 +9,7 @@ function Student() {
   const { id } = useParams();
 
   useEffect(() => {
-    dispatch(initStudentsFromServer());
+    // dispatch(initStudentsFromServer());
   }, []);
 
   const { students } = useSelector((state) => state);

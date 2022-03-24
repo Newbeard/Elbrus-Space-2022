@@ -3,19 +3,19 @@ import React, { useEffect, } from 'react';
 import './style.module.css'
 import { useSelector, useDispatch } from 'react-redux';
 import uuid from 'react-uuid'
-import { getCity } from '../../redux/actions/city.action';
-
+// import { getCity } from '../../redux/actions/city.action';
+import { initStudentsFromServer } from '../../redux/actions/students.action';
 
 
 const Maps = (props) => {
   const dispatch = useDispatch();
-  const { city } = useSelector(state => state)
+  const { students } = useSelector(state => state)
 
-  useEffect(() => {
-    dispatch(getCity())
-  }, [])
+  // useEffect(() => {
+  //    dispatch(initStudentsFromServer())
+  // }, [])
 
-  const citiesArr = city?.map((city) => city.coordinates.split(','))
+  const citiesArr = students?.map((city) => city.coordinates.split(','))
   return (
     <>
       <YMaps >

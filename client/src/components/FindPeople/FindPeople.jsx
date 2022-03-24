@@ -16,7 +16,7 @@ function FindPeople() {
   const [nameStudent, setNameStudent] = useState('')
 
   useEffect(() => {
-    dispatch(initStudentsFromServer())
+    // dispatch(initStudentsFromServer())
     dispatch(initCountriesFromServer())
     dispatch(getCity())
     console.log(nameStudent);
@@ -45,15 +45,15 @@ function FindPeople() {
         </div>
         {isShowFilter && <FilterModal city={city} countries={countries} closedFilterStudents={closedFilterStudents} />}
         <div className='cards-students'>
-          {students && students.map((student) =>
-            <div className='card-student' key={student.id}>
-              <div className='foto-student'>{student.name.split('')[0]}</div>
-              <Link to={`/student/${student.id}`} className="info-student" style={{ textDecoration: 'none' }}>
+          {students && students?.map((student) =>
+            <div className='card-student' key={student?.id}>
+              <div className='foto-student'>{student?.name.split('')[0]}</div>
+              <Link to={`/student/${student?.id}`} className="info-student" style={{ textDecoration: 'none' }}>
                 <div className='name-student'>
-                  {student.name} {student.surName}
+                  {student?.name} {student?.surName}
                 </div>
                 <div className='student-city'>
-                  {student.currentCity}
+                  {student?.currentCity}
                 </div>
               </Link>
             </div>

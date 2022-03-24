@@ -16,9 +16,9 @@ const ChartContainer = () => {
     return acc;
   }, [0, 0, 0]);
   
-  useEffect(() => {
-    dispatch(initStudentsFromServer());
-  }, [])
+  // useEffect(() => {
+  //    dispatch(initStudentsFromServer());
+  // }, [])
 
 
   return <div>
