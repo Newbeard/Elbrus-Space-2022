@@ -13,7 +13,7 @@ const config = (app) => {
     origin: ['http://localhost:3000', 'https://elbrus-space-2022.herokuapp.com/'],
     credentials: true,
   }));
-  app.use(express.static(path.resolve(__dirname, 'build')));
+  app.use(express.static(path.resolve('../client/build')));
   app.use(express.json());
   app.use(express.urlencoded({
     extended: true,

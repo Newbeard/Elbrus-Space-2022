@@ -12,12 +12,8 @@ config(app);
 
 app.use('/', indexRouter);
 
-app.get('/*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
-
 app.get('*', (req, res) => {
-  res.status(404);
+  res.sendFile(path.resolve('../client/build/index.html'));
 });
 
 app.listen(PORT, async () => {
