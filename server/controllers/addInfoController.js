@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 /* eslint-disable no-lonely-if */
 const axios = require('axios');
 const { User, Country, City, Campus } = require('../db/models');
@@ -21,7 +22,6 @@ const addInfoController = async (req, res) => {
     yearFinishDate,
     monthFinishDate,
   } = dataForm;
-  console.log(dataForm);
   try {
     const country = await Country.findOne({ where: { countryName } });
     const city = await City.findOne({ where: { cityName } });
