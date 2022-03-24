@@ -1,3 +1,4 @@
+/* eslint-disable no-return-assign */
 const {
   User,
   Campus,
@@ -84,6 +85,7 @@ const filterController = async (req, res) => {
     if (params.cityName) {
       arrayInclude.push({
         model: City,
+        as: 'currentCit',
         where: {
           cityName: params.cityName,
         },
