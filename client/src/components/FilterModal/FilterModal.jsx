@@ -72,9 +72,9 @@ function FilterModal({ city, countries, closedFilterStudents }) {
               <option>Ноябрь</option>
               <option>Декабрь</option>
             </select>
-            <input type="submit" value="Показать" />
+            <input className='login-form-button' type="submit" value="Показать" />
           </form>
-          <button onClick={closedFilterStudents}>Очистить фильтр</button>
+          <button className='login-form-button' onClick={closedFilterStudents}>Очистить фильтр</button>
         </div>
     </div>
   );
