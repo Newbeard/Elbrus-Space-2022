@@ -13,14 +13,15 @@ function FindPeople() {
   const { students, city, countries } = useSelector(state => state);
   const [isShowFilter, setIsShowFilter] = useState(false);
   const [countrySelected, setCountrySelected] = useState('');
-  const [nameStudent, setNameStudent] = useState('')
+  const [searchStudent, setSearchStudent] = useState([])
 
   useEffect(() => {
-    // dispatch(initStudentsFromServer())
+    dispatch(initStudentsFromServer())
     dispatch(initCountriesFromServer())
     dispatch(getCity())
-    console.log(nameStudent);
-  }, [nameStudent])
+    setSearchStudent([...students])
+    console.log(searchStudent);
+  }, [])
 
   function showFilter() {
     setIsShowFilter(!isShowFilter)
