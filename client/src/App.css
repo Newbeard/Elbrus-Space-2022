@@ -277,6 +277,14 @@ textarea:focus, input:focus{
     min-width: 100%;
     margin-bottom: 19px;
   }
+
+  .row-info-card-student {
+    width: 85%;
+    display: flex;
+    justify-content: flex-start;
+    border-bottom: 1px #EAEAEA solid;
+    padding-bottom: 10px;
+  }
   
 }
 

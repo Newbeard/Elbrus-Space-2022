@@ -1,0 +1,10 @@
+.container-card-student {
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.first {
+  margin-top: 45px;
+}
