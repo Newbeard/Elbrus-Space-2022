@@ -227,6 +227,19 @@ textarea:focus, input:focus{
     line-height: 14px;
     color: #8D8D8D;
   }
+  .post-scriptum-about {
+    flex-wrap: wrap;
+
+    margin-left: 7px;
+    display: flex;
+    align-self: flex-start;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: #8D8D8D;
+    max-width: 85%;
+  }
 
   /* .map-div {
     display: flex;
@@ -247,6 +260,12 @@ textarea:focus, input:focus{
 
   .label-first {
     margin-top: 24px;
+  }
+
+  .button-block {
+    gap: 13px;
+    display: flex;
+    min-width: 100%;
   }
   
 }
