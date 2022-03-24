@@ -1,14 +1,72 @@
-.input-with-icon-box {
-  position: relative;
+.container-find {
+margin: 0 auto;
+width: 85%;
 }
 
-.input-with-icon-box svg {
+.input-with-icon-box-find {
+  position: relative;
+  width: 100%;  
+}
+
+.input-with-icon-box-find svg {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 31px;
+  right: 10px;
 }
 
 .input-search {
-  /* box-sizing: border-box; */
-  
+  margin-top: 24px;
+}
+
+.card-student {
+  display: flex;
+  font-weight: 400;
+font-size: 14px;
+line-height: 150%;
+/* identical to box height, or 21px */
+gap: 8px;
+letter-spacing: -0.02em;
+padding-bottom: 8px;
+padding-left: 2px;
+color: #000000;
+}
+
+.info-student {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 150%;
+  letter-spacing: 0.0em;
+  color: #000000;
+}
+
+.student-city {
+  font-size: 12px;
+  color: #8D8D8D;
+  margin-left: 6px;
+}
+
+.foto-student {
+  font-family: 'SF-UI-Display-Medium';
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 18px;
+  color: rgb(63 41 164);
+  /* border: rgb(63 41 164) solid 1px; */
+  background-color: #f39aff;
+  width: 43px;
+  height: 43px;
+}
+
+.cards-students {
+  margin-top: 10px;
+}
+
+.container-search {
+  gap: 10px;
+  min-height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
 }

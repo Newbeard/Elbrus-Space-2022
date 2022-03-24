@@ -1,9 +1,25 @@
 .input-with-icon-box {
   position: relative;
+  min-width: 100%;
 }
 
-.input-with-icon-box img {
+.input-with-icon-box .img-telegram {
   position: absolute;
-  top: 0;
-  right: 0;
+  bottom: 10px;
+  right: 10px;
 }
+
+.input-with-icon-box .img-github {
+  position: absolute;
+  bottom: 9px;
+  right: 10px;
+}
+
+
+
+/* .input-edit-profile {
+  padding-right: 0;
+  background: url("../../../public/icon/telegram.png") no-repeat right;
+  background-size: 23px;
+  
+} */
