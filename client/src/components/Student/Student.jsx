@@ -25,17 +25,17 @@ function Student() {
           <div className="col-6 col-9-small">{currentStudent?.surName}</div>
           <div>
             <div>
-              <div> Кампус {currentStudent['Campus.campusName']}</div>
+              <div> Кампус {currentStudent?.campus}</div>
               <h3 className={styles.label}>Окончание обучения</h3>
-              <div>{currentStudent.yearFinishDate}</div>
+              <div>{currentStudent?.yearFinishDate}</div>
             </div>
             <div>
               <h3 className={styles.label}>Контакты</h3>
               <div className="col-6 col-9-small">
-                <a href={`https://t.me/${currentStudent.telegram}`}>{`t.me/${currentStudent.telegram}`}</a>
+                <a href={`https://t.me/${currentStudent?.telegram}`}>{`t.me/${currentStudent?.telegram}`}</a>
               </div>
               <div className="col-6 col-9-small">
-                <div>GitHub - {currentStudent.github}</div>
+                <div>GitHub - {currentStudent?.github}</div>
               </div>
             </div>
             <div>
@@ -43,10 +43,10 @@ function Student() {
             </div>
             <div className={styles.country_and_city}>
               <div className="col-6 col-5-small">
-                <div>{currentStudent['currentCou.countryName']}</div>
+                <div>{currentStudent?.currentCountry}</div>
               </div>
               <div className={`col-6 col-6-small ${styles.label}`}>
-                <div>{currentStudent['currentCit.cityName']}</div>
+                <div>{currentStudent?.currentCity}</div>
               </div>
             </div>
           </div>
@@ -56,10 +56,10 @@ function Student() {
             </div>
             <div className={styles.country_and_city}>
               <div className="col-6 col-5-small">
-                <div>{currentStudent['Country.countryName']}</div>
+                <div>{currentStudent?.country}</div>
               </div>
               <div className={`col-6 col-6-small ${styles.label}`}>
-                <div>{currentStudent['City.cityName']}</div>
+                <div>{currentStudent?.city}</div>
               </div>
             </div>
           </div>
