@@ -50,10 +50,6 @@ textarea:focus, input:focus{
     height: 100vh
   }
 
-  header {
-   
-  }
-
   .header {
     width: 100%;
     height: 10vh;
@@ -64,7 +60,7 @@ textarea:focus, input:focus{
   }
 
   .container {
-    height: 75vh;
+    height: 80vh;
     overflow: auto;
   }
 
@@ -130,8 +126,7 @@ textarea:focus, input:focus{
     background-color: #FFFFFF;
     box-sizing: border-box;
     border-radius: 7px;
-    /* width: 85%; */
-    height: 37px;
+    height: 40px;
   }
 
   input::placeholder {
@@ -239,7 +234,7 @@ textarea:focus, input:focus{
     height: 200px;
   } */
 
-
+  
 }
 
 
