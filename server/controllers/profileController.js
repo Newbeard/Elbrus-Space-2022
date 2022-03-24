@@ -69,6 +69,7 @@ const editProfile = async (req, res) => {
     yearFinishDate,
     monthFinishDate,
   } = data;
+  console.log(data);
   try {
     const country = await Country.findOne({ where: { countryName } });
     const city = await City.findOne({ where: { cityName } });

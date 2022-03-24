@@ -184,10 +184,18 @@ textarea:focus, input:focus{
     border-bottom: 1px #EAEAEA solid;
     padding-bottom: 3px;
   }
-
   .link-nav--active {
+    margin-top: 24px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
     border-bottom: 1px solid #3F29A4;
+    padding-bottom: 3px;
   }
+
+  .
+
+
   .h3-link {
     font-size: 20px;
     font-weight: 600;

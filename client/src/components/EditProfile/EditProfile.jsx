@@ -41,6 +41,7 @@ function EditProfile(props) {
     event.preventDefault();
     const form = event.target;
     const data = Object.fromEntries(new FormData(form));
+    console.log(data);
     dispatch(editProfileFromServer(data))
   }
   return (
