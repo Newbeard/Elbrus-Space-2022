@@ -29,10 +29,10 @@ function EditProfile(props) {
 
   const hendlerClick = (event) => {
     event.preventDefault()
-      dispatch(userLogout())
+    dispatch(userLogout())
     navigate('/')
   }
-  
+
   useEffect(() => {
     dispatch(initProfileFromServer());
   }, []);
@@ -41,8 +41,6 @@ function EditProfile(props) {
     event.preventDefault();
     const form = event.target;
     const data = Object.fromEntries(new FormData(form));
-    data.countryName = user['Country.countryName']
-    data.cityName = user['City.cityName']
     dispatch(editProfileFromServer(data))
   }
   return (
@@ -67,7 +65,7 @@ function EditProfile(props) {
 
             <h3 >Место проживания</h3>
             <input
-            className='input-edit-profile'
+              className='input-edit-profile'
               type="text"
               name="currentCountryName"
               placeholder="Страна"
@@ -93,15 +91,15 @@ function EditProfile(props) {
               <img className='img-telegram' src="/icon/telegram.png" width={20} alt="" />
             </div>
             <div className='input-with-icon-box'>
-            <input
-              type="text"
-              name="github"
-              defaultValue={user.github}
-              placeholder="GitHub"
-              autoComplete="off"
-            />
+              <input
+                type="text"
+                name="github"
+                defaultValue={user.github}
+                placeholder="GitHub"
+                autoComplete="off"
+              />
               <img className='img-github' src="/icon/github.png" width={20} alt="" />
-              </div>
+            </div>
             <h3 >Окончание обучения</h3>
 
             <select name="campusName" >
@@ -117,6 +115,9 @@ function EditProfile(props) {
               {!user.monthFinishDate && <option disabled selected>Месяц</option>}
               {months.map((el, i) => (<option key={i} selected={user?.monthFinishDate === el}>{el}</option>))}
             </select>
+            <h3 >Откуда ты родом</h3>
+            <input defaultValue={user['Country.countryName']} type="text" name="countryName" placeholder="Страна" autoComplete="off"></input>
+            <input defaultValue={user['City.cityName']} type="text" name="cityName" placeholder="Город" autoComplete="off"></input>
             <h3 >Дата рождения</h3>
             <input
               type="date"
