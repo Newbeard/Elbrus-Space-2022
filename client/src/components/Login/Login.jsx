@@ -15,11 +15,11 @@ export default function Login() {
   // const [loginIsActive, setLoginIsActive] = useState(true)
   const [registrIsActive, setRegistrIsActive] = useState(true)
 
-  // useEffect(() => {
-  //   if (values.id) {
-  //     navigate('/home')
-  //   };
-  // }, [values])
+  useEffect(() => {
+    if (values.id) {
+      navigate('/home')
+    };
+  }, [values])
 
   const handleSubmit = (event) => {
     event.preventDefault();
