@@ -11,11 +11,11 @@ export default function Registration() {
   const navigate = useNavigate();
   const { error, values, isLoading } = useSelector(state => state.user)
 
-  useEffect(() => {
-    if(values.id) {
-      navigate('/info')
-    };
-  }, [values])
+  // useEffect(() => {
+  //   if(values.id) {
+  //     navigate('/info')
+  //   };
+  // }, [values])
 
 
   const handleSubmit = (event) => {

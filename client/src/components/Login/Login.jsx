@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
 import Error from '../Error/Error'
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import NavbarAuthorization from '../NavbarAutorization/NavbarAuthorization';
 
 
@@ -15,11 +15,11 @@ export default function Login() {
   // const [loginIsActive, setLoginIsActive] = useState(true)
   const [registrIsActive, setRegistrIsActive] = useState(true)
 
-  useEffect(() => {
-    if (values.id) {
-      navigate('/home')
-    };
-  }, [values])
+  // useEffect(() => {
+  //   if (values.id) {
+  //     navigate('/home')
+  //   };
+  // }, [values])
 
   const handleSubmit = (event) => {
     event.preventDefault();

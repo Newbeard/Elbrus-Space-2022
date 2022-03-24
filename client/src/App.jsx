@@ -40,7 +40,7 @@ function App() {
       <div className="body">
         <header >
           {(!isMobile && values.id) && (<NavDesktop />)}
-          {(isMobile && values.id) && (<Header />)}
+          {isMobile && <Header />}
         </header>
 
 
