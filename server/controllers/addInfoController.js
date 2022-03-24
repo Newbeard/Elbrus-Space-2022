@@ -1,6 +1,6 @@
 /* eslint-disable no-lonely-if */
-const { User, Country, City, Campus } = require('../db/models');
 const axios = require('axios');
+const { User, Country, City, Campus } = require('../db/models');
 
 const addInfoController = async (req, res) => {
   const {
@@ -21,7 +21,7 @@ const addInfoController = async (req, res) => {
     yearFinishDate,
     monthFinishDate,
   } = dataForm;
-
+  console.log(dataForm);
   try {
     const country = await Country.findOne({ where: { countryName } });
     const city = await City.findOne({ where: { cityName } });
@@ -39,7 +39,7 @@ const addInfoController = async (req, res) => {
       }
       if (currentCountry === null) {
         currentCountry = await Country.create({ countryName: currentCountryName });
-        const getCoordinate = await axios.get(`https://geocode-maps.yandex.ru/1.x/?format=json&apikey=fa906837-e249-4c18-99ac-fb6aff0bc767&geocode=${encodeURIComponent(cityName)}&results=10`);
+        const getCoordinate = await axios.get(`https://geocode-maps.yandex.ru/1.x/?format=json&apikey=00fafa0b-f7c2-4437-b835-88efced698f3&geocode=${encodeURIComponent(cityName)}&results=10`);
         const invalidCoordinates = getCoordinate.data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos.split(' ').reverse().join(' ');
         const coordinates = invalidCoordinates.split(' ').join(', ');
         if (currentCityName) {
@@ -50,7 +50,7 @@ const addInfoController = async (req, res) => {
           });
         }
         if (!country) {
-          const getCoordinate = await axios.get(`https://geocode-maps.yandex.ru/1.x/?format=json&apikey=fa906837-e249-4c18-99ac-fb6aff0bc767&geocode=${encodeURIComponent(cityName)}&results=10`);
+          const getCoordinate = await axios.get(`https://geocode-maps.yandex.ru/1.x/?format=json&apikey=00fafa0b-f7c2-4437-b835-88efced698f3&geocode=${encodeURIComponent(cityName)}&results=10`);
           const invalidCoordinates = getCoordinate.data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos.split(' ').reverse().join(' ');
           const coordinates = invalidCoordinates.split(' ').join(', ');
           const newCountry = await Country.create({ countryName });
@@ -73,7 +73,7 @@ const addInfoController = async (req, res) => {
             { where: { id } },
           );
         } else if (!city) {
-          const getCoordinate = await axios.get(`https://geocode-maps.yandex.ru/1.x/?format=json&apikey=fa906837-e249-4c18-99ac-fb6aff0bc767&geocode=${encodeURIComponent(cityName)}&results=10`);
+          const getCoordinate = await axios.get(`https://geocode-maps.yandex.ru/1.x/?format=json&apikey=00fafa0b-f7c2-4437-b835-88efced698f3&geocode=${encodeURIComponent(cityName)}&results=10`);
           const invalidCoordinates = getCoordinate.data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos.split(' ').reverse().join(' ');
           const coordinates = invalidCoordinates.split(' ').join(', ');
           const newCity = await City.create({ cityName, coordinates, countrysId: country.id });
@@ -115,7 +115,7 @@ const addInfoController = async (req, res) => {
         }
       } else if (currentCity === null) {
         if (currentCityName) {
-          const getCoordinate = await axios.get(`https://geocode-maps.yandex.ru/1.x/?format=json&apikey=fa906837-e249-4c18-99ac-fb6aff0bc767&geocode=${encodeURIComponent(cityName)}&results=10`);
+          const getCoordinate = await axios.get(`https://geocode-maps.yandex.ru/1.x/?format=json&apikey=00fafa0b-f7c2-4437-b835-88efced698f3&geocode=${encodeURIComponent(cityName)}&results=10`);
           const invalidCoordinates = getCoordinate.data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos.split(' ').reverse().join(' ');
           const coordinates = invalidCoordinates.split(' ').join(', ');
           currentCity = await City.create({
@@ -125,7 +125,7 @@ const addInfoController = async (req, res) => {
           });
         }
         if (!country) {
-          const getCoordinate = await axios.get(`https://geocode-maps.yandex.ru/1.x/?format=json&apikey=fa906837-e249-4c18-99ac-fb6aff0bc767&geocode=${encodeURIComponent(cityName)}&results=10`);
+          const getCoordinate = await axios.get(`https://geocode-maps.yandex.ru/1.x/?format=json&apikey=00fafa0b-f7c2-4437-b835-88efced698f3&geocode=${encodeURIComponent(cityName)}&results=10`);
           const invalidCoordinates = getCoordinate.data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos.split(' ').reverse().join(' ');
           const coordinates = invalidCoordinates.split(' ').join(', ');
           const newCountry = await Country.create({ countryName });
@@ -148,7 +148,7 @@ const addInfoController = async (req, res) => {
             { where: { id } },
           );
         } else if (!city) {
-          const getCoordinate = await axios.get(`https://geocode-maps.yandex.ru/1.x/?format=json&apikey=fa906837-e249-4c18-99ac-fb6aff0bc767&geocode=${encodeURIComponent(cityName)}&results=10`);
+          const getCoordinate = await axios.get(`https://geocode-maps.yandex.ru/1.x/?format=json&apikey=00fafa0b-f7c2-4437-b835-88efced698f3&geocode=${encodeURIComponent(cityName)}&results=10`);
           const invalidCoordinates = getCoordinate.data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos.split(' ').reverse().join(' ');
           const coordinates = invalidCoordinates.split(' ').join(', ');
           const newCity = await City.create({ cityName, coordinates, countrysId: country.id });
@@ -191,7 +191,7 @@ const addInfoController = async (req, res) => {
       }
     } else {
       if (!country) {
-        const getCoordinate = await axios.get(`https://geocode-maps.yandex.ru/1.x/?format=json&apikey=fa906837-e249-4c18-99ac-fb6aff0bc767&geocode=${encodeURIComponent(cityName)}&results=10`);
+        const getCoordinate = await axios.get(`https://geocode-maps.yandex.ru/1.x/?format=json&apikey=00fafa0b-f7c2-4437-b835-88efced698f3&geocode=${encodeURIComponent(cityName)}&results=10`);
         const invalidCoordinates = getCoordinate.data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos.split(' ').reverse().join(' ');
         const coordinates = invalidCoordinates.split(' ').join(', ');
         const newCountry = await Country.create({ countryName });
@@ -214,7 +214,7 @@ const addInfoController = async (req, res) => {
           { where: { id } },
         );
       } else if (!city) {
-        const getCoordinate = await axios.get(`https://geocode-maps.yandex.ru/1.x/?format=json&apikey=fa906837-e249-4c18-99ac-fb6aff0bc767&geocode=${encodeURIComponent(cityName)}&results=10`);
+        const getCoordinate = await axios.get(`https://geocode-maps.yandex.ru/1.x/?format=json&apikey=00fafa0b-f7c2-4437-b835-88efced698f3&geocode=${encodeURIComponent(cityName)}&results=10`);
         const invalidCoordinates = getCoordinate.data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos.split(' ').reverse().join(' ');
         const coordinates = invalidCoordinates.split(' ').join(', ');
         const newCity = await City.create({ cityName, coordinates, countrysId: country.id });

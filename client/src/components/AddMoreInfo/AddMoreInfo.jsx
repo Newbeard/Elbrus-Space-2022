@@ -52,6 +52,7 @@ function AddMoreInfo() {
     const id = localStorage.getItem('id')
     const dataForm1 = JSON.parse(localStorage.getItem('addedInfo'))
     const dataForm = { ...dataForm1, ...dataForm2 }
+    console.log(dataForm);
     axios.post('/info', { dataForm, id })
     const arrayStorages = [
       'addedInfo',

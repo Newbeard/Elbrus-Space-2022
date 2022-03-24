@@ -9,21 +9,39 @@ function Student() {
   const { id } = useParams();
 
   useEffect(() => {
-    // dispatch(initStudentsFromServer());
+    dispatch(initStudentsFromServer());
   }, []);
 
   const { students } = useSelector((state) => state);
   const currentStudent = students.find(student => student.id === Number(id))
-  console.log(currentStudent);
 
   return (
     <div className="container-card-student" >
-      <div className="row-info-card-student first">{currentStudent?.name} {currentStudent?.surName}</div>
-      <div className="row-info-card-student">{currentStudent?.currentCountry}, {currentStudent?.currentCity}</div>
-      {/* <div className="row-info-card-student">{currentStudent?.currentCity}</div> */}
-      <div className="row-info-card-student">Выпуск Elbrus bootcamp: {currentStudent?.monthFinishDate} {currentStudent?.yearFinishDate}, {currentStudent?.campus}</div>
-      <div className="row-info-card-student">Telegram<a href={`https://t.me/${currentStudent?.telegram}`}>{`t.me/${currentStudent?.telegram}`}</a></div>
-      <div className="row-info-card-student">GitHub - {currentStudent?.github}</div>
+      <div className="row-info-card-student first">
+        <div className='foto-student-in-card'>
+          {currentStudent?.name?.split('')[0]}
+        </div>
+        <div className="name-with-city">
+          <div className='name-student-in-card'>
+            {currentStudent?.name} {currentStudent?.surName}
+          </div>
+          <div className="city-country">
+            {currentStudent?.currentCountry}, {currentStudent?.currentCity}
+          </div>
+        </div>
+      </div>
+      <div className="row-info-card-student-education">
+        <div className="elbrus-1" >Выпуск Elbrus bootcamp</div>
+        <div className="elbrus-2">{currentStudent?.monthFinishDate} {currentStudent?.yearFinishDate}, {currentStudent?.campus}</div>
+      </div>
+      <div className="row-info-card-student input-with-icon-box-student">
+        <p className="tel-git">Telegram</p>&nbsp;<a className="link-telegram" href={`https://t.me/${currentStudent?.telegram}`}>{`t.me/${currentStudent?.telegram}`}</a>
+        <img className='img-telegram' src="/icon/telegram.png" width={20} alt="" />
+      </div>
+      <div className="row-info-card-student input-with-icon-box-student">
+        <p className="tel-git git">GitHub</p>&nbsp;{currentStudent?.github}
+        <img className='img-github' src="/icon/github.png" width={20} alt="" />
+      </div>
     </div>
   );
 }

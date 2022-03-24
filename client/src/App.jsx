@@ -32,7 +32,7 @@ function App() {
   useEffect(() => {
     screenWidth < 768 ? setIsMobile(true) : setIsMobile(false)
     dispatch(isSession());
-     dispatch(initStudentsFromServer());
+    dispatch(initStudentsFromServer());
   }, []);
 
   return (
@@ -40,7 +40,7 @@ function App() {
       <div className="body">
         <header >
           {(!isMobile && values.id) && (<NavDesktop />)}
-          {(isMobile && values.id) && (<Header />)}
+          {isMobile && <Header />}
         </header>
 
 

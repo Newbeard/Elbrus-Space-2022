@@ -8,14 +8,9 @@ import { initStudentsFromServer } from '../../redux/actions/students.action';
 
 
 const Maps = (props) => {
-  const dispatch = useDispatch();
   const { students } = useSelector(state => state)
 
-  // useEffect(() => {
-  //    dispatch(initStudentsFromServer())
-  // }, [])
-
-  const citiesArr = students?.map((city) => city.coordinates.split(','))
+  const citiesArr = students?.map((city) => city.coordinates?.split(','))
   return (
     <>
       <YMaps >
