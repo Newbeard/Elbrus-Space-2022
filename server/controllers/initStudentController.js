@@ -38,7 +38,6 @@ const initStudent = async (req, res) => {
       ],
 
     });
-    console.log(student);
     res.json({
       student,
     });

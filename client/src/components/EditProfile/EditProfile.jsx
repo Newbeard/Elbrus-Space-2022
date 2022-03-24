@@ -122,9 +122,9 @@ function EditProfile(props) {
               {months.map((el, i) => (<option key={i} selected={user?.monthFinishDate === el}>{el}</option>))}
             </select>
             <div className='label'>Откуда ты родом </div>
-            <input defaultValue={user['Country.countryName']} type="text" name="countryName" placeholder="Страна" autoComplete="off"></input>
-            <input defaultValue={user['City.cityName']} type="text" name="cityName" placeholder="Город" autoComplete="off"></input>
-            <button className='registration-form-button' type="submit" >Сохранить</button>
+            <input defaultValue={user['Country.countryName']} type="text" name="countryName" placeholder="Страна" autoComplete="off" required></input>
+            <input defaultValue={user['City.cityName']} type="text" name="cityName" placeholder="Город" autoComplete="off" required></input>
+            <button className='registration-form-button' type="submit">Сохранить</button>
           </form>
           <div className='div-logout-button'>
             <Link to="/logout"><button className='logout-button' onClick={hendlerClick} type="button">Выйти</button></Link>

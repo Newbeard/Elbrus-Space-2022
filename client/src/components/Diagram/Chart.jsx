@@ -5,30 +5,31 @@ import { useRef, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { initStudentsFromServer } from '../../redux/actions/students.action';
 
+const campusesName = ['Москва', 'Санкт-Петербург', 'Онлайн'];
+
 const ChartContainer = () => {
   const { chart } = useRef(null)
 
   const dispatch = useDispatch();
   const { students } = useSelector(state => state);
+  const result = [];
+  for (let i = 0; i < campusesName.length; i++) {
+    result.push(students.filter((st) => st.campus === campusesName[i]).length)
+  }
 
-  const campusNumbers = students.map((st) => st.campusId).reduce((acc, camp) => {
-    if (typeof camp === 'number') acc[+camp - 1] += 1;
-    return acc;
-  }, [0, 0, 0]);
-  
-  // useEffect(() => {
-  //    dispatch(initStudentsFromServer());
-  // }, [])
+  useEffect(() => {
+     dispatch(initStudentsFromServer());
+  }, [])
 
 
   return <div>
     <div>По данным статистики можно определить процентное соотношение студентов, проходящих обучение в режиме онлайн и очно - в Москве и Санкт-Петербурге.</div>
     <Chart ref={chart}>
       <ChartCategoryAxis>
-        <ChartCategoryAxisItem categories={['Москва', 'Онлайн', 'Санкт-Петербург']} />
+        <ChartCategoryAxisItem categories={['Москва', 'Санкт-Петербург', 'Онлайн']} />
       </ChartCategoryAxis>
       <ChartSeries>
-        <ChartSeriesItem data={campusNumbers} />
+        <ChartSeriesItem data={result} />
       </ChartSeries>
     </Chart>
   </div>;
