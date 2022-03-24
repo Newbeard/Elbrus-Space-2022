@@ -17,7 +17,7 @@ function FilterModal({ city, countries, closedFilterStudents }) {
     event.preventDefault()
     const form = event.target;
     const dataForm = Object.fromEntries(new FormData(form));
-    dispatch(filterStudentsFromServer(dataForm))
+     dispatch(filterStudentsFromServer(dataForm))
   }
 
   return (
