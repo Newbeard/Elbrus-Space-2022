@@ -48,6 +48,7 @@ function EditProfile(props) {
       {user && (
         <div className='login-form'>
           <form onSubmit={hendleSubmit}>
+            <div className='label label-first'>О себе</div>
             <input
               type="text"
               name="name"
@@ -62,8 +63,14 @@ function EditProfile(props) {
               defaultValue={user.surName}
               autoComplete="off"
             />
-
-            <h3 >Место проживания</h3>
+            <input
+              type="date"
+              name="dateOfBirth"
+              min="1950-01-01"
+              max="2007-12-31"
+              defaultValue={user.dateOfBirth}
+              autoComplete="off"
+            />
             <input
               className='input-edit-profile'
               type="text"
@@ -79,7 +86,7 @@ function EditProfile(props) {
               defaultValue={user['currentCit.cityName']}
               autoComplete="off"
             />
-            <h3 >Контакты</h3>
+            <div className='label'>Контакты</div>
             <div className='input-with-icon-box'>
               <input
                 type="text"
@@ -100,8 +107,7 @@ function EditProfile(props) {
               />
               <img className='img-github' src="/icon/github.png" width={20} alt="" />
             </div>
-            <h3 >Окончание обучения</h3>
-
+            <div className='label'>Обучение</div>
             <select name="campusName" >
               {!user['Campus.campusName'] && <option disabled selected>Кампус</option>}
               {сampus.map((el, i) => (<option key={i} selected={!user['Campus.campusName'] === el}>{el}</option>))}
@@ -115,22 +121,14 @@ function EditProfile(props) {
               {!user.monthFinishDate && <option disabled selected>Месяц</option>}
               {months.map((el, i) => (<option key={i} selected={user?.monthFinishDate === el}>{el}</option>))}
             </select>
-            <h3 >Откуда ты родом</h3>
+            <div className='label'>Откуда ты родом </div>
             <input defaultValue={user['Country.countryName']} type="text" name="countryName" placeholder="Страна" autoComplete="off"></input>
             <input defaultValue={user['City.cityName']} type="text" name="cityName" placeholder="Город" autoComplete="off"></input>
-            <h3 >Дата рождения</h3>
-            <input
-              type="date"
-              name="dateOfBirth"
-              min="1950-01-01"
-              max="2007-12-31"
-              defaultValue={user.dateOfBirth}
-              autoComplete="off"
-            />
-
-            <button className='registration-form-button' type="submit" >Отправить</button>
+            <button className='registration-form-button' type="submit" >Сохранить</button>
           </form>
-          <Link to="/logout"><button className='registration-form-button' onClick={hendlerClick} type="button">Выйти</button></Link>
+          <div className='div-logout-button'>
+            <Link to="/logout"><button className='logout-button' onClick={hendlerClick} type="button">Выйти</button></Link>
+          </div>
         </div>
       )}
     </div>

@@ -77,7 +77,15 @@ function AddMoreInfo() {
         <input defaultValue={inputedData?.currentCountryName} onChange={(e) => localStorage.setItem('currentCountryName', (e.target.value))} type="text" name="currentCountryName" placeholder="Страна" autoComplete="off"></input>
         <input defaultValue={inputedData?.currentCityName} onChange={(e) => localStorage.setItem('currentCityName', (e.target.value))} type="text" name="currentCityName" placeholder="Город" autoComplete="off"></input>
         <p className='post-scriptum-about'>Дата рождения и ваше текущее место проживания. </p>
-
+        <div className='label'>Контакты</div>
+        <div className='input-with-icon-box'>
+          <input defaultValue={inputedData?.telegram} onChange={(e) => localStorage.setItem('telegram', (e.target.value))} type="text" name="telegram" placeholder="Telegram" autoComplete="off"></input>
+          <img className='img-telegram' src="/icon/telegram.png" width={20} alt="" />
+        </div>
+        <div className='input-with-icon-box'>
+          <input defaultValue={inputedData?.Github} onChange={(e) => localStorage.setItem('Github', (e.target.value))} type="text" name="github" placeholder="Github" autoComplete="off"></input>
+          <img className='img-github' src="/icon/github.png" width={20} alt="" />
+        </div>
         <div className='label'>Обучение</div>
         <select onChange={(e) => localStorage.setItem('yearFinishDate', (e.target.value))} name="yearFinishDate" >
           {!inputedData.yearFinishDate && <option disabled selected>Год</option>}
@@ -92,15 +100,6 @@ function AddMoreInfo() {
           {campuses.map(el => (<option selected={inputedData?.campusName === el}>{el}</option>))}
         </select>
         <p className='post-scriptum-about'>Когда и в каком городе закончили обучение.</p>
-        <div className='label'>Контакты</div>
-        <div className='input-with-icon-box'>
-          <input defaultValue={inputedData?.telegram} onChange={(e) => localStorage.setItem('telegram', (e.target.value))} type="text" name="telegram" placeholder="Telegram" autoComplete="off"></input>
-          <img className='img-telegram' src="/icon/telegram.png" width={20} alt="" />
-        </div>
-        <div className='input-with-icon-box'>
-          <input defaultValue={inputedData?.Github} onChange={(e) => localStorage.setItem('Github', (e.target.value))} type="text" name="github" placeholder="Github" autoComplete="off"></input>
-          <img className='img-github' src="/icon/github.png" width={20} alt="" />
-        </div>
         <div className='button-block'>
         <button type="button" className="login-form-button" onClick={() => navigate('/info')}>Назад</button>
         <button type="submit" className="login-form-button">Сохранить</button>
