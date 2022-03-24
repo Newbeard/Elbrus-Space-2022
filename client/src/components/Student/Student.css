@@ -1,0 +1,76 @@
+.container-card-student {
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.first {
+  margin-top: 45px;
+  color: #000000;
+  border-bottom: 3px  #EAEAEA solid ;
+  gap: 20px;
+  width: 85%;
+}
+
+.foto-student-in-card {
+  font-family: 'SF-UI-Display-Medium';
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 48px;
+  color: rgb(63 41 164);
+  background-color: #f39aff;
+  width: 93px;
+  height: 93px;
+  margin-left: 10px;
+}
+
+.name-student-in-card {
+  margin-top: 3.5vh;
+  font-size: 25px;
+  line-height: 24px;
+  color: #000000;
+  border-bottom: none;
+}
+
+.city-country {
+  padding-top: 10px;
+}
+ 
+.elbrus-1 {
+  font-size: 19px;
+}
+
+.link-telegram {
+  color: #3F29A4;
+  padding-left: 10px;
+  font-size: 17px;
+}
+
+.input-with-icon-box-student {
+  position: relative;
+  width: 85%;
+}
+
+.input-with-icon-box-student .img-telegram {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.input-with-icon-box-student .img-github {
+  position: absolute;
+  bottom: 9px;
+  right: 10px;
+}
+
+.tel-git {
+  font-size: 18px;
+  font-family: 'SF-UI-Display-Medium';
+}
+
+.git {
+  padding-right: 10px;
+}

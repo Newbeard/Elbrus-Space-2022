@@ -1,5 +1,5 @@
 import axios from "axios";
-import { FILTER_STUDENTS, INIT_STUDENTS } from "../types";
+import { FILTER_STUDENTS, INIT_STUDENTS, SEARCH_STUDENTS } from "../types";
 
 
 export const initStudents = (users) => ({
@@ -29,5 +29,10 @@ export const filterStudentsFromServer = (payload) => async (dispatch) => {
     console.log(error);
   }
 }
+
+export const searchStudents = (name) => ({
+  type: SEARCH_STUDENTS,
+  payload: name
+})
 
 

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { userRegistration } from '../../redux/actions/auth';
 import { useEffect } from 'react'
 import Error from '../Error/Error'
-import styles from './style.module.css'
+import NavbarAuthorization from '../NavbarAutorization/NavbarAuthorization';
 import { Link } from 'react-router-dom';
 
 export default function Registration() {
@@ -30,18 +30,9 @@ export default function Registration() {
 
   return (
     <div className='login-form'>
-      <div className='nav-login-registration'>
-        <div className='link-nav link-nav--active' >
-          <Link to="/login" className='link'>
-            <h3 className='h3-link'>Вход</h3>
-          </Link>
-        </div>
-        <div className='link-nav'>
-          <Link to="/registration" className='link'>
-            <h3 className='h3-link'>Регистрация</h3>
-          </Link>
-        </div>
-      </div>
+      
+      <NavbarAuthorization />
+
       <form onSubmit={handleSubmit}>
         <input type="text" name="email" placeholder="Email*" autoFocus autoComplete="off" />
         <input type="password" name="password" placeholder="Пароль*" autoComplete="off" />

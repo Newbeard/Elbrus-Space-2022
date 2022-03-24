@@ -1,3 +1,4 @@
+/* eslint-disable no-return-assign */
 const {
   User,
   Campus,
@@ -7,7 +8,51 @@ const {
 
 const searchController = async (req, res) => {
   try {
-    const students = await User.findAll();
+    const result = await User.findAll({
+      raw: true,
+      include: [{
+        model: City,
+        attributes: ['cityName', 'coordinates'],
+      },
+      {
+        model: Country,
+        attributes: ['countryName'],
+      },
+      {
+        model: Campus,
+        attributes: ['campusName'],
+      },
+      {
+        model: City,
+        as: 'currentCit',
+        attributes: ['cityName'],
+      },
+      {
+        model: Country,
+        as: 'currentCou',
+        attributes: ['countryName'],
+      },
+      ],
+
+    });
+    const students = result.map((student) => student = {
+      id: student.id,
+      name: student.name,
+      surName: student.surName,
+      email: student.email,
+      emailIsApproved: student.emailIsApproved,
+      telegram: student.telegram,
+      github: student.github,
+      city: student['City.cityName'],
+      coordinates: student['City.coordinates'],
+      country: student['Country.countryName'],
+      campus: student['Campus.campusName'],
+      currentCity: student['currentCit.cityName'],
+      currentCountry: student['Country.countryName'],
+      dateOfBirth: student.dateOfBirth,
+      monthFinishDate: student.monthFinishDate,
+      yearFinishDate: student.yearFinishDate,
+    });
     res.json(students);
   } catch (error) {
     res.sendStatus(500);
@@ -40,6 +85,7 @@ const filterController = async (req, res) => {
     if (params.cityName) {
       arrayInclude.push({
         model: City,
+        as: 'currentCit',
         where: {
           cityName: params.cityName,
         },

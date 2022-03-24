@@ -1,0 +1,6 @@
+.container-diagram {
+  display: flex;
+  /* justify-content: center; */
+  /* flex-direction: column; */
+  min-width: 90%;
+}

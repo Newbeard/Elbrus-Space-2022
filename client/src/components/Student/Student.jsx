@@ -1,76 +1,49 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import styles from './style.module.css';
 import { useParams } from 'react-router-dom';
-import { initStudentFromServer, deleteStudent } from '../../redux/actions/oneStudent.action';
+import { initStudentsFromServer } from '../../redux/actions/students.action';
+import './Student.css'
 
 function Student() {
-	const dispatch = useDispatch();
-	const { id } = useParams();
-	const student = useSelector((state) => state.student);
+  const dispatch = useDispatch();
+  const { id } = useParams();
 
+  useEffect(() => {
+    dispatch(initStudentsFromServer());
+  }, []);
 
-  const {students} = useSelector((state) => state);
-
+  const { students } = useSelector((state) => state);
   const currentStudent = students.find(student => student.id === Number(id))
-	
 
-	useEffect(() => {
-		dispatch(initStudentFromServer(id));
-	}, []);
-
-	return (
-		<div>
-			<div className="row" />
-			<div className="row">
-				<div className="row">
-					<div className="col-6 col-7-small">{currentStudent.name}</div>
-					<div className="col-6 col-9-small">{currentStudent.surName}</div>
-					<div>
-						<div>
-							<div> Кампус {student['Campus.campusName']}</div>
-							<h3 className={styles.label}>Окончание обучения</h3>
-							<div>{currentStudent.yearFinishDate}</div>
-						</div>
-						<div>
-							<h3 className={styles.label}>Контакты</h3>
-							<div className="col-6 col-9-small">
-								<div> Telegram - {currentStudent.telegram}</div>
-							</div>
-							<div className="col-6 col-9-small">
-								<div>GitHub - {currentStudent.github}</div>
-							</div>
-						</div>
-						<div>
-							<h3 className={styles.label}>Место проживания</h3>
-						</div>
-						<div className={styles.country_and_city}>
-							<div className="col-6 col-5-small">
-								<div>{student['currentCou.countryName']}</div>
-							</div>
-							<div className={`col-6 col-6-small ${styles.label}`}>
-								<div>{student['currentCit.cityName']}</div>
-							</div>
-						</div>
-					</div>
-					<div>
-						<div>
-							<h3 className={styles.label}>Откуда ты родом</h3>
-						</div>
-						<div className={styles.country_and_city}>
-							<div className="col-6 col-5-small">
-								<div>{student['Country.countryName']}</div>
-							</div>
-							<div className={`col-6 col-6-small ${styles.label}`}>
-								<div>{student['City.cityName']}</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			{/* )} */}
-		</div>
-	);
+  return (
+    <div className="container-card-student" >
+      <div className="row-info-card-student first">
+        <div className='foto-student-in-card'>
+          {currentStudent?.name?.split('')[0]}
+        </div>
+        <div className="name-with-city">
+          <div className='name-student-in-card'>
+            {currentStudent?.name} {currentStudent?.surName}
+          </div>
+          <div className="city-country">
+            {currentStudent?.currentCountry}, {currentStudent?.currentCity}
+          </div>
+        </div>
+      </div>
+      <div className="row-info-card-student-education">
+        <div className="elbrus-1" >Выпуск Elbrus bootcamp</div>
+        <div className="elbrus-2">{currentStudent?.monthFinishDate} {currentStudent?.yearFinishDate}, {currentStudent?.campus}</div>
+      </div>
+      <div className="row-info-card-student input-with-icon-box-student">
+        <p className="tel-git">Telegram</p>&nbsp;<a className="link-telegram" href={`https://t.me/${currentStudent?.telegram}`}>{`t.me/${currentStudent?.telegram}`}</a>
+        <img className='img-telegram' src="/icon/telegram.png" width={20} alt="" />
+      </div>
+      <div className="row-info-card-student input-with-icon-box-student">
+        <p className="tel-git git">GitHub</p>&nbsp;{currentStudent?.github}
+        <img className='img-github' src="/icon/github.png" width={20} alt="" />
+      </div>
+    </div>
+  );
 }
 
 export default Student;
