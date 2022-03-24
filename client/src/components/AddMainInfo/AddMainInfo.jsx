@@ -23,18 +23,12 @@ function AddMainInfo() {
   return (
     <div className='login-form'>
       <form onSubmit={addInfo}>
-        <div>Заполните информацию</div>
+        <div className='label label-first'>Заполните информацию</div>
         <input type="text" defaultValue={inputedData?.name} name="name" placeholder="Имя*" autoFocus autoComplete="off" required></input>
         <input type="text" defaultValue={inputedData?.surName} name="surName" placeholder="Фамилия" autoComplete="off"></input>
-        <div>Откуда ты родом</div>
+        <div className='label'>Откуда ты родом</div>
         <input type="text" defaultValue={inputedData?.countryName} name="countryName" placeholder="Страна*" autoComplete="off" required></input>
         <input type="text" defaultValue={inputedData?.cityName} name="cityName" placeholder="Город*" autoComplete="off" required></input>
-        <select name="campusName" >
-          {inputedData ? <option>{inputedData?.campusName}</option> : <option disabled selected>Кампус</option>}
-          {inputedData?.campusName !== 'Москва' && <option>Москва</option>}
-          {inputedData?.campusName !== 'Санкт-Петербург' && <option>Санкт-Петербург</option>}
-          {inputedData?.campusName !== 'Онлайн' && <option>Онлайн</option>}
-        </select>
         <p className='post-scriptum-necessarily'>*Обязательно для заполнения</p>
         <button className='registration-form-button'>Далее</button>
       </form>
