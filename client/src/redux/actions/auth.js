@@ -61,6 +61,18 @@ export const logout = (data) => ({
 export const userLogout = (payload) => async (dispatch) => { 
   try {
     await axios('/logout')
+    const arrayStorages = [
+      'addedInfo',
+      'telegram',
+      'Github',
+      'currentCountryName',
+      'currentCityName',
+      'dateOfBirth',
+      'yearFinishDate',
+      'monthFinishDate',
+      'campusName',
+    ]
+    arrayStorages.map((item) => localStorage.removeItem(item))
     localStorage.removeItem('id')
     dispatch(logout())
   }
