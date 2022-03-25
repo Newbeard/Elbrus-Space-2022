@@ -10,6 +10,12 @@ import { initStudentsFromServer } from '../../redux/actions/students.action';
 const Maps = (props) => {
   const { students } = useSelector(state => state)
 
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(initStudentsFromServer())
+ 
+  }, [])
   const citiesArr = students?.map((city) => city.coordinates?.split(','))
   return (
     <>
