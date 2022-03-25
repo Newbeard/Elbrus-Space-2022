@@ -83,7 +83,7 @@ function EditProfile(props) {
               defaultValue={user['currentCou.countryName']}
               autoComplete="off"
             />
-            {(countrySelected === true) && (user['currentCit.cityName'] !== '') ? <input
+            {((countrySelected === true) || (user['currentCit.cityName'] !== null)) ? <input
               type="text"
               name="currentCityName"
               placeholder="Город"
