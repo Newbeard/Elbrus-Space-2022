@@ -22,6 +22,7 @@ const campuses = ['Москва', 'Санкт-Петербург', 'Онлайн
 function AddMoreInfo() {
   const navigate = useNavigate()
   const [inputedData, setInputedData] = useState('');
+  const [countrySelected, setCountrySelected] = useState('');
 
   useEffect(() => {
     const telegram = localStorage.getItem('telegram')
@@ -68,14 +69,21 @@ function AddMoreInfo() {
     navigate('/home')
   }
 
+  function selectedСountry(event) {
+    localStorage.setItem('currentCountryName', (event.target.value))
+    setCountrySelected(true);
+  }
+
   return (
     <div className='login-form'>
       <form onSubmit={addInfo}>
         <div className='label label-first'>О себе</div>
         <input defaultValue={inputedData?.dateOfBirth} onChange={(e) => localStorage.setItem('dateOfBirth', (e.target.value))} type="date" id="start" name="dateOfBirth"
           min="1950-01-01" max="2007-12-31" autoComplete="off" />
-        <input defaultValue={inputedData?.currentCountryName} onChange={(e) => localStorage.setItem('currentCountryName', (e.target.value))} type="text" name="currentCountryName" placeholder="Страна" autoComplete="off"></input>
-        <input defaultValue={inputedData?.currentCityName} onChange={(e) => localStorage.setItem('currentCityName', (e.target.value))} type="text" name="currentCityName" placeholder="Город" autoComplete="off"></input>
+        <input defaultValue={inputedData?.currentCountryName} onChange={(e) => selectedСountry(e)} type="text" name="currentCountryName" placeholder="Страна" autoComplete="off"></input>
+        {countrySelected === true ? 
+        (<input defaultValue={inputedData?.currentCityName} onChange={(e) => localStorage.setItem('currentCityName', (e.target.value))} type="text" name="currentCityName" placeholder="Город" autoComplete="off"></input>)
+        : (<input disabled defaultValue={inputedData?.currentCityName} onChange={(e) => localStorage.setItem('currentCityName', (e.target.value))} type="text" name="currentCityName" placeholder="Город" autoComplete="off"></input>)}
         <p className='post-scriptum-about'>Дата рождения и ваше текущее место проживания. </p>
         <div className='label'>Контакты</div>
         <div className='input-with-icon-box'>

@@ -1,7 +1,7 @@
 import { initProfileFromServer, editProfileFromServer } from '../../redux/actions/userProfile.action';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './EditProfile.css';
 import { userLogout } from '../../redux/actions/auth';
 
@@ -26,6 +26,7 @@ function EditProfile(props) {
   const dispatch = useDispatch();
   const navigate = useNavigate()
   const { user } = useSelector((state) => state.profile);
+  const [countrySelected, setCountrySelected] = useState('');
 
   const hendlerClick = (event) => {
     event.preventDefault()
@@ -43,6 +44,8 @@ function EditProfile(props) {
     const data = Object.fromEntries(new FormData(form));
     dispatch(editProfileFromServer(data))
   }
+
+
   return (
     <div >
       {user && (
@@ -72,6 +75,7 @@ function EditProfile(props) {
               autoComplete="off"
             />
             <input
+              onChange={() => setCountrySelected(true)}
               className='input-edit-profile'
               type="text"
               name="currentCountryName"
@@ -79,13 +83,21 @@ function EditProfile(props) {
               defaultValue={user['currentCou.countryName']}
               autoComplete="off"
             />
-            <input
+            {(countrySelected === true) && (user['currentCit.cityName'] !== '') ? <input
               type="text"
               name="currentCityName"
               placeholder="Город"
               defaultValue={user['currentCit.cityName']}
               autoComplete="off"
             />
+            : <input
+              disabled
+              type="text"
+              name="currentCityName"
+              placeholder="Город"
+              defaultValue={user['currentCit.cityName']}
+              autoComplete="off"
+            />}
             <div className='label'>Контакты</div>
             <div className='input-with-icon-box'>
               <input

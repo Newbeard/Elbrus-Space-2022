@@ -15,7 +15,6 @@ const Maps = (props) => {
   useEffect(() => {
     dispatch(initStudentsFromServer())
  
-    // setSearchStudent([...students])
   }, [])
   const citiesArr = students?.map((city) => city.coordinates?.split(','))
   return (
