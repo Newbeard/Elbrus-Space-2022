@@ -1,6 +1,20 @@
 .container-diagram {
   display: flex;
-  /* justify-content: center; */
-  /* flex-direction: column; */
-  min-width: 90%;
+  flex-direction: column;
+  max-width: 90%;
+  gap: 15px;
+}
+
+.upper-container {
+  display: flex;
+  justify-content: center;
+}
+
+.header-diagram {
+  margin-top: 25px;
+  margin-left: 30px;
+}
+
+.description-diagram {
+  margin-left: 30px;
 }
