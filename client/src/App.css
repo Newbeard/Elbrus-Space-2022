@@ -72,7 +72,7 @@ textarea:focus, input:focus{
     width: 114px;
     height: 35px;
     padding-left: 35px;
-    padding-top: 20px;
+    padding-top: 5%;
     display: flex;
   }
 
@@ -294,8 +294,13 @@ textarea:focus, input:focus{
     border-bottom: 1px #EAEAEA solid;
     padding-bottom: 10px;
   }
-  
-  
+  .container-error {
+    margin-top: 15px;
+    max-width: 85%;
+  }
+  .error {
+    max-width: 100%;
+  }
   
   
 

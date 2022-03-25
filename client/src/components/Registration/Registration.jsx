@@ -12,7 +12,7 @@ export default function Registration() {
   const { error, values, isLoading } = useSelector(state => state.user)
 
   useEffect(() => {
-    if(values.id) {
+    if (values.id) {
       navigate('/info')
     };
   }, [values])
@@ -30,7 +30,7 @@ export default function Registration() {
 
   return (
     <div className='login-form'>
-      
+
       <NavbarAuthorization />
 
       <form onSubmit={handleSubmit}>
@@ -39,8 +39,10 @@ export default function Registration() {
         <input type="password" name="confirmPassword" placeholder="Повторите пароль*" autoComplete="off" />
         <p className='post-scriptum-necessarily'>*Обязательно для заполнения</p>
         <button className='registration-form-button' type="submit" disabled={isLoading}>{isLoading ? 'Подождите...' : 'Зарегистрироваться'}</button>
-        {error && <Error error={error.error} />}
       </form>
+      <div className='container-error'>
+        {error && <Error error={error.error} />}
+      </div>
     </div>
   );
 }
