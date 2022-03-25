@@ -27,7 +27,7 @@
   transform: translateY(0);
   z-index: 3;
   animation: dd3 10s 2;
-  animation-delay: 3s;
+  animation-delay: 1s;
 }@keyframes dd3 {
   0% {
   }

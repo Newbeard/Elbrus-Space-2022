@@ -312,7 +312,42 @@ textarea:focus, input:focus{
     color: #8D8D8D;
   }
   
-  
+  .links-111 {
+    display: flex;
+    justify-content: center;
+  }
+  .main-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .button-block-111 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 13px;
+    display: flex;
+    min-width: 100%;
+    margin-bottom: 19px;
+  }
+
+  .button-auth {
+    width: 200px;
+    height: 52px;
+    background: #f6bf6c00;
+    border-radius: 7px;
+    border: none;
+    border: #3F29A4 solid 3px;
+    font-size: 18px;
+    font-family: 'SF-UI-Display';
+    line-height: 145%;
+    color:  #3F29A4;
+    margin-top: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
 }
 
