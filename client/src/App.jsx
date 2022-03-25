@@ -29,6 +29,7 @@ function App() {
     screenWidth < 768 ? setIsMobile(true) : setIsMobile(false)
     dispatch(initStudentsFromServer());
   }, []);
+  
 
   useEffect(() => {
     dispatch(isSession());
