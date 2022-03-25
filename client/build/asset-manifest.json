@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/static/css/main.f1258b74.css",
+    "main.js": "/static/js/main.69afb320.js",
+    "static/media/bg.jpg": "/static/media/bg.a5fb5d3c8200ce1ec46f.jpg",
+    "static/media/SFUIDisplay-Semibold.ttf": "/static/media/SFUIDisplay-Semibold.cb4925c92f2e65033ecd.ttf",
+    "static/media/SFUIDisplay-Medium.ttf": "/static/media/SFUIDisplay-Medium.a49cbc2c4a4f1f9f24ed.ttf",
+    "static/media/SFUIDisplay-Light.ttf": "/static/media/SFUIDisplay-Light.674e97b14472efc3e429.ttf",
+    "static/media/SFUIDisplay-Regular.ttf": "/static/media/SFUIDisplay-Regular.fb1826d2ed3f20c58a51.ttf",
+    "index.html": "/index.html",
+    "main.f1258b74.css.map": "/static/css/main.f1258b74.css.map",
+    "main.69afb320.js.map": "/static/js/main.69afb320.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f1258b74.css",
+    "static/js/main.69afb320.js"
+  ]
+}
