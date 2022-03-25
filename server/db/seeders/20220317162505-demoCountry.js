@@ -19,7 +19,38 @@ module.exports = {
       countryName: 'Казахстан',
       createdAt: new Date(),
       updatedAt: new Date(),
-    }], {});
+    },
+    {
+      countryName: 'Кыргызстан',
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    },
+    {
+      countryName: 'Узбекистан',
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    },
+    {
+      countryName: 'Приднестровье',
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    },
+    {
+      countryName: 'Молдова',
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    },
+    {
+      countryName: 'Беларусь',
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    },
+    {
+      countryName: 'Эритрея',
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    },
+    ], {});
   },
 
   async down(queryInterface, Sequelize) {

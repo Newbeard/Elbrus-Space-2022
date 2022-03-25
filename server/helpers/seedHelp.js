@@ -1,8 +1,6 @@
 const { faker } = require('@faker-js/faker');
 const bcrypt = require('bcrypt');
 
-
-
 const arr = new Array(30).fill('');
 const users = arr.map((el) => el = {
   name: faker.name.firstName(),
