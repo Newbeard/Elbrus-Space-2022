@@ -10,36 +10,28 @@
   font-size: 34px;
   font-family: 'Roboto', sans-serif;
 }
+.main-block{
+ 
+  
+  background-image: url(images/bg.jpg);
+  background-size: 2700px 1500px;
+  overflow: hidden;
 
-@media (max-width: 620px) {
-  .bg-animation {
-      padding: 100px 20px;
-      font-size: 26px;
-  }
-}
-@keyframes bg-animation {
+  height: 100%;
+  width: 100%;
+ 
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.8);
+  background-position: 100%;
+
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  animation: dd3 10s 2;
+  animation-delay: 13s;
+}@keyframes dd3 {
   0% {
-      background-size: 120%;
-      background-position: 50% 50%
   }
-  20% {
-      background-size: 150%;
-      background-position: 0 50%;
-  }    
-  40% {
-      background-size: 110%;
-      background-position: 20% 80%;
-    }
-    60% {
-        background-size: 160%;
-        background-position: 60% 10%;
-    }
-    80% {
-        background-size: 120%;
-        background-position: 40% 70%;
-    }    
-    100% {
-        background-size: 120%;
-        background-position: 50% 50%
-    }
+  50% {
+    background-position: Calc(-35vw - 40px) 50%;
+  }
 }
