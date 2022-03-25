@@ -14,10 +14,10 @@ const registerUserPost = async (req, res) => {
       return res.json({ error: `Пользователь с ${email} уже зарегистрирован!` });
     }
     if (!isValidEmail(email)) {
-      return res.json({ error: 'Email введен не коректно' });
+      return res.json({ error: 'Email введен некоректно' });
     }
     if (!isValidPassword(password)) {
-      return res.json({ error: 'Пароль должен состоять из заглавных и строчных символолв и цифр длиной не менее 6 символов' });
+      return res.json({ error: 'Пароль должен быть не менее 6 символов. Иметь строчную и заглавную буквы, цифру' });
     }
     if (password !== confirmPassword) {
       return res.json({ error: 'Пaроли не совпадают' });

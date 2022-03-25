@@ -32,12 +32,12 @@ function FilterModal({ city, countries, closedFilterStudents }) {
             {countrySelected === "" ?
               <select disabled name="cityName" >
                 <option value="" disabled selected>Город</option>
-                <option>Любая</option>
+                <option>Любой</option>
                 {city?.map((city) => <option key={city.id}>{city.cityName}</option>)}
               </select> :
               <select name="cityName" >
                 <option value="" disabled selected>Город</option>
-                <option>Любая</option>
+                <option>Любой</option>
                 {city?.map((city) => <option key={city.id}>{city.cityName}</option>)}
               </select>}
             <select name="campusName" >

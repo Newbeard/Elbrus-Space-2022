@@ -299,7 +299,12 @@ textarea:focus, input:focus{
     max-width: 85%;
   }
   .error {
+    margin-left: 5px;
     max-width: 100%;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 14px;
+    color: #8D8D8D;
   }
   
   
