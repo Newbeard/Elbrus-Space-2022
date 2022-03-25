@@ -1,7 +1,5 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
-    const cities = await seedCity();
-
     await queryInterface.bulkInsert('Cities', [
       {
         cityName: 'Санкт-Петербург',
