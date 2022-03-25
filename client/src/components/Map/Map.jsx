@@ -13,7 +13,6 @@ const Maps = (props) => {
 
   useEffect(() => {
     dispatch(initStudentsFromServer())
- 
   }, [])
   const citiesArr = students?.map((city) => city.coordinates?.split(','))
   const newCitiesArr = citiesArr.filter((coord) => coord !== undefined)
