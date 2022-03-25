@@ -46,7 +46,6 @@ function FindPeople() {
         <div className='cards-students'>
           {students && students?.map((student) =>
             <div className='card-student' key={student?.id}>
-              {/* <div className='foto-student'>{student?.name.split('')[0]}</div> */}
               <Link to={`/student/${student?.id}`} className="info-student" style={{ textDecoration: 'none' }}>
                 <div className='foto-student'>
                   {student?.name?.split('')[0]}
