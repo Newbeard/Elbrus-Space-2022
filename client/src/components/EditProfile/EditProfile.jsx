@@ -79,14 +79,14 @@ function EditProfile(props) {
               className='input-edit-profile'
               type="text"
               name="currentCountryName"
-              placeholder="Страна"
+              placeholder="Страна*"
               defaultValue={user['currentCou.countryName']}
               autoComplete="off"
             />
             {((countrySelected === true) || (user['currentCit.cityName'] !== null)) ? <input
               type="text"
               name="currentCityName"
-              placeholder="Город"
+              placeholder="Город*"
               defaultValue={user['currentCit.cityName']}
               autoComplete="off"
             />
@@ -94,10 +94,11 @@ function EditProfile(props) {
               disabled
               type="text"
               name="currentCityName"
-              placeholder="Город"
+              placeholder="Город*"
               defaultValue={user['currentCit.cityName']}
               autoComplete="off"
             />}
+            <p className='post-scriptum-about'>*Ваше текущее место проживания. </p>
             <div className='label'>Контакты</div>
             <div className='input-with-icon-box'>
               <input
