@@ -107,7 +107,7 @@ function AddMoreInfo() {
           {!inputedData.campusName && <option disabled selected>Кампус</option>}
           {campuses.map(el => (<option selected={inputedData?.campusName === el}>{el}</option>))}
         </select>
-        <p className='post-scriptum-about'>Когда и в каком городе закончили обучение.</p>
+        <p className='post-scriptum-about'>Город и дата окончания вашего обучения.</p>
         <div className='button-block'>
         <button type="button" className="login-form-button" onClick={() => navigate('/info')}>Назад</button>
         <button type="submit" className="login-form-button">Сохранить</button>
