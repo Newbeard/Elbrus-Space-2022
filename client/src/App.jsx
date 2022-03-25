@@ -1,5 +1,5 @@
 import './App.css';
-import { Routes, Route, } from 'react-router-dom';
+import { Routes, Route, useNavigate} from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Registration from './components/Registration/Registration';
@@ -28,11 +28,19 @@ function App() {
   const screenWidth = window.innerWidth
   const dispatch = useDispatch();
   const { values } = useSelector(state => state.user)
+  const navigate = useNavigate();
 
   useEffect(() => {
     screenWidth < 768 ? setIsMobile(true) : setIsMobile(false)
     dispatch(isSession());
     dispatch(initStudentsFromServer());
+  }, []);
+
+  useEffect(() => {
+    dispatch(isSession());
+    if (values.id){
+      navigate('/')
+    }
   }, []);
 
   return (
