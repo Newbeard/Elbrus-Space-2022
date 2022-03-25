@@ -1,20 +1,25 @@
 .container-diagram {
   display: flex;
   flex-direction: column;
+  min-width: 90%;
   max-width: 90%;
   gap: 15px;
 }
 
-.upper-container {
+.upper-container-diagram {
   display: flex;
   justify-content: center;
 }
 
 .header-diagram {
   margin-top: 25px;
-  margin-left: 30px;
+  margin-left: 35px;
 }
 
 .description-diagram {
   margin-left: 30px;
+  font-weight: 400;
+  line-height: 150%;
+  color: #000000;
+  margin-bottom: 15px;
 }

@@ -21,7 +21,7 @@ const Maps = (props) => {
     <>
       <YMaps >
         <div className='ya-map' >
-          <div>
+          <div style={{minHeight: '400px', background: 'rgb(235 235 235)'}}>
             <Map id="map" width={'max-width'} height={400} defaultState={{ center: [55.75, 37.57], zoom: 4 }}>
 
               <Clusterer

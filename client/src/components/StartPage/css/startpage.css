@@ -1,0 +1,37 @@
+.bg-animation {
+  animation: bg 60s linear infinite;
+  padding: 160px 20px;
+  text-align: center;
+  background-image: url('./images/bg.jpg');
+  background-repeat: repeat-x;
+  border: 8px solid #BFE2FF;
+  margin: 20px 0;
+  color: #337AB7;
+  font-size: 34px;
+  font-family: 'Roboto', sans-serif;
+}
+.main-block{
+ 
+  
+  background-image: url(images/bg.jpg);
+  background-size: 2700px 1500px;
+  overflow: hidden;
+
+  height: 100%;
+  width: 100%;
+ 
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.8);
+  background-position: 100%;
+
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  animation: dd3 10s 2;
+  animation-delay: 13s;
+}@keyframes dd3 {
+  0% {
+  }
+  50% {
+    background-position: Calc(-35vw - 40px) 50%;
+  }
+}

@@ -6,7 +6,7 @@ import './Diagram.css'
 
 function Diagram(props) {
   return (
-    <div className="upper-container">
+    <div className="upper-container-diagram">
       <div className="container-diagram">
         <h1 className='header-diagram'>Статистика</h1>
         <Chart />
