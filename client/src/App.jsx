@@ -18,11 +18,6 @@ import Diagram from './components/Diagram/Diagram';
 import Header from './components/Header/Header';
 import { initStudentsFromServer } from './redux/actions/students.action';
 
-
-
-
-
-
 function App() {
   const [isMobile, setIsMobile] = useState(true)
   const screenWidth = window.innerWidth
