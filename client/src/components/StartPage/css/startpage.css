@@ -24,10 +24,10 @@
   background-position: 100%;
 
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(0);
   z-index: 3;
   animation: dd3 10s 2;
-  animation-delay: 13s;
+  animation-delay: 3s;
 }@keyframes dd3 {
   0% {
   }
