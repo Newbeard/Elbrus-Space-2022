@@ -1,6 +1,3 @@
-const {
-  users
-} = require('../../helpers/seedHelp');
 
 module.exports = {
   async up(queryInterface, Sequelize) {
