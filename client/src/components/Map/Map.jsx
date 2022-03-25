@@ -8,9 +8,15 @@ import { initStudentsFromServer } from '../../redux/actions/students.action';
 
 
 const Maps = (props) => {
+  const dispatch = useDispatch()
   const { students } = useSelector(state => state)
 
+  useEffect(() => {
+    dispatch(initStudentsFromServer())
+ 
+  }, [])
   const citiesArr = students?.map((city) => city.coordinates?.split(','))
+  const newCitiesArr = citiesArr.filter((coord) => coord !== undefined)
   return (
     <>
       <YMaps >
@@ -24,7 +30,7 @@ const Maps = (props) => {
                   groupByCoordinates: false,
                 }}
               >
-                {citiesArr?.map(el => {
+                {newCitiesArr?.map(el => {
                   return <Placemark key={uuid()} defaultGeometry={el} option={{ preset: '#islands#circleDotIcon' }} />
                 })}
               </Clusterer>
