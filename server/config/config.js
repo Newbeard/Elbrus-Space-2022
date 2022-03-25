@@ -10,7 +10,7 @@ const cookiesCleaner = require('../middleware/cookiesCleaner');
 const config = (app) => {
   // USE
   app.use(cors({
-    origin: ['http://localhost:3000', 'https://elbrus-space-2022.herokuapp.com/'],
+    origin: ['http://localhost:3000', 'https://elbrus-space-2022.herokuapp.com'],
     credentials: true,
   }));
   app.use(express.static(path.resolve('../client/build')));
