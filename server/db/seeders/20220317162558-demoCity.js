@@ -1,37 +1,86 @@
-const fs = require('fs').promises;
-const path = require('path');
-const axios = require('axios');
-
-async function getCoordinates(city) {
-  const getCoordinate = await axios.get(`https://geocode-maps.yandex.ru/1.x/?format=json&apikey=00fafa0b-f7c2-4437-b835-88efced698f3&geocode=${encodeURIComponent(city)}&results=10`);
-  const invalidCoordinates = getCoordinate.data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos.split(' ').reverse().join(' ');
-  return invalidCoordinates.split(' ').join(', ');
-}
-async function seedCity() {
-  const data = await fs.readFile(path.join(process.env.PWD, 'helpers', 'students', 'students.csv'), 'utf8');
-  // const arrNew = array.slice(0, -1);
-  const arr = data.trim().split('\n');
-  const newArray = arr.map((string) => string.split(','));
-  const cities = [];
-  for (let i = 0; i < newArray.length; i += 1) {
-    const coor = await getCoordinates(newArray[i][3]);
-    cities.push({
-      cityName: newArray[i][3],
-      countrysId: 1,
-      coordinates: coor,
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    });
-  }
-
-  return cities;
-}
-
 module.exports = {
   async up(queryInterface, Sequelize) {
     const cities = await seedCity();
 
-    await queryInterface.bulkInsert('Cities', cities, {});
+    await queryInterface.bulkInsert('Cities', [
+      {
+        cityName: 'Санкт-Петербург',
+        countrysId: 1,
+        coordinates: '59.938955, 30.315644',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        cityName: 'Калининград',
+        countrysId: 1,
+        coordinates: '54.710162, 20.510137',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        cityName: 'Барнаул',
+        countrysId: 1,
+        coordinates: '53.346785, 83.776856',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        cityName: 'Сургут',
+        countrysId: 1,
+        coordinates: '61.241778, 73.393032',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        cityName: 'Киров',
+        countrysId: 1,
+        coordinates: '58.603595, 49.668023',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        cityName: 'Ижевск',
+        countrysId: 1,
+        coordinates: '56.852676, 53.2069',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        cityName: 'Сургут',
+        countrysId: 1,
+        coordinates: '61.241778, 73.393032',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        cityName: 'Грозный',
+        countrysId: 1,
+        coordinates: '43.318366, 45.692421',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        cityName: 'Екатеринбург',
+        countrysId: 1,
+        coordinates: '61.241778, 73.393032',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        cityName: 'Ейск',
+        countrysId: 1,
+        coordinates: '46.711944, 38.27266',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        cityName: 'Нижний Новгород',
+        countrysId: 1,
+        coordinates: '56.326797, 44.006516',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+    ], {});
   },
 
   async down(queryInterface, Sequelize) {
